@@ -1,38 +1,122 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+    font-family: var(--font);
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+body *{
+    box-sizing: border-box;
+}
 .App {
-  text-align: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    padding: 40px;
+}
+#three-container {
+    border: var(--comic-border);
+    width: 100%;
+    height: 100%;
+    margin: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#menu {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  z-index: 10;
+  padding: 50px;
+  justify-content: end;
+  gap: 20px;
+  flex-wrap: nowrap;
 }
 
-.App-link {
-  color: #61dafb;
+#menu button {
+  border: 3px solid var(--white_color);
+  color: var(--white_color);
+  font-size: var(--bottoms-icon-size);
+  aspect-ratio: 1/1;
+  width: 60px;
+  background-color: red;
+  border-radius: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#titles {
+  position: absolute;
+  top: 35px;
+  left: 27px;
+  background-color: var(--white_color);
+  border: var(--comic-border);
+  padding: 20px 30px;
+}
+#name {
+  font-weight: var(--font-bold);
+  font-size: var(--titles-size);
+}
+#role {
+  font-weight: var(--font-light);
+  font-size: var(--subtitle-size);
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+    background-color: var(--white_color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    z-index: 10;
+}
+
+@media screen and (max-width: 768px) {
+  #titles {
+    top: 20px;
+    left: 0px;
   }
-  to {
-    transform: rotate(360deg);
+  #name {
+    font-size: 34px;
   }
+  #role {
+    font-size: 24px;
+  }
+  .App {
+    padding: 20px;
+  }
+  #menu {
+    padding: 40px;
+  }
+  /* #three-container {
+    width: 92vw;
+    height: 95vh;
+  } */
+}
+
+@media screen and (max-width: 480px) {
+  #titles {
+    top: initial;
+    bottom: 5px;
+    left: 0px;
+    margin-right: 20px;
+  }
+  #menu {
+    padding: 10px;
+  } 
+  .App {
+    padding: 0;
+  }
+  #three-container {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+  }
+
 }

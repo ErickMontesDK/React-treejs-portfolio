@@ -1,23 +1,21 @@
 import logo from './logo.svg';
+import './styles/variables.css';
 import './styles/global.css';
+import Three from './three.jsx';
+import Footer from './components/footer.jsx';
+import Menu from './components/menu.jsx';
+import { useState } from 'react';
+import Titles from './components/titles.jsx';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Three />
+        <Menu />
+        <Titles />
+        {/* <Footer /> */}
     </div>
   );
 }
