@@ -1,5 +1,5 @@
 import { useLoader, useThree } from '@react-three/fiber';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import chargingModelMaterials from '../../utils/chargingModel.js';
 import { useModelAnimations } from '../../hooks/useModelAnimations';
@@ -23,10 +23,21 @@ export default function Model({
   initialStateLight = false,
   initialStateDark = false,
   animationStyle = null,
+  camera = null,
+  transitions = null,
 }) {
   const { scene } = useThree();
   const gltf = useLoader(GLTFLoader, src);
   const modelRef = useRef(null);
+  const [isHover, setIsHover] = useState(false);
+
+  const handlePointerOver = () => {
+    setIsHover(true);
+  };
+
+  const handlePointerOut = () => {
+    setIsHover(false);
+  };
 
   // HOOK: Custom Logic
   // All the complex animation state machine is hidden inside this hook.
@@ -36,7 +47,9 @@ export default function Model({
     onDarkMode,
     switchLight,
     initialStateLight,
-    initialStateDark
+    initialStateDark,
+    camera,
+    transitions
   });
 
   // EFFECT: Material & Scene Setup
@@ -64,14 +77,16 @@ export default function Model({
         if (isClickable) {
           e.stopPropagation();
           document.body.style.cursor = 'pointer';
+          handlePointerOver();
         }
       }}
       onPointerOut={(e) => {
         if (isClickable) {
           e.stopPropagation();
           document.body.style.cursor = 'default';
+          handlePointerOut();
         }
       }}
     />
   );
-};
+}

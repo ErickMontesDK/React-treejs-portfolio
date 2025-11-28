@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SceneBase from './Scene';
 import Model from './Model';
 import models from '../../data/models';
 import Lights from './Lights';
+import camaras from '../../data/camaras';
 
 
-
-export default function MainScene() {
+export default function MainScene(props) {
   const [switchesState, setSwitchesState] = useState({});
+  const { camera, setCamera } = props;
+
 
   const handleSwitchChange = (names, value) => {
     setSwitchesState((prevState) => {
@@ -19,10 +21,14 @@ export default function MainScene() {
     });
   };
 
+  const handleTransition = (cameraName) => {
+    console.log(cameraName, "hadouken");
+    setCamera(camaras[cameraName]);
+  };
 
   return (
     <div id="three-container" >
-      <SceneBase>
+      <SceneBase cameraConfig={camera}>
         {/* Suelo */}
         <mesh position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <circleGeometry args={[5, 30]} />
@@ -41,6 +47,8 @@ export default function MainScene() {
             switchLight={model.lightTags ? ((value) => handleSwitchChange(model.lightTags, value)) : null}
             initialStateDark={model.initialStateDark ?? false}
             initialStateLight={model.initialStateLight ?? false}
+            camera={model.transitions ? model.transitions.camera : null}
+            transitions={model.transitions ? handleTransition : null}
           />
         ))}
         <Lights

@@ -39,7 +39,7 @@ import toy_storm from '../assets/models/toy_storm.glb';
 import window from '../assets/models/window.glb';
 import printer3d_main from '../assets/models/printer3d_main.glb';
 
-const models= [
+const models = [
     {
         "name": "room",
         "model": room,
@@ -47,6 +47,10 @@ const models= [
     {
         "name": "coke",
         "model": coke,
+        "transitions": {
+            "name": "about",
+            "camera": "about",
+        }
     },
     {
         "name": "amp",
@@ -70,7 +74,7 @@ const models= [
     },
     {
         "name": "bike_helmet",
-        "model": bike_helmet,    
+        "model": bike_helmet,
     },
     {
         "name": "books",
@@ -83,7 +87,7 @@ const models= [
     {
         "name": "chair",
         "model": chair,
-        "animation":"onClick"
+        "animation": "onClick"
     },
     {
         "name": "desk",
@@ -108,11 +112,16 @@ const models= [
     {
         "name": "laptop",
         "model": laptop,
+        "transitions": {
+            "name": "projects",
+            "camera": "projects",
+        }
+
     },
     {
         "name": "lava",
         "model": lava,
-        "animation":"onToggle",
+        "animation": "onToggle",
         "lightTags": ["lava"],
         "initialStateLight": false,
         "initialStateDark": true
@@ -156,7 +165,7 @@ const models= [
     {
         "name": "printer",
         "model": printer,
-        "animation":"onClick"
+        "animation": "onClick"
     },
     {
         "name": "puff",
@@ -169,7 +178,7 @@ const models= [
     {
         "name": "roof_lamp",
         "model": roof_lamp,
-        "animation":"onToggle",
+        "animation": "onToggle",
         "lightTags": ["roof"],
         "initialStateDark": true,
         "initialStateLight": false
@@ -177,7 +186,7 @@ const models= [
     {
         "name": "rubik",
         "model": rubik,
-        "description":"Skills"
+        "description": "Skills"
     },
     {
         "name": "screen",
@@ -186,7 +195,7 @@ const models= [
     {
         "name": "sirius",
         "model": sirius,
-        "description":"Sr. SE Sirius Montes P."
+        "description": "Sr. SE Sirius Montes P."
     },
     {
         "name": "stormtrooper",
@@ -209,9 +218,9 @@ const models= [
         "model": window,
     },
     {
-        "name":"3dprint_main",
+        "name": "3dprint_main",
         "model": printer3d_main,
-        "animation":"onLoop"
+        "animation": "onLoop"
     }
 ]
 
