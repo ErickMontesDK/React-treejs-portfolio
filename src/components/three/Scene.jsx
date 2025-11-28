@@ -26,51 +26,55 @@ function CameraController({
   const panLimit = 3;
   const isTransitioning = useRef(false);
 
-  // Store previous target values to detect real changes
-  const prevTargets = useRef({
-    position: [...targetPosition],
-    lookAt: [...targetLookAt],
+  // Store target values for the transition
+  const transitionTargets = useRef({
+    position: new THREE.Vector3(...targetPosition),
+    lookAt: new THREE.Vector3(...targetLookAt),
     zoom: targetZoom
   });
+
+  // Detect when props change and start transition
+  useEffect(() => {
+    // Check if any target prop actually changed
+    const posChanged = !targetPosition.every((v, i) => v === transitionTargets.current.position.toArray()[i]);
+    const lookAtChanged = !targetLookAt.every((v, i) => v === transitionTargets.current.lookAt.toArray()[i]);
+    const zoomChanged = targetZoom !== transitionTargets.current.zoom;
+
+    if (posChanged || lookAtChanged || zoomChanged) {
+      // Update transition targets
+      transitionTargets.current = {
+        position: new THREE.Vector3(...targetPosition),
+        lookAt: new THREE.Vector3(...targetLookAt),
+        zoom: targetZoom
+      };
+      // Start transition
+      isTransitioning.current = true;
+    }
+    // Use JSON.stringify to prevent constant re-execution
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [JSON.stringify(targetPosition), JSON.stringify(targetLookAt), targetZoom]);
 
   // 🔹 Limit movement (pan) & Smooth Transitions
   useFrame(() => {
     if (controls.current) {
-      // Check if target values have actually changed (not just prop references)
-      const posChanged = !targetPosition.every((v, i) => v === prevTargets.current.position[i]);
-      const lookAtChanged = !targetLookAt.every((v, i) => v === prevTargets.current.lookAt[i]);
-      const zoomChanged = targetZoom !== prevTargets.current.zoom;
-
-      if (posChanged || lookAtChanged || zoomChanged) {
-        isTransitioning.current = true;
-        prevTargets.current = {
-          position: [...targetPosition],
-          lookAt: [...targetLookAt],
-          zoom: targetZoom
-        };
-      }
-
       // Only animate if we are in a transition state
       if (isTransitioning.current) {
-        const targetPosVec = new THREE.Vector3(...targetPosition);
-        const targetLookAtVec = new THREE.Vector3(...targetLookAt);
-
         // 1. Smooth Camera Position Transition
-        camera.position.lerp(targetPosVec, 0.05);
+        camera.position.lerp(transitionTargets.current.position, 0.05);
 
         // 2. Smooth Target (LookAt) Transition
-        controls.current.target.lerp(targetLookAtVec, 0.05);
+        controls.current.target.lerp(transitionTargets.current.lookAt, 0.05);
 
         // 3. Smooth Zoom Transition
-        if (Math.abs(camera.zoom - targetZoom) > 0.01) {
-          camera.zoom = THREE.MathUtils.lerp(camera.zoom, targetZoom, 0.05);
+        if (Math.abs(camera.zoom - transitionTargets.current.zoom) > 0.01) {
+          camera.zoom = THREE.MathUtils.lerp(camera.zoom, transitionTargets.current.zoom, 0.05);
           camera.updateProjectionMatrix();
         }
 
         // Check if we reached the target (approximately) to stop transitioning
-        const distPos = camera.position.distanceTo(targetPosVec);
-        const distTarget = controls.current.target.distanceTo(targetLookAtVec);
-        const distZoom = Math.abs(camera.zoom - targetZoom);
+        const distPos = camera.position.distanceTo(transitionTargets.current.position);
+        const distTarget = controls.current.target.distanceTo(transitionTargets.current.lookAt);
+        const distZoom = Math.abs(camera.zoom - transitionTargets.current.zoom);
 
         if (distPos < 0.01 && distTarget < 0.01 && distZoom < 0.01) {
           isTransitioning.current = false;

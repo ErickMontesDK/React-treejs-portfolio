@@ -1,4 +1,4 @@
-import {baseToonMaterial, currentGradientMap} from './createGradientMap';
+import { baseToonMaterial, currentGradientMap } from './createGradientMap';
 import generateCreaseLines from './creases';
 import * as THREE from 'three';
 
@@ -10,17 +10,17 @@ const chargingModelMaterials = (model, position, scale, rotation) => {
     model.position.set(x, y, z);
     model.rotation.set(rx, ry, rz);
     model.scale.set(sx, sy, sz);
-    
-    model.traverse((child)=>{
-        if(!child.isMesh || child.morphTargetInfluences || child.isSkinnedMesh) return;
-        
-        if(!child.geometry.attributes.normal){
+
+    model.traverse((child) => {
+        if (!child.isMesh || child.morphTargetInfluences || child.isSkinnedMesh) return;
+
+        if (!child.geometry.attributes.normal) {
             child.geometry.computeVertexNormals();
         }
         const meshName = child.name.toLowerCase();
         const baseColor = child.material?.color?.getHex?.() || 0xffffff;
         let creaseLines = null;
-        
+
         switch (true) {
             case meshName.startsWith('glass_'):
                 child.material = new THREE.MeshPhysicalMaterial({
@@ -39,9 +39,9 @@ const chargingModelMaterials = (model, position, scale, rotation) => {
                 child.renderOrder = 1;
 
                 creaseLines = generateCreaseLines(child);
-                if(creaseLines) child.add(creaseLines);
+                if (creaseLines) child.add(creaseLines);
                 return;
-                
+
             case meshName.startsWith('lines_'):
                 child.material = new THREE.MeshBasicMaterial({
                     color: child.material.color || 0xffffff,
@@ -62,7 +62,7 @@ const chargingModelMaterials = (model, position, scale, rotation) => {
                 child.receiveShadow = true;
 
                 creaseLines = generateCreaseLines(child);
-                if(creaseLines) child.add(creaseLines);
+                if (creaseLines) child.add(creaseLines);
                 break;
         }
     })
