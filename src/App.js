@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <MainScene />
-      <Menu />
+      <Menu darkMode={darkMode} setDarkMode={setDarkMode} />
       <Titles />
     </div>
   );

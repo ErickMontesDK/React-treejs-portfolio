@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SceneBase from './Scene';
-import { useGLTF } from '@react-three/drei';
 import Model from './Model';
 import models from '../../data/models';
-import createGradientMap from '../../utils/createGradientMap';
 import Lights from './Lights';
 
 
