@@ -26,6 +26,7 @@ export default function Model({
   animationStyle = null,
   camera = null,
   transitions = null,
+  isHelperOn = false,
 }) {
   const { scene } = useThree();
   const gltf = useLoader(GLTFLoader, src);
@@ -87,7 +88,7 @@ export default function Model({
   useEffect(() => {
     if (!modelRef.current || !isClickable) return;
 
-    if (isHover) {
+    if (isHover || isHelperOn) {
       // Clone the model
       const clone = modelRef.current.clone();
 
@@ -127,7 +128,7 @@ export default function Model({
         hoverCloneRef.current = null;
       }
     };
-  }, [isHover, isClickable, scene]);
+  }, [isHover, isClickable, scene, isHelperOn]);
 
   return (
     <>

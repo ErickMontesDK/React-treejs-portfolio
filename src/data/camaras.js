@@ -1,6 +1,6 @@
 const camaras = {
     main: {
-        position: [3, 3, 3],
+        position: [3, 4, 3],
         target: [0, 1, 0],
         zoom: 1.7,
         // Límites de rotación (Azimuth = horizontal, Polar = vertical)

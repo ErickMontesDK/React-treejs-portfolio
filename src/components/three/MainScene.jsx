@@ -8,7 +8,7 @@ import camaras from '../../data/camaras';
 
 export default function MainScene(props) {
   const [switchesState, setSwitchesState] = useState({});
-  const { camera, setCamera } = props;
+  const { camera, setCamera, isHelperOn } = props;
 
 
   const handleSwitchChange = (names, value) => {
@@ -49,6 +49,7 @@ export default function MainScene(props) {
             initialStateLight={model.initialStateLight ?? false}
             camera={model.transitions ? model.transitions.camera : null}
             transitions={model.transitions ? handleTransition : null}
+            isHelperOn={isHelperOn}
           />
         ))}
         <Lights

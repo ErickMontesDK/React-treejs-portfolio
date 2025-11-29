@@ -9,15 +9,20 @@ import camaras from './data/camaras';
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [camera, setCamera] = useState(camaras.main);
+  const [isHelperOn, setIsHelperOn] = useState(false);
 
   return (
     <div className="App">
-      <MainScene camera={camera} setCamera={setCamera} />
+      <MainScene
+        camera={camera}
+        setCamera={setCamera}
+        isHelperOn={isHelperOn} />
       <Menu
         darkMode={darkMode}
         setDarkMode={setDarkMode}
         camera={camera}
         setCamera={setCamera}
+        setIsHelperOn={setIsHelperOn}
       />
       <Titles />
     </div>
