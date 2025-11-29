@@ -93,11 +93,18 @@ function CameraController({
 
   // 🔹 Initial position reset (only on mount)
   useEffect(() => {
-    if (controls.current) {
-      controls.current.target.set(...targetLookAt);
-      controls.current.object.position.set(...targetPosition);
-      controls.current.update();
-    }
+    // Small delay to ensure controls are fully initialized
+    const timer = setTimeout(() => {
+      if (controls.current) {
+        controls.current.target.set(...targetLookAt);
+        controls.current.object.position.set(...targetPosition);
+        camera.zoom = targetZoom;
+        camera.updateProjectionMatrix();
+        controls.current.update();
+      }
+    }, 0);
+
+    return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -165,7 +172,7 @@ export default function Scene({ children, cameraConfig }) {
 
   // Default config if none provided (fallback)
   const defaultConfig = {
-    position: [3, 3, 3],
+    position: [3, 4, 3],
     target: [0, 1, 0],
     zoom: 1.7,
     minAzimuthAngle: 0,
