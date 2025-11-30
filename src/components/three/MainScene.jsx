@@ -4,11 +4,28 @@ import Model from './Model';
 import models from '../../data/models';
 import Lights from './Lights';
 import camaras from '../../data/camaras';
+import Tooltip from '../ui/Tooltip';
 
 
 export default function MainScene(props) {
   const [switchesState, setSwitchesState] = useState({});
   const { camera, setCamera, isHelperOn } = props;
+  const [disableFeatures, setDisableFeatures] = useState(false);
+
+  useEffect(() => {
+    if (camera !== camaras.main) {
+      setDisableFeatures(true);
+    } else {
+      setDisableFeatures(false);
+    }
+  }, [camera]);
+
+  // Tooltip state
+  const [tooltip, setTooltip] = useState({
+    visible: false,
+    text: '',
+    position: { x: 0, y: 0 }
+  });
 
 
   const handleSwitchChange = (names, value) => {
@@ -26,8 +43,33 @@ export default function MainScene(props) {
     setCamera(camaras[cameraName]);
   };
 
+  // Handle mouse move to update tooltip position
+  const handleMouseMove = (e) => {
+    setTooltip(prev => ({
+      ...prev,
+      position: { x: e.clientX, y: e.clientY }
+    }));
+  };
+
+  // Show tooltip
+  const showTooltip = (text) => {
+    setTooltip(prev => ({
+      ...prev,
+      visible: true,
+      text: text
+    }));
+  };
+
+  // Hide tooltip
+  const hideTooltip = () => {
+    setTooltip(prev => ({
+      ...prev,
+      visible: false
+    }));
+  };
+
   return (
-    <div id="three-container" >
+    <div id="three-container" onMouseMove={handleMouseMove}>
       <SceneBase cameraConfig={camera}>
         {/* Suelo */}
         <mesh position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]}>
@@ -50,12 +92,25 @@ export default function MainScene(props) {
             camera={model.transitions ? model.transitions.camera : null}
             transitions={model.transitions ? handleTransition : null}
             isHelperOn={isHelperOn}
+            tooltipText={model.description ?? null}
+            onShowTooltip={showTooltip}
+            onHideTooltip={hideTooltip}
+            disableFeatures={disableFeatures}
           />
         ))}
         <Lights
           switchStates={switchesState}
         />
       </SceneBase>
+
+      {/* Tooltip overlay */}
+      {!disableFeatures && (
+        <Tooltip
+          visible={tooltip.visible}
+          text={tooltip.text}
+          position={tooltip.position}
+        />
+      )}
     </div>
   );
 }

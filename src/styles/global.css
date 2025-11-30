@@ -157,7 +157,6 @@ footer {
   #titles {
     top: 10px;
     left: 10px;
-    padding: 10px 15px;
   }
 
   #name {
@@ -177,5 +176,17 @@ footer {
     width: 40px;
     height: 40px;
     font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App {
+    padding: 0px;
+  }
+
+  #titles {
+    bottom: 10px;
+    left: 10px;
+    top: auto;
   }
 }

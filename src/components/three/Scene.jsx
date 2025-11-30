@@ -88,6 +88,13 @@ function CameraController({
       target.x = THREE.MathUtils.clamp(target.x, -panLimit, panLimit);
       target.y = THREE.MathUtils.clamp(target.y, -panLimit, panLimit);
       target.z = THREE.MathUtils.clamp(target.z, -panLimit, panLimit);
+
+      // 🔍 DEBUG: Log angles when user is manually moving camera (throttled)
+      if (!isTransitioning.current && Math.random() < 0.02) { // Only log 2% of frames to avoid spam
+        const azimuth = controls.current.getAzimuthalAngle();
+        const polar = controls.current.getPolarAngle();
+        console.log('📐 Azimuth:', azimuth.toFixed(3), 'rad =', (azimuth * 180 / Math.PI).toFixed(1), '° | Polar:', polar.toFixed(3), 'rad =', (polar * 180 / Math.PI).toFixed(1), '°');
+      }
     }
   });
 
@@ -101,6 +108,11 @@ function CameraController({
         camera.zoom = targetZoom;
         camera.updateProjectionMatrix();
         controls.current.update();
+
+        // 🔍 DEBUG: Log current angles to help set limits
+        console.log('📐 Initial Camera Angles:');
+        console.log('  Azimuth (horizontal):', controls.current.getAzimuthalAngle(), 'rad =', (controls.current.getAzimuthalAngle() * 180 / Math.PI).toFixed(1), '°');
+        console.log('  Polar (vertical):', controls.current.getPolarAngle(), 'rad =', (controls.current.getPolarAngle() * 180 / Math.PI).toFixed(1), '°');
       }
     }, 0);
 
@@ -205,7 +217,7 @@ export default function Scene({ children, cameraConfig }) {
         right={frustumSize}
         top={frustumSize / 2}
         bottom={-frustumSize / 2}
-        near={0.1}
+        near={0.01}
         far={20}
         position={initialConfigRef.current.position} // Use initial position only
         zoom={initialConfigRef.current.zoom}         // Use initial zoom only
@@ -228,6 +240,8 @@ export default function Scene({ children, cameraConfig }) {
         minZoom={config.minZoom}
         maxZoom={config.maxZoom}
       />
+
+
 
       {children}
     </Canvas>

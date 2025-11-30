@@ -27,6 +27,10 @@ export default function Model({
   camera = null,
   transitions = null,
   isHelperOn = false,
+  tooltipText = null,
+  onShowTooltip = null,
+  onHideTooltip = null,
+  disableFeatures = false
 }) {
   const { scene } = useThree();
   const gltf = useLoader(GLTFLoader, src);
@@ -36,10 +40,18 @@ export default function Model({
 
   const handlePointerOver = () => {
     setIsHover(true);
+    // Show tooltip if text is provided
+    if (tooltipText && onShowTooltip) {
+      onShowTooltip(tooltipText);
+    }
   };
 
   const handlePointerOut = () => {
     setIsHover(false);
+    // Hide tooltip
+    if (onHideTooltip) {
+      onHideTooltip();
+    }
   };
 
   // HOOK: Custom Logic
@@ -52,7 +64,8 @@ export default function Model({
     initialStateLight,
     initialStateDark,
     camera,
-    transitions
+    transitions,
+    tooltipText
   });
 
   // Wrapper to remove hover clone when clicking
@@ -86,9 +99,9 @@ export default function Model({
 
   // EFFECT: Handle hover - create scaled white clone
   useEffect(() => {
-    if (!modelRef.current || !isClickable) return;
+    if (!modelRef.current || !isClickable || (!transitions && tooltipText && !animationStyle)) return;
 
-    if (isHover || isHelperOn) {
+    if ((isHover || isHelperOn) && !disableFeatures) {
       // Clone the model
       const clone = modelRef.current.clone();
 
@@ -128,7 +141,7 @@ export default function Model({
         hoverCloneRef.current = null;
       }
     };
-  }, [isHover, isClickable, scene, isHelperOn]);
+  }, [isHover, isClickable, scene, isHelperOn, disableFeatures, transitions, tooltipText, animationStyle]);
 
   return (
     <>
@@ -161,12 +174,16 @@ export default function Model({
           onClick={handleClickWithCleanup}
           onPointerOver={(e) => {
             e.stopPropagation();
-            document.body.style.cursor = 'pointer';
+            if (!disableFeatures) {
+              document.body.style.cursor = 'pointer';
+            }
             handlePointerOver();
           }}
           onPointerOut={(e) => {
             e.stopPropagation();
-            document.body.style.cursor = 'default';
+            if (!disableFeatures) {
+              document.body.style.cursor = 'default';
+            }
             handlePointerOut();
           }}
         >

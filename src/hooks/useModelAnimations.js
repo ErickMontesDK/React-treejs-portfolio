@@ -18,7 +18,8 @@ export function useModelAnimations({
     initialStateLight,
     initialStateDark,
     camera,
-    transitions
+    transitions,
+    tooltipText
 }) {
     // State for animation playback
     const [isPlaying, setIsPlaying] = useState(false);
@@ -47,7 +48,7 @@ export function useModelAnimations({
     const hasOnToggle = animationStyle === "onToggle";
     const hasOnHover = animationStyle === "onHover";
 
-    const isClickable = switchLight || ["onClick", "onHover", "onToggle"].includes(animationStyle) || transitions;
+    const isClickable = switchLight || tooltipText || ["onClick", "onHover", "onToggle"].includes(animationStyle) || transitions;
 
     // 1. SETUP: Initialize Mixer and Actions
     useEffect(() => {

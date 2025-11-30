@@ -47,6 +47,7 @@ const models = [
     {
         "name": "coke",
         "model": coke,
+        "description": "About me",
         "transitions": {
             "name": "about",
             "camera": "about",
@@ -112,6 +113,7 @@ const models = [
     {
         "name": "laptop",
         "model": laptop,
+        "description": "Projects",
         "transitions": {
             "name": "projects",
             "camera": "projects",
@@ -141,6 +143,11 @@ const models = [
     {
         "name": "notebook",
         "model": notebook,
+        "description": "Contact",
+        "transitions": {
+            "name": "contact",
+            "camera": "contact",
+        }
     },
     {
         "name": "pencil",
@@ -149,6 +156,11 @@ const models = [
     {
         "name": "phone",
         "model": phone,
+        "description": "Experience",
+        "transitions": {
+            "name": "experience",
+            "camera": "experience",
+        }
     },
     {
         "name": "pinkfloyd",
@@ -165,6 +177,7 @@ const models = [
     {
         "name": "printer",
         "model": printer,
+        "description": "Download resume",
         "animation": "onClick"
     },
     {
@@ -186,7 +199,11 @@ const models = [
     {
         "name": "rubik",
         "model": rubik,
-        "description": "Skills"
+        "description": "Skills",
+        "transitions": {
+            "name": "skills",
+            "camera": "skills",
+        }
     },
     {
         "name": "screen",
@@ -195,23 +212,39 @@ const models = [
     {
         "name": "sirius",
         "model": sirius,
-        "description": "Sr. SE Sirius Montes P."
+        "description": "Sr. Developer Sirius Montes P.P.",
     },
     {
         "name": "stormtrooper",
         "model": stormtrooper,
+
     },
     {
         "name": "toy_fett",
         "model": toy_fett,
+        "description": "Contact",
+        "transitions": {
+            "name": "contact",
+            "camera": "contact",
+        }
     },
     {
         "name": "toy_vader",
         "model": toy_vader,
+        "description": "Contact",
+        "transitions": {
+            "name": "contact",
+            "camera": "contact",
+        }
     },
     {
         "name": "toy_storm",
         "model": toy_storm,
+        "description": "Contact",
+        "transitions": {
+            "name": "contact",
+            "camera": "contact",
+        }
     },
     {
         "name": "window",
