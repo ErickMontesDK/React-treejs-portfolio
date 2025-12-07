@@ -3,13 +3,8 @@ import generateCreaseLines from './creases';
 import * as THREE from 'three';
 
 const chargingModelMaterials = (model, position, scale, rotation) => {
-    const [x, y, z] = position || [0, 0, 0];
-    const [rx, ry, rz] = rotation || [0, 0, 0];
-    const [sx, sy, sz] = scale || [1, 1, 1];
-
-    model.position.set(x, y, z);
-    model.rotation.set(rx, ry, rz);
-    model.scale.set(sx, sy, sz);
+    // Note: position, rotation, scale are now handled by the <group> in Model component
+    // This function now only handles materials and visual properties
 
     model.traverse((child) => {
         if (!child.isMesh || child.morphTargetInfluences || child.isSkinnedMesh) return;

@@ -30,7 +30,8 @@ export default function Model({
   tooltipText = null,
   onShowTooltip = null,
   onHideTooltip = null,
-  disableFeatures = false
+  disableFeatures = false,
+  children = null
 }) {
   const { scene } = useThree();
   const gltf = useLoader(GLTFLoader, src);
@@ -143,8 +144,13 @@ export default function Model({
     };
   }, [isHover, isClickable, scene, isHelperOn, disableFeatures, transitions, tooltipText, animationStyle]);
 
+
   return (
-    <>
+    <group
+      position={position || [0, 0, 0]}
+      rotation={rotation || [0, 0, 0]}
+      scale={scale || [1, 1, 1]}
+    >
       <primitive object={gltf.scene} />
 
       {/* Custom hitbox - only for clickable models */}
@@ -191,6 +197,9 @@ export default function Model({
           <meshBasicMaterial transparent opacity={0} visible={false} />
         </mesh>
       )}
-    </>
+
+      {/* Render children (e.g., HtmlModelScreen) */}
+      {children}
+    </group>
   );
 }

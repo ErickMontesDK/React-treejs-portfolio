@@ -1,0 +1,117 @@
+/* Estilos para el contenido HTML dentro de modelos 3D */
+
+.html-model-screen {
+    pointer-events: none !important;
+    /* Contenedor transparente a eventos */
+}
+
+.screen-content {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px;
+    padding: 20px;
+    min-width: 300px;
+    min-height: 200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: white;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    overflow: hidden;
+    pointer-events: auto !important;
+    /* Solo el contenido captura eventos */
+    touch-action: pan-y;
+    overscroll-behavior: contain;
+    isolation: isolate;
+    width: fit-content;
+    /* Solo ocupa el espacio necesario */
+    height: fit-content;
+}
+
+.default-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.default-screen h2 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.default-screen p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Estilos para pantallas de laptop */
+.laptop-screen .screen-content {
+    width: 1580px !important;
+    height: 900px !important;
+}
+
+.hdmi-screen .screen-content {
+    width: 1970px !important;
+    height: 1020px !important;
+}
+
+/* Estilos para pantallas de phone */
+.phone-screen .screen-content {
+    max-width: 300px;
+    max-height: 675px;
+    min-height: 675px;
+    min-width: 300px;
+    border-radius: 20px;
+    overflow-y: auto;
+}
+
+/* Estilos personalizados del scrollbar para phone */
+.phone-screen .screen-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.phone-screen .screen-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.phone-screen .screen-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.phone-screen .screen-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Para Firefox */
+.phone-screen .screen-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos para pantallas de tablet */
+.tablet-screen .screen-content {
+    min-width: 300px;
+    min-height: 400px;
+}
+
+/* Animaciones opcionales */
+.screen-content.animated {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
