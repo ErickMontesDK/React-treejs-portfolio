@@ -11,7 +11,7 @@ import Experience from './../htmlScreens/experience';
 
 export default function MainScene(props) {
   const [switchesState, setSwitchesState] = useState({});
-  const { camera, setCamera, isHelperOn } = props;
+  const { camera, setCamera, isHelperOn, children } = props;
   const [disableFeatures, setDisableFeatures] = useState(false);
 
   useEffect(() => {
@@ -131,6 +131,8 @@ export default function MainScene(props) {
           switchStates={switchesState}
         />
       </SceneBase>
+
+      {children}
 
       {/* Tooltip overlay */}
       {
