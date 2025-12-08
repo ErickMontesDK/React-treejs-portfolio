@@ -145,15 +145,17 @@ body * {
 
 .info-cards {
   position: absolute;
-  min-width: calc(100% - 20px);
-  min-height: calc(100% - 20px);
   top: 10px;
-  right: 10px;
   border: 3px solid white;
   z-index: 10;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+}
+
+.info-cards-left {
+  left: 20px;
+}
+
+.info-cards-right {
+  right: 20px;
 }
 
 /* Footer */

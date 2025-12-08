@@ -99,7 +99,7 @@ export default function MainScene(props) {
             onHideTooltip={hideTooltip}
             disableFeatures={disableFeatures}
           >
-            {model.name === "phone" &&
+            {model.name === "phone" && camera === camaras.experience &&
               <HtmlModelScreen
                 rotation={[-Math.PI / 2, 0, Math.PI / 1.225]}
                 position={[-1.571, .9, .425]}
@@ -107,7 +107,7 @@ export default function MainScene(props) {
                 <Experience />
               </HtmlModelScreen>
             }
-            {model.name === "laptop" &&
+            {model.name === "laptop" && camera === camaras.projects &&
               <HtmlModelScreen
                 rotation={[0, Math.PI / 2, 0]}
                 position={[-1.98, 1.165, -.15]}
@@ -115,7 +115,7 @@ export default function MainScene(props) {
                 <Experience />
               </HtmlModelScreen>
             }
-            {model.name === "screen" &&
+            {model.name === "screen" && camera === camaras.projects &&
               <group rotation={[0, Math.PI / 2, 0]}>
                 <HtmlModelScreen
                   rotation={[Math.PI / 30, 0, 0]}

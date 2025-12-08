@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Titles from './components/layout/Titles.jsx';
 import camaras from './data/camaras';
 import InfoCards from './components/ui/InfoCards';
+import Skills from './components/htmlScreens/skills';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -19,7 +20,12 @@ function App() {
         setCamera={setCamera}
         isHelperOn={isHelperOn}
       >
-        {(camera === camaras.skills || camera === camaras.about) && <InfoCards />}
+        {(camera === camaras.skills || camera === camaras.about) &&
+          <InfoCards
+            className={"right"}
+          >
+            <Skills />
+          </InfoCards>}
       </MainScene>
       <Menu
         darkMode={darkMode}
