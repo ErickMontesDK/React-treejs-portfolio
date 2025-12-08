@@ -103,7 +103,8 @@ export default function MainScene(props) {
               <HtmlModelScreen
                 rotation={[-Math.PI / 2, 0, Math.PI / 1.225]}
                 position={[-1.571, .9, .425]}
-                className="phone-screen">
+                className="phone-screen"
+                disableFeatures={disableFeatures}>
                 <Experience />
               </HtmlModelScreen>
             }
@@ -111,7 +112,8 @@ export default function MainScene(props) {
               <HtmlModelScreen
                 rotation={[0, Math.PI / 2, 0]}
                 position={[-1.98, 1.165, -.15]}
-                className="laptop-screen">
+                className="laptop-screen"
+                disableFeatures={disableFeatures}>
                 <Experience />
               </HtmlModelScreen>
             }
@@ -120,7 +122,8 @@ export default function MainScene(props) {
                 <HtmlModelScreen
                   rotation={[Math.PI / 30, 0, 0]}
                   position={[.15, 1.682, -1.97]}
-                  className="hdmi-screen">
+                  className="hdmi-screen"
+                  disableFeatures={disableFeatures}>
                   <Experience />
                 </HtmlModelScreen>
               </group>

@@ -15,8 +15,8 @@
     color: white;
     font-family: 'Inter', 'Segoe UI', sans-serif;
     overflow: hidden;
-    pointer-events: auto !important;
-    /* Solo el contenido captura eventos */
+    pointer-events: auto;
+    /* Removido !important para permitir override con inline styles */
     touch-action: pan-y;
     overscroll-behavior: contain;
     isolation: isolate;

@@ -26,7 +26,8 @@ export default function HtmlModelScreen({
     className = '',
     children,
     occlude = false,
-    center = [0.5, 0.5]
+    center = [0.5, 0.5],
+    disableFeatures = false
 }) {
     // Handler para prevenir que el scroll afecte OrbitControls
     const handleWheel = (e) => {
@@ -42,7 +43,7 @@ export default function HtmlModelScreen({
             occlude={occlude}
             center={center}
             className={`html-model-screen ${className}`}
-            pointerEvents='none'
+            pointerEvents={disableFeatures ? 'auto' : 'none'}
         >
             <div
                 className="screen-content"
