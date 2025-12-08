@@ -19,7 +19,9 @@
     transform: translate(15px, -50%);
 
     /* Smooth appearance */
-    animation: tooltipFadeIn 0.2s ease-out;
+    /* animation: tooltipFadeIn 0.2s ease-out; */
+    opacity: 1 !important;
+    display: block !important;
 }
 
 .tooltip-text {

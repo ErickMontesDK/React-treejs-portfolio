@@ -14,10 +14,14 @@ export default function MainScene(props) {
   const { camera, setCamera, isHelperOn, children } = props;
   const [disableFeatures, setDisableFeatures] = useState(false);
 
+
   useEffect(() => {
+    console.log("MainScene: Camera changed to", camera === camaras.main ? "MAIN" : "OTHER");
     if (camera !== camaras.main) {
+      console.log("MainScene: Disabling features");
       setDisableFeatures(true);
     } else {
+      console.log("MainScene: Enabling features");
       setDisableFeatures(false);
     }
   }, [camera]);
@@ -29,6 +33,9 @@ export default function MainScene(props) {
     position: { x: 0, y: 0 }
   });
 
+  useEffect(() => {
+    console.log(tooltip, "tooltip");
+  }, [tooltip]);
 
   const handleSwitchChange = (names, value) => {
     setSwitchesState((prevState) => {
@@ -41,7 +48,6 @@ export default function MainScene(props) {
   };
 
   const handleTransition = (cameraName) => {
-    console.log(cameraName, "hadouken");
     setCamera(camaras[cameraName]);
   };
 
@@ -132,19 +138,16 @@ export default function MainScene(props) {
         />
       </SceneBase>
 
+      {/* Tooltip Always On for Debug */}
+      {!disableFeatures && <Tooltip
+        position={tooltip.position}
+        text={tooltip.text}
+        visible={tooltip.visible}
+      />}
+
       {children}
 
-      {/* Tooltip overlay */}
-      {
-        !disableFeatures && (
-          <Tooltip
-            visible={tooltip.visible}
-            text={tooltip.text}
-            position={tooltip.position}
-          />
-        )
-      }
-    </div >
+    </div>
   );
 }
 

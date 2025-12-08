@@ -202,20 +202,15 @@ export function useModelAnimations({
     const handleClick = (event) => {
         event.stopPropagation();
         userOverrideRef.current = true; // User took control
-        console.log("click", transitions, camera);
 
         // Handle camera transitions (works for any clickable model)
         if (camera && transitions) {
-            console.log("About to call transitions with:", camera);
-            console.log("transitions function is:", transitions);
             transitions(camera);
-            console.log("transitions called!");
         }
 
         if (hasOnClick) {
             // For 'onClick' animations (triggers), we want to replay the animation on every click
             // instead of toggling it off.
-            console.log("si soy");
             if (isPlaying) {
                 // If already playing (or finished/clamped), force a replay
                 if (actionsRef.current) {
