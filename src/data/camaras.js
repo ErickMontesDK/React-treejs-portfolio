@@ -56,7 +56,7 @@ const camaras = {
         minPolarAngle: 0.841,     // 48.2° (15° hacia arriba)
         maxPolarAngle: 1.365,     // 78.2° (15° hacia abajo)
         // Límites de zoom y distancia
-        minZoom: 5,
+        minZoom: 10,
         maxZoom: 15,
         minDistance: 0.001,
         maxDistance: 10,

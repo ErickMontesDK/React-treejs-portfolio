@@ -34,7 +34,24 @@ function App() {
         setCamera={setCamera}
         setIsHelperOn={setIsHelperOn}
       />
-      <Titles />
+      {camera === camaras.skills ? (
+        <Titles key="skills" header="Skills" sub="" />
+      ) : camera === camaras.about ? (
+        <Titles key="about" header="About" sub="" />
+      ) : camera === camaras.experience ? (
+        <Titles key="experience" header="Experience" sub="" />
+      ) : camera === camaras.contact ? (
+        <Titles key="contact" header="Contact" sub="" />
+      ) : camera === camaras.projects ? (
+        <Titles key="projects" header="Projects" sub="" />
+      ) : (
+        <Titles key="home" header="Erick Montes Bedolla" sub="FullStack Developer" />
+      )}
+
+
+
+
+
     </div>
   );
 }
