@@ -7,6 +7,7 @@ import Titles from './components/layout/Titles.jsx';
 import camaras from './data/camaras';
 import InfoCards from './components/ui/InfoCards';
 import Skills from './components/htmlScreens/skills';
+import About from './components/htmlScreens/about';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -20,11 +21,18 @@ function App() {
         setCamera={setCamera}
         isHelperOn={isHelperOn}
       >
-        {(camera === camaras.skills || camera === camaras.about) &&
+        {(camera === camaras.skills) &&
           <InfoCards
             className={"right"}
           >
             <Skills />
+          </InfoCards>}
+
+        {(camera === camaras.about) &&
+          <InfoCards
+            className={"right"}
+          >
+            <About />
           </InfoCards>}
       </MainScene>
       <Menu

@@ -30,8 +30,8 @@ const camaras = {
         maxDistance: 0.1
     },
     about: {
-        position: [-.7, 1, 1.7],
-        target: [-1.5, 1, 1.35],
+        position: [-.7, 0.7, 1.7],
+        target: [-1.5, 0.7, 1.35],
         zoom: 10,
         // Límites de rotación (Azimuth = horizontal, Polar = vertical)
         // Calculado desde posición inicial: Azimuth 66.3°, Polar 89.8° con rango ±20°

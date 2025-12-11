@@ -1,0 +1,204 @@
+/* Font import for narrow style if available, otherwise fallback */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&display=swap');
+
+.info-cards:has(.about-container) {
+    right: 40px;
+    overflow-x: hidden;
+    padding-left: 20px;
+    box-sizing: border-box;
+    scrollbar-color: var(--white_color) transparent;
+    scrollbar-width: thin;
+    /* Reset borders for the skills container specifically if needed, 
+       but keeping the parent consistent is fine. */
+}
+
+.about-container {
+    background-color: white;
+    padding: 10px;
+    width: 520px;
+    /* Slightly wider than standard can label for readability */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: black;
+    border: 1px solid #ddd;
+    /* Outer container border (optional) */
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: rotate(1deg);
+
+    /* Slight natural tilt */
+}
+
+/* Main Border Box */
+.nutrition-label {
+    border: 2px solid black;
+    padding: 5px;
+    background-color: white;
+}
+
+/* Header Section */
+.nutrition-header {
+    border-bottom: 10px solid black;
+    padding-bottom: 5px;
+}
+
+.nutrition-title {
+    font-family: 'Archivo Narrow', 'Arial Narrow', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.serving-size {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 1rem;
+    margin: 5px 0 0 0;
+    font-weight: normal;
+}
+
+/* Facts Section */
+.nutrition-facts {
+    border-bottom: 5px solid black;
+    padding: 5px 0;
+}
+
+.fact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 4px 0;
+    font-size: 0.95rem;
+}
+
+.fact-row.thick-border {
+    border-bottom: 5px solid black;
+}
+
+.fact-row:last-child {
+    border-bottom: none;
+}
+
+.fact-label {
+    font-weight: bold;
+}
+
+.fact-value {
+    font-weight: normal;
+    font-family: 'Courier New', Courier, monospace;
+    /* Monospace for numbers vibe */
+    font-weight: bold;
+}
+
+.fact-indent {
+    padding-left: 20px;
+}
+
+/* Daily Value / Disclaimer */
+.daily-value-note {
+    font-size: 0.7rem;
+    margin-top: 5px;
+    padding-top: 5px;
+    color: #333;
+}
+
+/* "Ingredients" / Profile Section */
+.ingredients-section {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    border-top: 2px solid black;
+    padding-top: 8px;
+    text-align: left;
+}
+
+.ingredients-title {
+    font-weight: bold;
+}
+
+/* Warning Seals Container */
+.warning-seals {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.seal {
+    width: 90px;
+    height: 90px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    padding: 10px;
+    /* Creating an octagon using clip-path */
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    line-height: 1.2;
+}
+
+.seal span {
+    transform: rotate(-5deg);
+    /* Slight text rotation inside */
+}
+
+/* Warning/Caution Box */
+.warning-box {
+    margin-top: 15px;
+    border: 3px solid black;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    background-color: #ffff00;
+    /* Yellow caution background */
+}
+
+/* Override InfoCard styles if needed */
+.info-cards:has(.about-container) {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+@media screen and (max-width: 768px) {
+    .info-cards:has(.about-container) {
+        right: 30px;
+        top: 30px;
+        height: fit-content;
+        max-height: 92vh;
+    }
+
+    .about-container {
+        width: 100%;
+        max-width: 300px;
+        font-size: 0.9rem;
+        /* Scale down slightly */
+    }
+
+    .nutrition-title {
+        font-size: 1.8rem;
+    }
+
+    .seal {
+        width: 70px;
+        height: 70px;
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .info-cards:has(.about-container) {
+        /* right: 20px; */
+        top: 17rem;
+        max-height: 60vh;
+    }
+
+}
