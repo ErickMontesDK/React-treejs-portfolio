@@ -8,6 +8,7 @@ import camaras from './data/camaras';
 import InfoCards from './components/ui/InfoCards';
 import Skills from './components/htmlScreens/skills';
 import About from './components/htmlScreens/about';
+import Experience from './components/htmlScreens/experience';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -34,6 +35,8 @@ function App() {
           >
             <About />
           </InfoCards>}
+
+
       </MainScene>
       <Menu
         darkMode={darkMode}

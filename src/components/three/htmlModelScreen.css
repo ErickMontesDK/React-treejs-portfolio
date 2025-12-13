@@ -8,7 +8,7 @@
 .screen-content {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 8px;
-    padding: 20px;
+    /* padding: 20px; */
     min-width: 300px;
     min-height: 200px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -23,6 +23,7 @@
     width: fit-content;
     /* Solo ocupa el espacio necesario */
     height: fit-content;
+    scrollbar-width: none;
 }
 
 .default-screen {
@@ -88,10 +89,10 @@
 }
 
 /* Para Firefox */
-.phone-screen .screen-content {
+/* .phone-screen .screen-content {
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
-}
+} */
 
 /* Estilos para pantallas de tablet */
 .tablet-screen .screen-content {

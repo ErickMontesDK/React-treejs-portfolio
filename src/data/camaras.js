@@ -78,9 +78,9 @@ const camaras = {
         maxDistance: 10,
     },
     experience: {
-        position: [-1.55, 1.2, .4],
-        target: [-1.55, 1, .4],
-        zoom: 30,
+        position: [-1.55, 1.2, .45],
+        target: [-1.55, 1, .45],
+        zoom: 40,
         // Límites de rotación (Azimuth = horizontal, Polar = vertical)
         // Calculado desde posición inicial: Azimuth 149.6°, Polar 2.8° con rango ±5°
         minAzimuthAngle: 2.523,   // 144.6° (5° a la izquierda)
@@ -89,7 +89,7 @@ const camaras = {
         maxPolarAngle: 0.136,     // 7.8° (5° hacia abajo)
         // Límites de zoom y distancia
         minZoom: 24,
-        maxZoom: 30,
+        maxZoom: 40,
         minDistance: 0.001,
         maxDistance: 10,
     },
