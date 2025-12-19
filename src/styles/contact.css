@@ -16,6 +16,8 @@
 
 .contact-screen .screen-content {
     transform: scale(1, 1) !important;
+    width: 800px;
+    height: 800px;
 }
 
 .contact-screen .container {
@@ -82,7 +84,7 @@
     bottom: 25rem;
     /* Swapped from Email */
     bottom: 17rem;
-    right: 5rem;
+    right: 9rem;
     transform: rotate(2deg);
 }
 

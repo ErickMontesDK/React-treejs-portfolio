@@ -5,7 +5,13 @@
     /* Contenedor transparente a eventos */
 }
 
-
+.screen-content {
+    pointer-events: auto;
+    /* Removido !important para permitir override con inline styles */
+    touch-action: pan-y;
+    overscroll-behavior: contain;
+    isolation: isolate;
+}
 
 .default-screen {
     display: flex;
@@ -40,7 +46,7 @@
 }
 
 .contact-screen .screen-content {
-    width: 800px !important;
+    width: 8 00px !important;
     height: 800px !important;
 }
 
