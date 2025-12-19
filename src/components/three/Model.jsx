@@ -31,6 +31,8 @@ export default function Model({
   onShowTooltip = null,
   onHideTooltip = null,
   disableFeatures = false,
+  isActive = false,
+  url = null,
   children = null
 }) {
   const { scene } = useThree();
@@ -68,7 +70,9 @@ export default function Model({
     initialStateDark,
     camera,
     transitions,
-    tooltipText
+    tooltipText,
+    url,
+    isActive
   });
 
   // Wrapper to remove hover clone when clicking

@@ -7,12 +7,27 @@ import camaras from '../../data/camaras';
 import Tooltip from '../ui/Tooltip';
 import HtmlModelScreen from './htmlModelScreen';
 import Experience from './../htmlScreens/experience';
+import { projects } from '../../data/projects';
+import LaptopProjectScreen from '../htmlScreens/LaptopScreen';
+import MonitorProjectScreen from '../htmlScreens/MonitorScreen';
+import Contact from '../htmlScreens/contact';
 
 
 export default function MainScene(props) {
   const [switchesState, setSwitchesState] = useState({});
   const { camera, setCamera, isHelperOn, children } = props;
   const [disableFeatures, setDisableFeatures] = useState(false);
+
+  // Projects State
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+
+  const handleNextProject = () => {
+    setCurrentProjectIndex((prev) => (prev + 1) % projects.length);
+  };
+
+  const handlePrevProject = () => {
+    setCurrentProjectIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  };
 
 
   useEffect(() => {
@@ -87,67 +102,91 @@ export default function MainScene(props) {
 
         {/* Modelo cargado */}
 
-        {models?.map((model, index) => (
-          <Model
-            key={index}
-            name={model.name}
-            src={model.model}
-            animationStyle={model.animation ?? null}
-            onDarkMode={true}
-            switchLight={model.lightTags ? ((value) => handleSwitchChange(model.lightTags, value)) : null}
-            initialStateDark={model.initialStateDark ?? false}
-            initialStateLight={model.initialStateLight ?? false}
-            camera={model.transitions ? model.transitions.camera : null}
-            transitions={model.transitions ? handleTransition : null}
-            isHelperOn={isHelperOn}
-            tooltipText={model.description ?? null}
-            onShowTooltip={showTooltip}
-            onHideTooltip={hideTooltip}
-            disableFeatures={disableFeatures}
-          >
-            {model.name === "phone" && camera === camaras.experience &&
-              <HtmlModelScreen
-                rotation={[-Math.PI / 2, 0, Math.PI / 1.225]}
-                position={[-1.571, .9, .425]}
-                className="phone-screen">
-                <Experience />
-              </HtmlModelScreen>
-            }
-            {model.name === "laptop" && camera === camaras.projects &&
-              <HtmlModelScreen
-                rotation={[0, Math.PI / 2, 0]}
-                position={[-1.98, 1.165, -.15]}
-                className="laptop-screen">
-                <Experience />
-              </HtmlModelScreen>
-            }
-            {model.name === "screen" && camera === camaras.projects &&
-              <group rotation={[0, Math.PI / 2, 0]}>
+        {models && models.map((model, index) => {
+          return (
+            <Model
+              key={index}
+              name={model.name}
+              src={model.model}
+              animationStyle={model.animation ?? null}
+              onDarkMode={true}
+              switchLight={model.lightTags ? ((value) => handleSwitchChange(model.lightTags, value)) : null}
+              initialStateDark={model.initialStateDark ?? false}
+              initialStateLight={model.initialStateLight ?? false}
+              camera={model.transitions ? model.transitions.camera : null}
+              transitions={model.transitions ? handleTransition : null}
+              isHelperOn={isHelperOn}
+              tooltipText={model.description ?? null}
+              onShowTooltip={showTooltip}
+              onHideTooltip={hideTooltip}
+              disableFeatures={disableFeatures}
+              url={model.url ?? null}
+              isActive={model.transitions ? camera === camaras[model.transitions.camera] : true}
+            >
+              {model.name === "phone" && camera === camaras.experience &&
                 <HtmlModelScreen
-                  rotation={[Math.PI / 30, 0, 0]}
-                  position={[.15, 1.682, -1.97]}
-                  className="hdmi-screen">
+                  rotation={[-Math.PI / 2, 0, Math.PI / 1.225]}
+                  position={[-1.571, .9, .425]}
+                  className="phone-screen">
                   <Experience />
                 </HtmlModelScreen>
-              </group>
-            }
-          </Model>
-        ))}
+              }
+              {model.name === "laptop" && camera === camaras.projects &&
+                <HtmlModelScreen
+                  rotation={[0, Math.PI / 2, 0]}
+                  position={[-1.98, 1.165, -.15]}
+                  className="laptop-screen">
+                  <LaptopProjectScreen
+                    project={projects[currentProjectIndex]}
+                  />
+                </HtmlModelScreen>
+              }
+              {model.name === "screen" && camera === camaras.projects &&
+                <group rotation={[0, Math.PI / 2, 0]}>
+                  <HtmlModelScreen
+                    rotation={[Math.PI / 30, 0, 0]}
+                    position={[.15, 1.682, -1.97]}
+                    className="hdmi-screen">
+                    <MonitorProjectScreen
+                      project={projects[currentProjectIndex]}
+                      onNext={handleNextProject}
+                      onPrev={handlePrevProject}
+                    />
+                  </HtmlModelScreen>
+                </group>
+              }
+              {model.name === "toys" && camera === camaras.contact &&
+                <group rotation={[0, Math.PI / 2, 0]}>
+                  {/* Main Contact Screen anchor */}
+                  <HtmlModelScreen
+                    rotation={[0, Math.PI / -1.8, 0]}
+                    position={[2.2, 2.25, 1.4]}
+                    className="contact-screen">
+                    {/* Only pass activeToy if it's one of the contact toys */}
+                    <Contact />
+                  </HtmlModelScreen>
+                </group>
+              }
+            </Model>
+          );
+        })}
         <Lights
           switchStates={switchesState}
         />
       </SceneBase>
 
       {/* Tooltip Always On for Debug */}
-      {!disableFeatures && <Tooltip
-        position={tooltip.position}
-        text={tooltip.text}
-        visible={tooltip.visible}
-      />}
+      {
+        !disableFeatures && <Tooltip
+          position={tooltip.position}
+          text={tooltip.text}
+          visible={tooltip.visible}
+        />
+      }
 
       {children}
 
-    </div>
+    </div >
   );
 }
 

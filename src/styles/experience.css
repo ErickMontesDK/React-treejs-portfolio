@@ -373,13 +373,3 @@
     /* Let the phone container handle scroll */
     max-height: none !important;
 }
-
-@media screen and (max-width: 480px) {
-    .experience-container {
-        width: 100%;
-        max-width: 350px;
-        height: 100%;
-        max-height: 600px;
-        border-radius: 0;
-    }
-}

@@ -38,6 +38,7 @@ import toy_vader from '../assets/models/toy_vader.glb';
 import toy_storm from '../assets/models/toy_storm.glb';
 import window from '../assets/models/window.glb';
 import printer3d_main from '../assets/models/printer3d_main.glb';
+import toys from '../assets/models/toys.glb';
 
 const models = [
     {
@@ -143,10 +144,10 @@ const models = [
     {
         "name": "notebook",
         "model": notebook,
-        "description": "Contact",
+        "description": "Blog",
         "transitions": {
-            "name": "contact",
-            "camera": "contact",
+            "name": "blog",
+            "camera": "blog",
         }
     },
     {
@@ -220,26 +221,8 @@ const models = [
 
     },
     {
-        "name": "toy_fett",
-        "model": toy_fett,
-        "description": "Contact",
-        "transitions": {
-            "name": "contact",
-            "camera": "contact",
-        }
-    },
-    {
-        "name": "toy_vader",
-        "model": toy_vader,
-        "description": "Contact",
-        "transitions": {
-            "name": "contact",
-            "camera": "contact",
-        }
-    },
-    {
-        "name": "toy_storm",
-        "model": toy_storm,
+        "name": "toys",
+        "model": toys,
         "description": "Contact",
         "transitions": {
             "name": "contact",

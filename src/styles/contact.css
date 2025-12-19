@@ -1,0 +1,416 @@
+.contact-screen {
+    min-width: 300px;
+    min-height: 600px;
+    /* Removed heavy border to be cleaner, or keep if desired. User said 'comic type'. */
+    /* border: 10px solid #ccc; */
+    color: black;
+    font-family: 'Bangers', 'Inter', 'Segoe UI', cursive, sans-serif;
+    overflow: visible;
+    /* changed from hidden to let arrows poke out if needed */
+    pointer-events: auto !important;
+    touch-action: pan-y;
+    isolation: isolate;
+    scrollbar-width: none;
+    position: relative;
+}
+
+.contact-screen .screen-content {
+    transform: scale(1, 1) !important;
+}
+
+.contact-screen .container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Gradient or halftone background could go here if requested, but transparent is safer for overlay */
+}
+
+/* Base Comic Box Style */
+.contact-screen .container .comic-box {
+    position: absolute;
+    z-index: 10;
+    background-color: #fff;
+    border: 3px solid #000;
+    box-shadow: 5px 5px 0px #000;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    min-width: 120px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 4px;
+    /* Slight rounding for hand-drawn feel */
+}
+
+.contact-screen .container .comic-box:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #000;
+    background-color: #FFE600;
+    /* Comic Yellow */
+}
+
+.contact-screen .container .comic-box:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #000;
+}
+
+.contact-screen .container .comic-box i {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.contact-screen .container .comic-box p {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+
+/* Positioning - Respected as requested */
+#github {
+    top: 20px;
+    /* Added small offset to not clip */
+    left: 100px;
+    transform: rotate(-3deg);
+}
+
+#linkedin {
+    bottom: 25rem;
+    /* Swapped from Email */
+    bottom: 17rem;
+    right: 5rem;
+    transform: rotate(2deg);
+}
+
+#email {
+    top: 100px;
+    /* Swapped from LinkedIn */
+    right: -40px;
+    transform: rotate(-2deg);
+    /* Pop of color */
+    border-color: #fff;
+    box-shadow: 5px 5px 0px #330011;
+}
+
+#email:hover {
+    background-color: #EA4335;
+    /* Gmail Red */
+    border-color: #000;
+    color: #fff;
+    box-shadow: 7px 7px 0px #000;
+}
+
+#github:hover {
+    background-color: #333;
+    /* GitHub Black */
+    color: #fff;
+    border-color: #000;
+    box-shadow: 7px 7px 0px #000;
+}
+
+#linkedin:hover {
+    background-color: #0077b5;
+    /* LinkedIn Blue */
+    color: #fff;
+    border-color: #000;
+    box-shadow: 7px 7px 0px #000;
+}
+
+/* SPEECH BUBBLE TAILS (Bocadillos) */
+
+/* Common Tail Style */
+#github::after,
+#email::after,
+#linkedin::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    pointer-events: none;
+    z-index: -1;
+    /* Behind the box so the border connects cleanly */
+}
+
+/* GitHub Tail: Points Right */
+#github::after {
+    border-width: 15px 0 15px 40px;
+    border-color: transparent transparent transparent #fff;
+    /* White tail */
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#github:hover::after {
+    border-color: transparent transparent transparent #333;
+    /* Black on hover */
+}
+
+/* LinkedIn Tail: Points Left (to Fett) */
+#linkedin::after {
+    border-width: 15px 60px 15px 0;
+    border-color: transparent #fff transparent transparent;
+    left: -55px;
+    bottom: 0px;
+    transform: translateY(-50%);
+}
+
+#linkedin:hover::after {
+    border-color: transparent #0077b5 transparent transparent;
+    /* Blue on hover */
+}
+
+/* Email Tail: Points Left (to Stormtrooper) */
+#email::after {
+    border-width: 15px 40px 15px 0;
+    border-color: transparent #fff transparent transparent;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#email:hover::after {
+    border-color: transparent #EA4335 transparent transparent;
+    /* Red on hover */
+}
+
+/* TOY BOX - Star Wars Black Series Line Art Style */
+.toy-box {
+    position: absolute;
+    width: 220px;
+    height: 350px;
+
+    /* 3D Transform setup */
+    transform-style: preserve-3d;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    /* Line Art Borders - Black Series Box */
+    border: 3px solid white;
+    box-shadow: 0 0 0px transparent;
+
+    /* Visibility Control */
+    opacity: 0;
+    pointer-events: none;
+
+    /* Content Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    color: white;
+    font-family: 'Oswald', 'Anton', sans-serif;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.toy-box:hover {
+    color: #FFE600;
+    border-color: #FFE600;
+    cursor: pointer;
+}
+
+/* Update pseudo-elements on hover */
+.toy-box:hover::before,
+.toy-box:hover::after,
+.toy-box:hover .toywindow,
+.toy-box:hover .toy-header {
+    border-color: #FFE600;
+}
+
+.toy-box.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* TOP FACE - Common for all */
+.toy-box::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -3px;
+    width: 220px;
+    height: 50px;
+
+    border: 3px solid white;
+    border-bottom: none;
+
+    transform-origin: bottom;
+    transform: rotateX(90deg);
+}
+
+/* SIDE FACE - Generic setup, specific positioning in ID */
+.toy-box::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    width: 50px;
+    height: 350px;
+
+    border: 3px solid white;
+    /* Border visibility handled in specific IDs */
+}
+
+/* Inner Window (Cutout look) */
+.toywindow {
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    width: 190px;
+    height: 200px;
+    border: 2px solid white;
+    border-radius: 5px 5px 0 0;
+    /* Optional: faint grid or glass reflection lines could go here */
+}
+
+/* Text Elements */
+.toy-header {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    border-bottom: 2px solid white;
+    /* Line separator */
+    padding-bottom: 5px;
+}
+
+.toy-name {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+#box-storm .toy-name {
+    font-size: 1.3rem !important;
+}
+
+.toy-flair {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 0.8rem;
+    color: #ccc;
+    /* Slightly dimmer */
+    text-align: right;
+}
+
+/* POSITIONS */
+
+/* Vader (Next to Github - Top Left) */
+/* Vader (Left Side -> Shows Right Face) */
+#box-vader {
+    top: -30px;
+    left: 220px;
+    transform: perspective(1000px) rotateY(-25deg) rotateX(10deg);
+}
+
+#box-vader::after {
+    /* Right Face */
+    left: 100%;
+    transform-origin: left;
+    transform: rotateY(90deg);
+    border-left: none;
+}
+
+/* Fett (Now Bottom Right -> Matches Fett Model) */
+#box-fett {
+    bottom: 50px;
+    right: 300px;
+    transform: perspective(1000px) rotateY(5deg) rotateX(10deg);
+}
+
+#box-fett::after {
+    /* Left Face */
+    right: 100%;
+    transform-origin: right;
+    transform: rotateY(-90deg);
+    border-right: none;
+}
+
+/* Stormtrooper (Now Top Right -> Matches Stormtrooper Model) */
+#box-storm {
+    top: -30px;
+    right: 150px;
+    transform: perspective(1000px) rotateY(25deg) rotateX(10deg);
+}
+
+#box-storm::after {
+    /* Left Face */
+    right: 100%;
+    transform-origin: right;
+    transform: rotateY(-90deg);
+    border-right: none;
+}
+
+/* Stormtrooper Speech Bubble Notification */
+.storm-speech-bubble {
+    position: absolute;
+    /* Aligned relative to container (Stormtrooper roughly at top: -30px, right: 150px) */
+    /* Bubble should be above/near it. */
+    top: 100px;
+    right: 80px;
+    background: white;
+    border: 3px solid black;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    color: black;
+    z-index: 200;
+    /* Increased Z-index */
+    white-space: nowrap;
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+    /* Let clicks pass through */
+}
+
+.storm-speech-bubble::after {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 63px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: black transparent;
+    display: block;
+    width: 0;
+}
+
+.storm-speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 63px;
+    border-width: 0 12px 12px 0;
+    border-style: solid;
+    border-color: white transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

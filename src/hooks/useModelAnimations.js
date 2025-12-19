@@ -19,7 +19,9 @@ export function useModelAnimations({
     initialStateDark,
     camera,
     transitions,
-    tooltipText
+    tooltipText,
+    url,
+    isActive
 }) {
     // State for animation playback
     const [isPlaying, setIsPlaying] = useState(false);
@@ -48,7 +50,7 @@ export function useModelAnimations({
     const hasOnToggle = animationStyle === "onToggle";
     const hasOnHover = animationStyle === "onHover";
 
-    const isClickable = switchLight || tooltipText || ["onClick", "onHover", "onToggle"].includes(animationStyle) || transitions;
+    const isClickable = switchLight || tooltipText || ["onClick", "onHover", "onToggle"].includes(animationStyle) || transitions || (url && isActive);
 
     // 1. SETUP: Initialize Mixer and Actions
     useEffect(() => {
@@ -206,6 +208,11 @@ export function useModelAnimations({
         // Handle camera transitions (works for any clickable model)
         if (camera && transitions) {
             transitions(camera);
+        }
+
+        // Handle URL opening if active (e.g. already looking at it)
+        if (url && isActive) {
+            window.open(url, '_blank');
         }
 
         if (hasOnClick) {

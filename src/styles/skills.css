@@ -10,6 +10,7 @@
 .info-cards:has(.skills-screen) {
     top: 80px;
     right: 80px;
+    overflow: visible;
     /* Reset borders for the skills container specifically if needed, 
        but keeping the parent consistent is fine. */
 }

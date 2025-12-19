@@ -1,5 +1,17 @@
 import lightsData from '../../data/lights.json';
 import { useState } from 'react';
+import { Object3D } from 'three';
+
+const SpotLightItem = ({ targetPosition, ...props }) => {
+    const [target] = useState(() => new Object3D())
+
+    return (
+        <>
+            <primitive object={target} position={targetPosition} />
+            <spotLight target={target} {...props} />
+        </>
+    )
+}
 
 export default function Lights({ switchStates }) {
     const lights = lightsData.lights
@@ -32,8 +44,9 @@ export default function Lights({ switchStates }) {
 
                     switch (type) {
                         case 'spotlight':
+                            // console.log(target)
                             return (
-                                <spotLight
+                                <SpotLightItem
                                     key={index}
                                     position={position}
                                     angle={angle}
@@ -41,7 +54,7 @@ export default function Lights({ switchStates }) {
                                     shadow-mapSize={shadowMapSize}
                                     intensity={currentIntensity}
                                     name={triggerId}
-                                    target-position={target}
+                                    targetPosition={target} // enviamos la posicion del target
                                     color={color}
                                     debug={true}
                                 />

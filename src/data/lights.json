@@ -1,61 +1,108 @@
 {
     "lights": [
         {
-            "type":        "spotlight",
-            "intensity":       27.6,
-            "position":        [0, 3.46, 0],
-            "angle":           0.77,
-            "castShadow":      true,
-            "shadowMapSize":   [2048, 2048],
-            "target": [0,0,0],
+            "type": "spotlight",
+            "intensity": 27.6,
+            "position": [
+                0.5,
+                3.7,
+                0
+            ],
+            "angle": 0.85,
+            "castShadow": true,
+            "shadowMapSize": [
+                2048,
+                2048
+            ],
+            "target": [
+                0.5,
+                0,
+                0
+            ],
             "lightTag": "roof"
         },
         {
-            "type":        "spotlight",
-            "intensity":       35.6,
-            "target": [0,0,0],
-            "position":        [0, 3.46, 0],
-            "angle":           0.55,
-            "castShadow":      true,
-            "shadowMapSize":   [2048, 2048],
+            "type": "spotlight",
+            "intensity": 35.6,
+            "target": [
+                0.5,
+                0,
+                0
+            ],
+            "position": [
+                0.5,
+                3.7,
+                0
+            ],
+            "angle": 0.5,
+            "castShadow": true,
+            "shadowMapSize": [
+                2048,
+                2048
+            ],
             "lightTag": "roof"
         },
         {
-            "type":        "spotlight",
-            "intensity":       7.6,
-            "position":        [0, 3.3, 0],
-            "angle":           2,
-            "castShadow":      true,
-            "shadowMapSize":   [2048, 2048],
-            "lightTag": "roof"  
+            "type": "spotlight",
+            "intensity": 10,
+            "position": [
+                0.5,
+                3.7,
+                0
+            ],
+            "angle": 5.1,
+            "castShadow": true,
+            "shadowMapSize": [
+                2048,
+                2048
+            ],
+            "lightTag": "roof",
+            "target": [
+                0.5,
+                0,
+                0
+            ]
         },
         {
-            "type":        "spotlight",
-            "intensity":       100,
-            "position":        [-0.4, 2.5, -3.5],
-            "angle":           0.8,
-            "castShadow":      true,
-            "shadowMapSize":   [2048, 2048],
-            "switchable":          true,
-            "triggerId":        "switch-2",
+            "type": "spotlight",
+            "intensity": 100,
+            "position": [
+                -0.4,
+                2.5,
+                -3.5
+            ],
+            "angle": 0.8,
+            "castShadow": true,
+            "shadowMapSize": [
+                2048,
+                2048
+            ],
+            "switchable": true,
+            "triggerId": "switch-2",
             "color": "#0000aa",
-            "target": [-2,0.3,-3]
-
+            "target": [
+                0,
+                0,
+                0
+            ]
         },
         {
-            "type":        "ambient",
-            "intensity":       0.2
+            "type": "ambient",
+            "intensity": 0.2
         },
         {
             "type": "point",
             "intensity": 6,
-            "position": [-1.965, 1.12, -1.2],
+            "position": [
+                -1.965,
+                1.12,
+                -1.2
+            ],
             "color": "#ff6b9d",
             "distance": 7,
             "decay": 1.4,
             "castShadow": true,
             "lightTag": "lava"
-
         }
     ]
 }

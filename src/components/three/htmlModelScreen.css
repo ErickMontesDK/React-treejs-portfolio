@@ -5,26 +5,7 @@
     /* Contenedor transparente a eventos */
 }
 
-.screen-content {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 8px;
-    /* padding: 20px; */
-    min-width: 300px;
-    min-height: 200px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    color: white;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    overflow: hidden;
-    pointer-events: auto !important;
-    /* Solo el contenido captura eventos */
-    touch-action: pan-y;
-    overscroll-behavior: contain;
-    isolation: isolate;
-    width: fit-content;
-    /* Solo ocupa el espacio necesario */
-    height: fit-content;
-    scrollbar-width: none;
-}
+
 
 .default-screen {
     display: flex;
@@ -56,6 +37,11 @@
 .hdmi-screen .screen-content {
     width: 1970px !important;
     height: 1020px !important;
+}
+
+.contact-screen .screen-content {
+    width: 800px !important;
+    height: 800px !important;
 }
 
 /* Estilos para pantallas de phone */
