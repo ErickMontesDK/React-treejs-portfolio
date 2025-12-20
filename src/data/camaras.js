@@ -66,9 +66,10 @@ const camaras = {
         position: [0, 3, 0],
         zoom: 20,
         // Límites de rotación (Azimuth = horizontal, Polar = vertical)
-        // Calculado desde posición inicial: Azimuth -23.4°, Polar 67.6° con rango ±20°
-        // minAzimuthAngle: -0.757,  // -43.4° (20° a la izquierda)
-        // maxAzimuthAngle: -0.059,  // -3.4° (20° a la derecha)
+        // Initial Azimuth: 0.9685 rad (55.5°) - Calculated from position/target
+        // ±15° range = ±0.2618 rad
+        minAzimuthAngle: 0.707,  // 40.5° (15° left from initial)
+        maxAzimuthAngle: 1.230,  // 70.5° (15° right from initial)
         // minPolarAngle: 0.831,     // 47.6° (20° hacia arriba)
         // maxPolarAngle: 1.529,     // 87.6° (20° hacia abajo)
         // // Límites de zoom y distancia
@@ -83,8 +84,10 @@ const camaras = {
         zoom: 10,
         // Límites de rotación (Azimuth = horizontal, Polar = vertical)
         // Calculado desde posición inicial: Azimuth -23.4°, Polar 67.6° con rango ±20°
-        minAzimuthAngle: -0.757,  // -43.4° (20° a la izquierda)
-        maxAzimuthAngle: -0.059,  // -3.4° (20° a la derecha)
+        // Limit Right (Negative) -> Limit Left (0 or Positive)
+        // Correct logic: min < max.
+        minAzimuthAngle: -0.8, // Allow rotation to the right (approx 45 deg)
+        maxAzimuthAngle: 0,    // Stop at the center/left abajo)
         minPolarAngle: 0.831,     // 47.6° (20° hacia arriba)
         maxPolarAngle: 1.529,     // 87.6° (20° hacia abajo)
         // Límites de zoom y distancia

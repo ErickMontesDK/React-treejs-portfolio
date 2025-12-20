@@ -11,6 +11,8 @@ import { projects } from '../../data/projects';
 import LaptopProjectScreen from '../htmlScreens/LaptopScreen';
 import MonitorProjectScreen from '../htmlScreens/MonitorScreen';
 import Contact from '../htmlScreens/contact';
+import About from '../htmlScreens/about';
+import Blog from '../htmlScreens/blog';
 
 
 export default function MainScene(props) {
@@ -166,6 +168,14 @@ export default function MainScene(props) {
                     <Contact />
                   </HtmlModelScreen>
                 </group>
+              }
+              {model.name === "notebook" && camera === camaras.blog &&
+                <HtmlModelScreen
+                  rotation={[-Math.PI / 2, 0, Math.PI / 4.4]}
+                  position={[-1.57, .895, -1.155]}
+                  className="blog-screen">
+                  <Blog />
+                </HtmlModelScreen>
               }
             </Model>
           );
