@@ -12,7 +12,6 @@ import chair from '../assets/models/chair.glb';
 import desk from '../assets/models/desk.glb';
 import guitar from '../assets/models/guitar.glb';
 import funko from '../assets/models/funko.glb';
-import headphones from '../assets/models/headphones.glb';
 import ipod from '../assets/models/ipod.glb';
 import laptop from '../assets/models/laptop.glb';
 import lava from '../assets/models/lava.glb';
@@ -33,10 +32,7 @@ import rubik from '../assets/models/rubik.glb';
 import screen from '../assets/models/screen.glb';
 import sirius from '../assets/models/sirius.glb';
 import stormtrooper from '../assets/models/stormtrooper.glb';
-import toy_fett from '../assets/models/toy_fett.glb';
-import toy_vader from '../assets/models/toy_vader.glb';
-import toy_storm from '../assets/models/toy_storm.glb';
-import window from '../assets/models/window.glb';
+import windowModel from '../assets/models/window.glb';
 import printer3d_main from '../assets/models/printer3d_main.glb';
 import toys from '../assets/models/toys.glb';
 
@@ -104,12 +100,13 @@ const models = [
         "model": funko,
     },
     {
-        "name": "headphones",
-        "model": headphones,
-    },
-    {
         "name": "ipod",
         "model": ipod,
+        "description": "Music",
+        "transitions": {
+            "name": "music",
+            "camera": "music",
+        }
     },
     {
         "name": "laptop",
@@ -179,7 +176,18 @@ const models = [
         "name": "printer",
         "model": printer,
         "description": "Download resume",
-        "animation": "onClick"
+        "animation": "onClick",
+        "onClick": () => {
+            setTimeout(() => {
+                console.log("¡Impresora clickeada! Descargando resume...");
+                window.open('/resume.pdf', '_blank');
+            }, 4700);
+            // Aquí puedes agregar tu lógica personalizada
+            // Por ejemplo, descargar un PDF:
+            // window.open('/path/to/resume.pdf', '_blank');
+            // O disparar un evento personalizado:
+            // window.dispatchEvent(new CustomEvent('downloadResume'));
+        }
     },
     {
         "name": "puff",
@@ -231,7 +239,7 @@ const models = [
     },
     {
         "name": "window",
-        "model": window,
+        "model": windowModel,
     },
     {
         "name": "3dprint_main",

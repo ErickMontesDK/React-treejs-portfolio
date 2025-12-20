@@ -33,6 +33,7 @@ export default function Model({
   disableFeatures = false,
   isActive = false,
   url = null,
+  onClick = null,
   children = null
 }) {
   const { scene } = useThree();
@@ -72,7 +73,8 @@ export default function Model({
     transitions,
     tooltipText,
     url,
-    isActive
+    isActive,
+    onClickCallback: onClick
   });
 
   // Wrapper to remove hover clone when clicking

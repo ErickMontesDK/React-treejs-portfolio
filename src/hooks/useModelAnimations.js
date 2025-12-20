@@ -21,7 +21,8 @@ export function useModelAnimations({
     transitions,
     tooltipText,
     url,
-    isActive
+    isActive,
+    onClickCallback
 }) {
     // State for animation playback
     const [isPlaying, setIsPlaying] = useState(false);
@@ -204,6 +205,11 @@ export function useModelAnimations({
     const handleClick = (event) => {
         event.stopPropagation();
         userOverrideRef.current = true; // User took control
+
+        // Execute custom onClick callback if provided
+        if (onClickCallback && typeof onClickCallback === 'function') {
+            onClickCallback();
+        }
 
         // Handle camera transitions (works for any clickable model)
         if (camera && transitions) {

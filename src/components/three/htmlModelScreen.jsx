@@ -1,4 +1,6 @@
 import { Html } from '@react-three/drei';
+import { useContext } from 'react';
+import { MusicContext } from '../../context/MusicContext';
 import './htmlModelScreen.css';
 
 /**
@@ -33,6 +35,8 @@ export default function HtmlModelScreen({
         e.stopPropagation(); // Previene que llegue a OrbitControls
     };
 
+    const musicValue = useContext(MusicContext);
+
     return (
         <Html
             position={position}
@@ -52,7 +56,9 @@ export default function HtmlModelScreen({
                 }}
                 onWheel={handleWheel}
             >
-                {children}
+                <MusicContext.Provider value={musicValue}>
+                    {children}
+                </MusicContext.Provider>
             </div>
         </Html>
     );

@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, OrthographicCamera } from '@react-three/drei';
 import * as THREE from 'three';
+import { MusicContext } from '../../context/MusicContext';
 
 /**
  * DESIGN PATTERN: Separation of Concerns
@@ -23,7 +24,7 @@ function CameraController({
 }) {
   const controls = useRef();
   const { camera } = useThree();
-  const panLimit = 3;
+  const panLimit = 5; // Increased to allow music camera at [1.4, 1.1, 2.3]
   const isTransitioning = useRef(false);
 
   // Store target values for the transition
@@ -59,15 +60,15 @@ function CameraController({
     if (controls.current) {
       // Only animate if we are in a transition state
       if (isTransitioning.current) {
-        // 1. Smooth Camera Position Transition
-        camera.position.lerp(transitionTargets.current.position, 0.05);
+        // 1. Smooth Camera Position Transition (increased from 0.05 to 0.08 for faster convergence)
+        camera.position.lerp(transitionTargets.current.position, 0.08);
 
         // 2. Smooth Target (LookAt) Transition
-        controls.current.target.lerp(transitionTargets.current.lookAt, 0.05);
+        controls.current.target.lerp(transitionTargets.current.lookAt, 0.08);
 
         // 3. Smooth Zoom Transition
         if (Math.abs(camera.zoom - transitionTargets.current.zoom) > 0.01) {
-          camera.zoom = THREE.MathUtils.lerp(camera.zoom, transitionTargets.current.zoom, 0.05);
+          camera.zoom = THREE.MathUtils.lerp(camera.zoom, transitionTargets.current.zoom, 0.08);
           camera.updateProjectionMatrix();
         }
 
@@ -76,18 +77,19 @@ function CameraController({
         const distTarget = controls.current.target.distanceTo(transitionTargets.current.lookAt);
         const distZoom = Math.abs(camera.zoom - transitionTargets.current.zoom);
 
-        if (distPos < 0.01 && distTarget < 0.01 && distZoom < 0.01) {
+        // Increased threshold from 0.01 to 0.05 to avoid lerp precision issues
+        if (distPos < 0.05 && distTarget < 0.05 && distZoom < 0.05) {
           isTransitioning.current = false;
         }
+      } else {
+        // 4. Clamp Pan Limits (Only when NOT transitioning - for manual user control)
+        const target = controls.current.target;
+        target.x = THREE.MathUtils.clamp(target.x, -panLimit, panLimit);
+        target.y = THREE.MathUtils.clamp(target.y, -panLimit, panLimit);
+        target.z = THREE.MathUtils.clamp(target.z, -panLimit, panLimit);
       }
 
       controls.current.update();
-
-      // 4. Clamp Pan Limits (Always active)
-      const target = controls.current.target;
-      target.x = THREE.MathUtils.clamp(target.x, -panLimit, panLimit);
-      target.y = THREE.MathUtils.clamp(target.y, -panLimit, panLimit);
-      target.z = THREE.MathUtils.clamp(target.z, -panLimit, panLimit);
 
       // 🔍 DEBUG: Log angles when user is manually moving camera (throttled)
       if (!isTransitioning.current && Math.random() < 0.02) { // Only log 2% of frames to avoid spam
@@ -173,8 +175,9 @@ function CameraUpdater() {
  * This component "composes" the scene by bringing together the Canvas, Camera,
  * Controls, and Logic (CameraUpdater). It acts as a container/orchestrator.
  */
-export default function Scene({ children, cameraConfig }) {
+export default function Scene({ children, cameraConfig, musicValue }) {
   const frustumSize = 11;
+  console.log("SCENE: musicValue is", musicValue ? "DEFINED" : "UNDEFINED");
 
   // Default config if none provided (fallback)
   const defaultConfig = {
@@ -205,39 +208,39 @@ export default function Scene({ children, cameraConfig }) {
         gl.setClearColor("#030f1f");
       }}
     >
-      <OrthographicCamera
-        makeDefault
-        left={-frustumSize}
-        right={frustumSize}
-        top={frustumSize / 2}
-        bottom={-frustumSize / 2}
-        near={0.01}
-        far={20}
-        position={initialConfigRef.current.position} // Use initial position only
-        zoom={initialConfigRef.current.zoom}         // Use initial zoom only
-      />
+      <MusicContext.Provider value={musicValue}>
+        <OrthographicCamera
+          makeDefault
+          left={-frustumSize}
+          right={frustumSize}
+          top={frustumSize / 2}
+          bottom={-frustumSize / 2}
+          near={0.01}
+          far={20}
+          position={initialConfigRef.current.position} // Use initial position only
+          zoom={initialConfigRef.current.zoom}         // Use initial zoom only
+        />
 
-      {/* Updates the camera frustum on resize */}
-      <CameraUpdater />
+        {/* Updates the camera frustum on resize */}
+        <CameraUpdater />
 
-      {/* Encapsulated controls logic with smooth transitions */}
-      <CameraController
-        targetPosition={config.position}
-        targetLookAt={config.target}
-        targetZoom={config.zoom}
-        minAzimuthAngle={config.minAzimuthAngle}
-        maxAzimuthAngle={config.maxAzimuthAngle}
-        minPolarAngle={config.minPolarAngle}
-        maxPolarAngle={config.maxPolarAngle}
-        minDistance={config.minDistance}
-        maxDistance={config.maxDistance}
-        minZoom={config.minZoom}
-        maxZoom={config.maxZoom}
-      />
+        {/* Encapsulated controls logic with smooth transitions */}
+        <CameraController
+          targetPosition={config.position}
+          targetLookAt={config.target}
+          targetZoom={config.zoom}
+          minAzimuthAngle={config.minAzimuthAngle}
+          maxAzimuthAngle={config.maxAzimuthAngle}
+          minPolarAngle={config.minPolarAngle}
+          maxPolarAngle={config.maxPolarAngle}
+          minDistance={config.minDistance}
+          maxDistance={config.maxDistance}
+          minZoom={config.minZoom}
+          maxZoom={config.maxZoom}
+        />
 
-
-
-      {children}
+        {children}
+      </MusicContext.Provider>
     </Canvas>
   );
 }

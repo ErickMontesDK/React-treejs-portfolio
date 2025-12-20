@@ -112,6 +112,26 @@ const camaras = {
         minDistance: 0.001,
         maxDistance: 10,
     },
+    music: {
+        position: [1.7, 1.6, 2],
+        target: [1.7, .9, 2],
+        // position: [.7, .9, 0],
+        // target: [1.20, .9, .89],
+        zoom: 10,
+        // Límites de rotación (Azimuth = horizontal, Polar = vertical)
+        // Calculado desde posición inicial: Azimuth -23.4°, Polar 67.6° con rango ±20°
+        // Limit Right (Negative) -> Limit Left (0 or Positive)
+        // Correct logic: min < max.
+        minAzimuthAngle: -0.8, // Allow rotation to the right (approx 45 deg)
+        maxAzimuthAngle: 0,    // Stop at the center/left abajo)
+        // minPolarAngle: 0.831,     // 47.6° (20° hacia arriba)
+        // maxPolarAngle: 1.529,     // 87.6° (20° hacia abajo)
+        // Límites de zoom y distancia
+        minZoom: 10,
+        maxZoom: 15,
+        minDistance: 0.001,
+        maxDistance: 10,
+    },
 };
 
 export default camaras;

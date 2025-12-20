@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { MusicContext } from '../../context/MusicContext';
 import SceneBase from './Scene';
 import Model from './Model';
 import models from '../../data/models';
@@ -11,8 +12,8 @@ import { projects } from '../../data/projects';
 import LaptopProjectScreen from '../htmlScreens/LaptopScreen';
 import MonitorProjectScreen from '../htmlScreens/MonitorScreen';
 import Contact from '../htmlScreens/contact';
-import About from '../htmlScreens/about';
 import Blog from '../htmlScreens/blog';
+import IpodScreen from '../htmlScreens/ipodScreen';
 
 
 export default function MainScene(props) {
@@ -93,14 +94,17 @@ export default function MainScene(props) {
     }));
   };
 
+  const musicValue = useContext(MusicContext);
+
   return (
     <div id="three-container" onMouseMove={handleMouseMove}>
-      <SceneBase cameraConfig={camera}>
+      <SceneBase cameraConfig={camera} musicValue={musicValue}>
         {/* Suelo */}
         <mesh position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <circleGeometry args={[5, 30]} />
           <meshStandardMaterial color="#08550d" />
         </mesh>
+
 
         {/* Modelo cargado */}
 
@@ -124,6 +128,7 @@ export default function MainScene(props) {
               disableFeatures={disableFeatures}
               url={model.url ?? null}
               isActive={model.transitions ? camera === camaras[model.transitions.camera] : true}
+              onClick={model.onClick ?? null}
             >
               {model.name === "phone" && camera === camaras.experience &&
                 <HtmlModelScreen
@@ -175,6 +180,14 @@ export default function MainScene(props) {
                   position={[-1.57, .895, -1.155]}
                   className="blog-screen">
                   <Blog />
+                </HtmlModelScreen>
+              }
+              {model.name === "ipod" && camera === camaras.music &&
+                <HtmlModelScreen
+                  rotation={[-Math.PI / 2.2, Math.PI / 33, Math.PI / 1.16]}
+                  position={[1.522, 0.615, 2.0355]}
+                  className="ipod-screen">
+                  <IpodScreen />
                 </HtmlModelScreen>
               }
             </Model>
