@@ -55,6 +55,8 @@ function App() {
         <Titles key="contact" header="Contact" sub="" />
       ) : camera === camaras.projects ? (
         <Titles key="projects" header="Projects" sub="" />
+      ) : camera === camaras.blog ? (
+        <Titles key="blog" header="Blog" sub="" />
       ) : (
         <Titles key="home" header="Erick Montes Bedolla" sub="FullStack Developer" />
       )}
