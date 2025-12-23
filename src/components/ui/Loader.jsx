@@ -24,13 +24,11 @@ export default function Loader({ onEnter }) {
                 <div className="loader-cover dev-code-layout main-top-cover">
                     {/* Side Titles (Vertical) */}
                     <div className="vertical-side-title left">
-                        <span>T</span><span>H</span><span>E</span>
-                        <br />
-                        <span>D</span><span>E</span><span>V</span>
+                        <span>D</span><span>E</span><span>V</span><span>E</span><span>L</span><span>O</span><span>P</span><span>E</span><span>R</span>
                     </div>
 
                     <div className="vertical-side-title right">
-                        <span>C</span><span>O</span><span>D</span><span>E</span>
+                        <span>P</span><span>O</span><span>R</span><span>T</span><span>F</span><span>O</span><span>L</span><span>I</span><span>O</span>
                     </div>
 
                     {/* Main Illustration */}
@@ -57,7 +55,7 @@ export default function Loader({ onEnter }) {
                                 <div className="progress-bar-minimal">
                                     <div className="progress-fill-neon" style={{ width: `${progress}%` }}></div>
                                 </div>
-                                <span className="loading-tag">UPLOADING DATA... {Math.round(progress)}%</span>
+                                <span className="loading-tag">LOADING DATA... {Math.round(progress)}%</span>
                             </div>
                         ) : (
                             <div className="barcode-sticker">
@@ -72,7 +70,7 @@ export default function Loader({ onEnter }) {
                                 <div className="sticker-right">
                                     <div className="percentage-box">
                                         <span className="percent-val">100%</span>
-                                        <span className="percent-meta">714593-0485</span>
+                                        <span className="percent-meta">0409-1995</span>
                                     </div>
                                     <button className="enter-btn-comic" onClick={onEnter}>
                                         ENTER
@@ -85,7 +83,7 @@ export default function Loader({ onEnter }) {
                     {/* Corner Badge */}
                     <div className="editorial-badge">
                         <img src={batLogoWhite} alt="Logo" className="badge-logo-img" />
-                        <span className="badge-text">DIGITAL CREATIONS</span>
+                        <span className="badge-text">Dark Knight</span>
                     </div>
                 </div>
             </div>

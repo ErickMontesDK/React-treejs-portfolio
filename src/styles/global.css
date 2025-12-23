@@ -19,11 +19,18 @@ body * {
   width: 100%;
   height: 100vh;
   position: relative;
-  padding: 50px;
-  /* Restored spacious padding */
+  padding: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--paper-color);
+  background-image:
+    var(--paper-dots),
+    url('../assets/loader/papertexture.png'),
+    url('../assets/loader/grain-texture.png');
+  background-blend-mode: normal, multiply, overlay;
+  background-size: 20px 20px, cover, cover;
+  background-repeat: repeat, no-repeat, no-repeat;
 }
 
 @keyframes comic-pop {
@@ -92,13 +99,12 @@ body * {
 
 .comic-button {
   border: var(--comic-border);
-  background-color: var(--accent-red);
-  /* Default accent */
+  background-color: var(--ink-color);
   color: var(--white_color);
   font-size: var(--bottoms-icon-size);
-  width: 50px;
-  height: 50px;
-  border-radius: 50% 40% 60% 40% / 50% 50% 40% 60%;
+  width: 55px;
+  height: 55px;
+  border-radius: 50% 45% 55% 45% / 45% 50% 40% 60%;
   /* Sketchy circle */
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -120,12 +126,18 @@ body * {
 
 /* Variant Colors for Buttons */
 .comic-button.secondary {
-  background-color: var(--accent-blue);
+  background-color: var(--neon-blue);
+  color: var(--ink-color);
 }
 
 .comic-button.tertiary {
   background-color: var(--accent-yellow);
   color: var(--ink-color);
+}
+
+.comic-button.primary {
+  background-color: var(--ink-color);
+  color: #fff;
 }
 
 
