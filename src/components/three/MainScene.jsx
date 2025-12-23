@@ -34,12 +34,9 @@ export default function MainScene(props) {
 
 
   useEffect(() => {
-    console.log("MainScene: Camera changed to", camera === camaras.main ? "MAIN" : "OTHER");
     if (camera !== camaras.main) {
-      console.log("MainScene: Disabling features");
       setDisableFeatures(true);
     } else {
-      console.log("MainScene: Enabling features");
       setDisableFeatures(false);
     }
   }, [camera]);
@@ -51,9 +48,6 @@ export default function MainScene(props) {
     position: { x: 0, y: 0 }
   });
 
-  useEffect(() => {
-    console.log(tooltip, "tooltip");
-  }, [tooltip]);
 
   const handleSwitchChange = (names, value) => {
     setSwitchesState((prevState) => {

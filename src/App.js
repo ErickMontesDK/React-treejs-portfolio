@@ -10,15 +10,19 @@ import InfoCards from './components/ui/InfoCards';
 import Skills from './components/htmlScreens/skills';
 import About from './components/htmlScreens/about';
 import IpodPlayer from './components/ui/IpodPlayer';
+import Loader from './components/ui/Loader';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [camera, setCamera] = useState(camaras.main);
   const [isHelperOn, setIsHelperOn] = useState(false);
+  const [isStarted, setIsStarted] = useState(false);
 
   return (
     <MusicProvider>
       <div className="App">
+        {!isStarted && <Loader onEnter={() => setIsStarted(true)} />}
+
         <MainScene
           camera={camera}
           setCamera={setCamera}

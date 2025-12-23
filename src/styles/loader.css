@@ -1,0 +1,379 @@
+/*---------- GLOBAL LOADER ----------*/
+.loader-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Background Surface Texture */
+.loader-bg-surface {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(35, 35, 45, 1) 0%, rgba(10, 10, 15, 1) 100%),
+        url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23ffffff' fill-opacity='0.15'/%3E%3C/svg%3E");
+    background-size: cover, 60px 60px;
+    z-index: 1;
+}
+
+.loader-bg-surface::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(0, 0, 0, 0.8) 100%);
+    pointer-events: none;
+}
+
+/*---------- COMIC STACK ----------*/
+.comic-stack-container {
+    position: relative;
+    width: 95%;
+    max-width: 500px;
+    height: 90vh;
+    max-height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.stack-underlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #111;
+    background: #1a1a1a;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.layer-1 {
+    transform: rotate(4deg) translate(10px, 5px);
+    background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+    z-index: 2;
+}
+
+.layer-2 {
+    transform: rotate(-6deg) translate(-15px, 10px);
+    background: linear-gradient(45deg, #222, #000);
+    z-index: 1;
+}
+
+.main-top-cover {
+    z-index: 5;
+    transform: rotate(-2deg);
+    box-shadow: 20px 30px 60px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease-out;
+}
+
+.loader-cover {
+    width: 100%;
+    height: 100%;
+    background: #0d0d0d;
+    border: 2px solid #333;
+    position: relative;
+    overflow: hidden;
+    animation: entrance-pop 0.8s ease-out;
+}
+
+/*---------- DEV CODE LAYOUT ----------*/
+.dev-code-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vertical-side-title {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 4rem;
+    line-height: 0.85;
+    color: rgba(255, 255, 255, 0.35);
+    /* Increased for better legibility */
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    letter-spacing: -2px;
+}
+
+.vertical-side-title.left {
+    left: 15px;
+}
+
+.vertical-side-title.right {
+    right: 15px;
+}
+
+.main-art-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: radial-gradient(circle at 50% 50%, #1a3a4a 0%, #0d0d0d 100%);
+    /* Adds depth behind transparency */
+}
+
+.main-comic-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.4));
+}
+
+.atmospheric-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 150, 255, 0.1) 0%, rgba(0, 0, 0, 0.5) 80%);
+    pointer-events: none;
+}
+
+/*---------- CREDITS ----------*/
+.credits-section {
+    position: absolute;
+    bottom: 24%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 20;
+    color: #fff;
+    text-align: center;
+}
+
+.credits-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
+
+.credits-name {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1.1rem;
+    margin: 2px 0;
+}
+
+.editorial-logo-small {
+    width: 25px;
+    opacity: 0.5;
+    margin-top: 5px;
+}
+
+/*---------- STICKER / BUTTON ----------*/
+.sticker-container {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: 300px;
+}
+
+.loading-data-simple {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress-bar-minimal {
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-fill-neon {
+    height: 100%;
+    background: #00d2ff;
+    box-shadow: 0 0 10px #00d2ff;
+    transition: width 0.3s ease-out;
+}
+
+.loading-tag {
+    font-size: 9px;
+    font-weight: 900;
+    color: #888;
+    letter-spacing: 2px;
+}
+
+.barcode-sticker {
+    background: #fff;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: rotate(-1deg);
+    /* Modified to follow the comic tilt better */
+}
+
+.sticker-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.barcode-generated {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5px;
+    height: 30px;
+    padding: 2px 0;
+}
+
+.barcode-line {
+    background: #000;
+    height: 100%;
+}
+
+.barcode-line.w-1 {
+    width: 1px;
+}
+
+.barcode-line.w-2 {
+    width: 2.5px;
+}
+
+.barcode-line.w-3 {
+    width: 1.5px;
+}
+
+.barcode-line.w-4 {
+    width: 3px;
+}
+
+.barcode-line.s-1 {
+    margin-right: 1px;
+}
+
+.barcode-numbers {
+    font-size: 7px;
+    font-weight: 700;
+    color: #000;
+    margin-top: 2px;
+}
+
+.sticker-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.percentage-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 5px;
+}
+
+.percent-val {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: #000;
+    line-height: 1;
+}
+
+.percent-meta {
+    font-size: 6px;
+    font-weight: 700;
+    color: #666;
+}
+
+.enter-btn-comic {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 4px 15px;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: 2px solid #000;
+    outline-offset: 1px;
+}
+
+.enter-btn-comic:hover {
+    background: #333;
+    transform: translateY(-1px);
+}
+
+/*---------- EDITORIAL BADGE ----------*/
+.editorial-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 20;
+}
+
+.badge-logo-img {
+    width: 35px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+}
+
+.badge-text {
+    font-size: 7px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    opacity: 0.6;
+}
+
+/*---------- TEXTURE OVERLAYS ----------*/
+.grain-overlay,
+.paper-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 80;
+}
+
+.grain-overlay {
+    background-image: url('../assets/loader/grain-texture.png');
+    opacity: 0.15;
+    mix-blend-mode: soft-light;
+}
+
+.paper-overlay {
+    background-image: url('../assets/loader/papertexture.png');
+    opacity: 0.25;
+    mix-blend-mode: multiply;
+}
+
+/*---------- ANIMATIONS ----------*/
+@keyframes entrance-pop {
+    0% {
+        transform: scale(1.05) rotate(-5deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) rotate(-2deg);
+        opacity: 1;
+    }
+}

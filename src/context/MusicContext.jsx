@@ -34,29 +34,69 @@ export const MusicProvider = ({ children }) => {
     ];
 
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true); // Preferred state
     const [currentTime, setCurrentTime] = useState(0);
     const audioRef = useRef(null);
+    const hasInteracted = useRef(false);
 
     const currentSong = playlist[currentSongIndex];
 
-    // Initialize audio element
+    const playAudio = () => {
+        if (audioRef.current && isPlaying) {
+            audioRef.current.play().then(() => {
+                hasInteracted.current = true;
+            }).catch(err => {
+                // Autoplay usually fails on fresh load without interaction
+                console.log("Waiting for user interaction to start audio...");
+            });
+        }
+    };
+
+    // Handle first interaction to "unlock" audio
     useEffect(() => {
+        const handleFirstInteraction = () => {
+            if (!hasInteracted.current && isPlaying) {
+                playAudio();
+            }
+            // We can remove the listeners once the user interacts
+            window.removeEventListener('click', handleFirstInteraction);
+            window.removeEventListener('keydown', handleFirstInteraction);
+            window.removeEventListener('touchstart', handleFirstInteraction);
+        };
+
+        window.addEventListener('click', handleFirstInteraction);
+        window.addEventListener('keydown', handleFirstInteraction);
+        window.addEventListener('touchstart', handleFirstInteraction);
+
+        return () => {
+            window.removeEventListener('click', handleFirstInteraction);
+            window.removeEventListener('keydown', handleFirstInteraction);
+            window.removeEventListener('touchstart', handleFirstInteraction);
+        };
+    }, [isPlaying]);
+
+    // Initialize audio element when song changes
+    useEffect(() => {
+        // Cleanup previous audio
+        if (audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current.src = "";
+            audioRef.current.load();
+        }
+
         audioRef.current = new Audio(currentSong.file);
         audioRef.current.loop = false;
 
-        // Update current time
-        const updateTime = () => {
-            setCurrentTime(audioRef.current.currentTime);
-        };
-
-        // Handle song end
-        const handleEnded = () => {
-            next();
-        };
+        const updateTime = () => setCurrentTime(audioRef.current.currentTime);
+        const handleEnded = () => next();
 
         audioRef.current.addEventListener('timeupdate', updateTime);
         audioRef.current.addEventListener('ended', handleEnded);
+
+        // Attempt to play
+        if (isPlaying) {
+            playAudio();
+        }
 
         return () => {
             if (audioRef.current) {
@@ -67,15 +107,12 @@ export const MusicProvider = ({ children }) => {
         };
     }, [currentSongIndex]);
 
-    // Play/Pause when isPlaying changes
+    // Play/Pause when isPlaying toggle
     useEffect(() => {
         if (!audioRef.current) return;
 
         if (isPlaying) {
-            audioRef.current.play().catch(err => {
-                console.error("Error playing audio:", err);
-                setIsPlaying(false);
-            });
+            playAudio();
         } else {
             audioRef.current.pause();
         }
@@ -95,19 +132,15 @@ export const MusicProvider = ({ children }) => {
 
     const next = () => {
         setCurrentSongIndex((prev) => (prev + 1) % playlist.length);
-        setIsPlaying(true);
         setCurrentTime(0);
     };
 
     const previous = () => {
         if (currentTime > 3) {
-            // If more than 3 seconds into song, restart it
             audioRef.current.currentTime = 0;
             setCurrentTime(0);
         } else {
-            // Otherwise go to previous song
             setCurrentSongIndex((prev) => (prev - 1 + playlist.length) % playlist.length);
-            setIsPlaying(true);
             setCurrentTime(0);
         }
     };
