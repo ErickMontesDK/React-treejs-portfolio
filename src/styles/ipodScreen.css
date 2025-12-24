@@ -34,46 +34,91 @@
     font-weight: bold;
 }
 
-/* Album Art */
+/* Album Art Container (Perspective) */
+.album-art-container {
+    width: 45%;
+    perspective: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .album-art {
-    width: 100%;
-    height: 18px;
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 1px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transform: rotateY(15deg);
+    transition: transform 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 1px;
-    margin-bottom: 2px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.album-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .album-placeholder {
-    font-size: 10px;
+    font-size: 8px;
     color: white;
     opacity: 0.9;
 }
 
+.song-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 35px;
+    padding: 0 2px;
+}
+
 /* Song Info */
 .song-info {
-    text-align: center;
-    margin-bottom: 2px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 55%;
+    padding-left: 2px;
 }
 
 .song-title {
     font-size: 3.5px;
     font-weight: bold;
-    margin-bottom: 0.5px;
+    margin-bottom: 0.2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #000;
+}
+
+.artist,
+.album-name {
+    font-size: 2.5px;
+    color: #444;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.artist {
+.rating {
+    font-size: 3px;
+    color: #1a1a1a;
+    margin: 0.5px 0;
+    letter-spacing: -0.2px;
+}
+
+.track-count {
     font-size: 2.5px;
     color: #666;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-weight: bold;
 }
 
 /* Progress Bar */

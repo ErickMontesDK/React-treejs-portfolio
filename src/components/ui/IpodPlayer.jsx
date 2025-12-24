@@ -26,13 +26,7 @@ export default function IpodPlayer() {
                     </button>
 
                     {/* Wheel Buttons */}
-                    <button
-                        className="wheel-button wheel-top"
-                        onClick={() => { }}
-                        aria-label="Menu"
-                    >
-                        MENU
-                    </button>
+
 
                     <button
                         className="wheel-button wheel-left"
@@ -50,13 +44,7 @@ export default function IpodPlayer() {
                         ⏭
                     </button>
 
-                    <button
-                        className="wheel-button wheel-bottom"
-                        onClick={togglePlay}
-                        aria-label="Play/Pause"
-                    >
-                        {isPlaying ? "❚❚" : "▶"}
-                    </button>
+
                 </div>
             </div>
         </div>

@@ -1,4 +1,7 @@
 import React, { createContext, useContext, useState, useRef, useEffect } from 'react';
+import skeleta from '../assets/images/ipod/skeleta.jpg';
+import love_in_song from '../assets/images/ipod/venusandmars.jpg';
+import snake_eyes from '../assets/images/ipod/parsons.jpg';
 
 export const MusicContext = createContext();
 
@@ -14,22 +17,31 @@ export const MusicProvider = ({ children }) => {
     // Playlist with song metadata
     const playlist = [
         {
-            title: "Coding Vibes",
-            artist: "Lo-Fi Beats",
-            duration: 225, // 3:45
-            file: "/music/coding-vibes.mp3"
+            title: "Umbra",
+            artist: "Ghost",
+            album: "Meliora",
+            duration: 269, // 4:39
+            file: "/music/umbra.mp3",
+            image: skeleta,
+            rating: 5
         },
         {
-            title: "Focus Flow",
-            artist: "Chill Hop",
-            duration: 198, // 3:18
-            file: "/music/focus-flow.mp3"
+            title: "Snake Eyes",
+            artist: "Alan Parsons Project",
+            album: "The Turn of a Friendly Card",
+            duration: 180, // 3:00
+            file: "/music/snake_eyes.mp3",
+            image: snake_eyes,
+            rating: 4
         },
         {
-            title: "Deep Work",
-            artist: "Study Music",
-            duration: 210, // 3:30
-            file: "/music/deep-work.mp3"
+            title: "Love in Song",
+            artist: "Wings",
+            album: "Venus and Mars",
+            duration: 183, // 3:03
+            file: "/music/love_in_song.mp3",
+            image: love_in_song,
+            rating: 5
         }
     ];
 

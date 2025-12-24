@@ -2,7 +2,7 @@ import './../../styles/ipodScreen.css';
 import { useMusic } from '../../context/MusicContext';
 
 export default function IpodScreen() {
-    const { currentSong, isPlaying, currentTime } = useMusic();
+    const { currentSong, isPlaying, currentTime, playlist, currentSongIndex } = useMusic();
 
     // Format time as MM:SS
     const formatTime = (seconds) => {
@@ -22,15 +22,30 @@ export default function IpodScreen() {
                 <span className="time">3:14</span>
             </div>
 
-            {/* Album Art */}
-            <div className="album-art">
-                <div className="album-placeholder">♪</div>
-            </div>
+            <div className="song-data">
+                {/* Album Art */}
+                <div className="album-art-container">
+                    <div className="album-art">
+                        {currentSong.image ? (
+                            <img src={currentSong.image} alt={currentSong.title} className="album-img" />
+                        ) : (
+                            <div className="album-placeholder">♪</div>
+                        )}
+                    </div>
+                </div>
 
-            {/* Song Info */}
-            <div className="song-info">
-                <div className="song-title">{currentSong.title}</div>
-                <div className="artist">{currentSong.artist}</div>
+                {/* Song Info */}
+                <div className="song-info">
+                    <div className="song-title">{currentSong.title}</div>
+                    <div className="artist">{currentSong.artist}</div>
+                    <div className="album-name">{currentSong.album}</div>
+                    <div className="rating">
+                        {'★'.repeat(currentSong.rating || 0).padEnd(5, '☆')}
+                    </div>
+                    <div className="track-count">
+                        {currentSongIndex + 1} of {playlist.length}
+                    </div>
+                </div>
             </div>
 
             {/* Progress Bar */}

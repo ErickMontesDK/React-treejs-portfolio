@@ -8,10 +8,18 @@ import batLogoWhite from '../../assets/loader/bat_logo_white.png';
 
 export default function Loader({ onEnter }) {
     const { progress } = useProgress();
+    const [isExiting, setIsExiting] = React.useState(false);
     const isReady = progress === 100;
 
+    const handleEnter = () => {
+        setIsExiting(true);
+        setTimeout(() => {
+            onEnter();
+        }, 1300); // Wait for CSS transition (1.3s)
+    };
+
     return (
-        <div className="loader-screen">
+        <div className={`loader-screen ${isExiting ? 'exiting' : ''}`}>
             {/* Background Narrative/Textured Surface */}
             <div className="loader-bg-surface"></div>
 
@@ -72,7 +80,7 @@ export default function Loader({ onEnter }) {
                                         <span className="percent-val">100%</span>
                                         <span className="percent-meta">0409-1995</span>
                                     </div>
-                                    <button className="enter-btn-comic" onClick={onEnter}>
+                                    <button className="enter-btn-comic" onClick={handleEnter}>
                                         ENTER
                                     </button>
                                 </div>

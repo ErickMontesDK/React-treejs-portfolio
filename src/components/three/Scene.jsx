@@ -175,7 +175,7 @@ function CameraUpdater() {
  * This component "composes" the scene by bringing together the Canvas, Camera,
  * Controls, and Logic (CameraUpdater). It acts as a container/orchestrator.
  */
-export default function Scene({ children, cameraConfig, musicValue }) {
+export default function Scene({ children, cameraConfig, musicValue, darkMode }) {
   const frustumSize = 11;
   console.log("SCENE: musicValue is", musicValue ? "DEFINED" : "UNDEFINED");
 
@@ -204,10 +204,8 @@ export default function Scene({ children, cameraConfig, musicValue }) {
     <Canvas
       shadows
       gl={{ antialias: true }}
-      onCreated={({ gl }) => {
-        gl.setClearColor("#030f1f");
-      }}
     >
+      <color attach="background" args={[darkMode ? "#030f1f" : "#0c88ba"]} />
       <MusicContext.Provider value={musicValue}>
         <OrthographicCamera
           makeDefault

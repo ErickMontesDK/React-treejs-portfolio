@@ -48,6 +48,12 @@ const models = [
         "transitions": {
             "name": "about",
             "camera": "about",
+        },
+        "onClick": (context) => {
+            if (context?.isAudio) {
+                const sound = new Audio('/sounds/soda.wav');
+                sound.play();
+            }
         }
     },
     {
@@ -158,6 +164,12 @@ const models = [
         "transitions": {
             "name": "experience",
             "camera": "experience",
+        },
+        "onClick": (context) => {
+            if (context?.isAudio) {
+                const sound = new Audio('/sounds/unlocking.wav');
+                sound.play();
+            }
         }
     },
     {
@@ -177,16 +189,15 @@ const models = [
         "model": printer,
         "description": "Download resume",
         "animation": "onClick",
-        "onClick": () => {
+        "onClick": (context) => {
+            if (context?.isAudio) {
+                const sound = new Audio('/sounds/printer.wav');
+                sound.play();
+            }
             setTimeout(() => {
                 console.log("¡Impresora clickeada! Descargando resume...");
                 window.open('/resume.pdf', '_blank');
             }, 4700);
-            // Aquí puedes agregar tu lógica personalizada
-            // Por ejemplo, descargar un PDF:
-            // window.open('/path/to/resume.pdf', '_blank');
-            // O disparar un evento personalizado:
-            // window.dispatchEvent(new CustomEvent('downloadResume'));
         }
     },
     {

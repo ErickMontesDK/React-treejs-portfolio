@@ -5,7 +5,7 @@ import { useMusic } from "../../context/MusicContext";
 
 
 export default function Menu(props) {
-    const { darkMode, setDarkMode, camera, setCamera, setIsHelperOn } = props;
+    const { darkMode, setDarkMode, camera, setCamera, setIsHelperOn, isAudio, setIsAudio } = props;
     const { togglePlay, isPlaying } = useMusic();
 
     const handleDarkMode = () => {
@@ -13,7 +13,13 @@ export default function Menu(props) {
     }
 
     const handleAudio = () => {
-        togglePlay();
+        if (isAudio) {
+            setIsAudio(false);
+            togglePlay();
+        } else {
+            setIsAudio(true);
+            togglePlay();
+        }
     }
 
 
@@ -35,7 +41,7 @@ export default function Menu(props) {
 
             <button className="comic-button" onClick={handleDarkMode}><i className={`fa-solid ${darkMode ? 'fa-sun' : 'fa-moon'}`}></i></button>
             <button className="comic-button tertiary" onClick={handleAudio}>
-                <i className={`fa-solid ${isPlaying ? 'fa-music' : 'fa-volume-xmark'}`}></i>
+                <i className={`fa-solid ${!isAudio ? 'fa-music' : 'fa-volume-xmark'}`}></i>
             </button>
         </div>
     )

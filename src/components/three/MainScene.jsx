@@ -18,7 +18,7 @@ import IpodScreen from '../htmlScreens/ipodScreen';
 
 export default function MainScene(props) {
   const [switchesState, setSwitchesState] = useState({});
-  const { camera, setCamera, isHelperOn, children } = props;
+  const { camera, setCamera, isHelperOn, isAudio, children, darkMode } = props;
   const [disableFeatures, setDisableFeatures] = useState(false);
 
   // Projects State
@@ -92,7 +92,7 @@ export default function MainScene(props) {
 
   return (
     <div id="three-container" onMouseMove={handleMouseMove}>
-      <SceneBase cameraConfig={camera} musicValue={musicValue}>
+      <SceneBase cameraConfig={camera} musicValue={musicValue} darkMode={darkMode}>
         {/* Suelo */}
         <mesh position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <circleGeometry args={[5, 30]} />
@@ -122,7 +122,7 @@ export default function MainScene(props) {
               disableFeatures={disableFeatures}
               url={model.url ?? null}
               isActive={model.transitions ? camera === camaras[model.transitions.camera] : true}
-              onClick={model.onClick ?? null}
+              onClick={model.onClick ? (e) => model.onClick({ isAudio }) : null}
             >
               {model.name === "phone" && camera === camaras.experience &&
                 <HtmlModelScreen
@@ -189,6 +189,7 @@ export default function MainScene(props) {
         })}
         <Lights
           switchStates={switchesState}
+          darkMode={darkMode}
         />
       </SceneBase>
 
