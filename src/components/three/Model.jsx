@@ -31,6 +31,9 @@ export default function Model({
   onShowTooltip = null,
   onHideTooltip = null,
   disableFeatures = false,
+  isActive = false,
+  url = null,
+  onClick = null,
   children = null
 }) {
   const { scene } = useThree();
@@ -44,6 +47,7 @@ export default function Model({
     // Show tooltip if text is provided
     if (tooltipText && onShowTooltip) {
       onShowTooltip(tooltipText);
+      console.log("showTooltip");
     }
   };
 
@@ -52,6 +56,7 @@ export default function Model({
     // Hide tooltip
     if (onHideTooltip) {
       onHideTooltip();
+      console.log("hideTooltip");
     }
   };
 
@@ -66,7 +71,10 @@ export default function Model({
     initialStateDark,
     camera,
     transitions,
-    tooltipText
+    tooltipText,
+    url,
+    isActive,
+    onClickCallback: onClick
   });
 
   // Wrapper to remove hover clone when clicking
@@ -100,6 +108,7 @@ export default function Model({
 
   // EFFECT: Handle hover - create scaled white clone
   useEffect(() => {
+    // console.log("Model Effect Check:", { name: gltf.scene.name, isHover, disableFeatures, isHelperOn });
     if (!modelRef.current || !isClickable || (!transitions && tooltipText && !animationStyle)) return;
 
     if ((isHover || isHelperOn) && !disableFeatures) {
@@ -113,6 +122,10 @@ export default function Model({
 
       // Scale each mesh individually from its center, not the group
       clone.traverse((child) => {
+        // Disable raycasting on EVERYTHING in the clone (meshes, lines, etc.)
+        // This is critical: if we don't disable it here, lines/groups will block the hitbox
+        child.raycast = () => null;
+
         if (child.isMesh) {
           // Scale the mesh geometry itself
           child.scale.multiplyScalar(1.1);

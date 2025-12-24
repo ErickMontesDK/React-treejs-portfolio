@@ -19,7 +19,10 @@ export function useModelAnimations({
     initialStateDark,
     camera,
     transitions,
-    tooltipText
+    tooltipText,
+    url,
+    isActive,
+    onClickCallback
 }) {
     // State for animation playback
     const [isPlaying, setIsPlaying] = useState(false);
@@ -48,7 +51,7 @@ export function useModelAnimations({
     const hasOnToggle = animationStyle === "onToggle";
     const hasOnHover = animationStyle === "onHover";
 
-    const isClickable = switchLight || tooltipText || ["onClick", "onHover", "onToggle"].includes(animationStyle) || transitions;
+    const isClickable = switchLight || tooltipText || ["onClick", "onHover", "onToggle"].includes(animationStyle) || transitions || (url && isActive);
 
     // 1. SETUP: Initialize Mixer and Actions
     useEffect(() => {
@@ -202,20 +205,25 @@ export function useModelAnimations({
     const handleClick = (event) => {
         event.stopPropagation();
         userOverrideRef.current = true; // User took control
-        console.log("click", transitions, camera);
+
+        // Execute custom onClick callback if provided
+        if (onClickCallback && typeof onClickCallback === 'function') {
+            onClickCallback();
+        }
 
         // Handle camera transitions (works for any clickable model)
         if (camera && transitions) {
-            console.log("About to call transitions with:", camera);
-            console.log("transitions function is:", transitions);
             transitions(camera);
-            console.log("transitions called!");
+        }
+
+        // Handle URL opening if active (e.g. already looking at it)
+        if (url && isActive) {
+            window.open(url, '_blank');
         }
 
         if (hasOnClick) {
             // For 'onClick' animations (triggers), we want to replay the animation on every click
             // instead of toggling it off.
-            console.log("si soy");
             if (isPlaying) {
                 // If already playing (or finished/clamped), force a replay
                 if (actionsRef.current) {

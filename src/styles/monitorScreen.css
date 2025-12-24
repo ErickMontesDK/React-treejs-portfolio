@@ -1,0 +1,236 @@
+/* Macro GitHub Theme */
+:root {
+    --gh-bg: #0d1117;
+    --gh-card-bg: #161b22;
+    --gh-border: #41464c;
+    --gh-text-main: #c9d1d9;
+    --gh-text-muted: #8b949e;
+    --gh-accent: #58a6ff;
+    --gh-success: #238636;
+}
+
+.monitor-project-container.github-macro {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--gh-bg);
+    color: var(--gh-text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* Header */
+.macro-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--gh-border);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.repo-identity {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 2.5rem;
+    /* Large font */
+}
+
+.repo-identity i {
+    color: var(--gh-text-main);
+}
+
+.repo-identity .owner {
+    color: var(--gh-accent);
+}
+
+.repo-identity .name {
+    color: var(--gh-accent);
+    font-weight: bold;
+}
+
+.badge {
+    border: 2px solid var(--gh-border);
+    border-radius: 50px;
+    padding: 5px 20px;
+    font-size: 1.5rem;
+    color: var(--gh-text-muted);
+    margin-left: 20px;
+}
+
+.macro-stats {
+    display: flex;
+    gap: 30px;
+}
+
+.stat-item {
+    font-size: 2rem;
+    color: var(--gh-text-muted);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gh-card-bg);
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--gh-border);
+}
+
+/* Content */
+.macro-content {
+    flex: 1;
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+}
+
+.description-box {
+    flex: 2;
+    border: 1px solid var(--gh-border);
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.macro-title {
+    font-size: 2rem;
+    border-bottom: 1px solid var(--gh-border);
+    padding-bottom: 15px;
+    margin: 0 0 20px 0;
+    color: var(--gh-text-main);
+}
+
+.macro-desc {
+    font-size: 2.2rem;
+    line-height: 1.6;
+    color: var(--gh-text-main);
+    flex: 1;
+}
+
+.macro-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.tech-chip {
+    background: rgba(88, 166, 255, 0.15);
+    color: var(--gh-accent);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.macro-actions {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.action-card {
+    flex: 1;
+    border-bottom: 1px solid var(--gh-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--gh-text-main);
+    transition: all 0.2s;
+    font-size: 1.5rem;
+    padding: 20px 0;
+}
+
+.action-card:last-child {
+    border-bottom: none;
+}
+
+/* Inner Button Style */
+.gh-macro-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 2.2rem;
+    transition: transform 0.2s;
+    width: 80%;
+    border: 1px solid rgba(240, 246, 252, 0.1);
+}
+
+.gh-macro-btn:hover {
+    transform: scale(1.05);
+}
+
+.gh-macro-btn i {
+    font-size: 2rem;
+}
+
+/* Green Button (Visit) */
+.gh-macro-btn.live {
+    background-color: #238636;
+    color: #ffffff;
+}
+
+.gh-macro-btn.live:hover {
+    background-color: #2ea043;
+}
+
+/* Gray Button (Code) */
+.gh-macro-btn.code {
+    background-color: #21262d;
+    color: #c9d1d9;
+}
+
+.gh-macro-btn.code:hover {
+    background-color: #30363d;
+    border-color: #8b949e;
+}
+
+
+/* Footer Nav */
+.macro-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    background: var(--gh-card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--gh-border);
+}
+
+.nav-arrow {
+    background: var(--gh-accent);
+    color: white;
+    border: none;
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    font-size: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s;
+}
+
+.nav-arrow:hover {
+    transform: scale(1.05);
+}
+
+.nav-info {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--gh-text-muted);
+}

@@ -19,11 +19,34 @@ body * {
   width: 100%;
   height: 100vh;
   position: relative;
-  padding: 50px;
-  /* Restored spacious padding */
+  padding: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--paper-color);
+  background-image:
+    var(--paper-dots),
+    url('../assets/loader/papertexture.png'),
+    url('../assets/loader/grain-texture.png');
+  background-blend-mode: normal, multiply, overlay;
+  background-size: 20px 20px, cover, cover;
+  background-repeat: repeat, no-repeat, no-repeat;
+}
+
+@keyframes comic-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-15deg);
+  }
+
+  80% {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-1deg);
+  }
 }
 
 /* Comic Utilities */
@@ -47,6 +70,7 @@ body * {
 
 /* 3D Container Frame */
 #three-container {
+  position: relative;
   width: 100%;
   height: 100%;
   background-color: #fff;
@@ -75,13 +99,12 @@ body * {
 
 .comic-button {
   border: var(--comic-border);
-  background-color: var(--accent-red);
-  /* Default accent */
+  background-color: var(--ink-color);
   color: var(--white_color);
   font-size: var(--bottoms-icon-size);
-  width: 50px;
-  height: 50px;
-  border-radius: 50% 40% 60% 40% / 50% 50% 40% 60%;
+  width: 55px;
+  height: 55px;
+  border-radius: 50% 45% 55% 45% / 45% 50% 40% 60%;
   /* Sketchy circle */
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -103,7 +126,8 @@ body * {
 
 /* Variant Colors for Buttons */
 .comic-button.secondary {
-  background-color: var(--accent-blue);
+  background-color: var(--neon-blue);
+  color: var(--ink-color);
 }
 
 .comic-button.tertiary {
@@ -111,35 +135,45 @@ body * {
   color: var(--ink-color);
 }
 
-/* Titles Styles */
-#titles {
+.comic-button.primary {
+  background-color: var(--ink-color);
+  color: #fff;
+}
+
+
+
+.info-cards {
   position: absolute;
-  top: 30px;
-  left: 30px;
-  background-color: var(--white_color);
-  border: var(--comic-border);
-  box-shadow: var(--comic-shadow);
-  padding: 15px 25px;
+  top: 10px;
   z-index: 10;
-  transform: rotate(-1deg);
-  /* Slight tilt */
-  max-width: 300px;
+  animation: comic-pop .8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  max-height: 85vh;
+  overflow-y: auto;
+  /* Cosmetic Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-color) transparent;
 }
 
-#name {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  line-height: 1;
-  display: block;
-  margin-bottom: 5px;
+.info-cards::-webkit-scrollbar {
+  width: 8px;
 }
 
-#role {
-  font-family: var(--font-main);
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--accent-red);
-  /* Highlight role */
+.info-cards::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.info-cards::-webkit-scrollbar-thumb {
+  background-color: var(--ink-color);
+  border-radius: 4px;
+  border: 2px solid white;
+}
+
+.info-cards-left {
+  left: 20px;
+}
+
+.info-cards-right {
+  right: 20px;
 }
 
 /* Footer */
@@ -152,11 +186,6 @@ footer {
 @media screen and (max-width: 768px) {
   .App {
     padding: 10px;
-  }
-
-  #titles {
-    top: 10px;
-    left: 10px;
   }
 
   #name {
@@ -184,9 +213,4 @@ footer {
     padding: 0px;
   }
 
-  #titles {
-    bottom: 10px;
-    left: 10px;
-    top: auto;
-  }
 }

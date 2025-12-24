@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { MusicContext } from '../../context/MusicContext';
 import SceneBase from './Scene';
 import Model from './Model';
 import models from '../../data/models';
@@ -7,12 +8,30 @@ import camaras from '../../data/camaras';
 import Tooltip from '../ui/Tooltip';
 import HtmlModelScreen from './htmlModelScreen';
 import Experience from './../htmlScreens/experience';
+import { projects } from '../../data/projects';
+import LaptopProjectScreen from '../htmlScreens/LaptopScreen';
+import MonitorProjectScreen from '../htmlScreens/MonitorScreen';
+import Contact from '../htmlScreens/contact';
+import Blog from '../htmlScreens/blog';
+import IpodScreen from '../htmlScreens/ipodScreen';
 
 
 export default function MainScene(props) {
   const [switchesState, setSwitchesState] = useState({});
-  const { camera, setCamera, isHelperOn } = props;
+  const { camera, setCamera, isHelperOn, isAudio, children, darkMode } = props;
   const [disableFeatures, setDisableFeatures] = useState(false);
+
+  // Projects State
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+
+  const handleNextProject = () => {
+    setCurrentProjectIndex((prev) => (prev + 1) % projects.length);
+  };
+
+  const handlePrevProject = () => {
+    setCurrentProjectIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
 
   useEffect(() => {
     if (camera !== camaras.main) {
@@ -41,7 +60,6 @@ export default function MainScene(props) {
   };
 
   const handleTransition = (cameraName) => {
-    console.log(cameraName, "hadouken");
     setCamera(camaras[cameraName]);
   };
 
@@ -70,81 +88,122 @@ export default function MainScene(props) {
     }));
   };
 
+  const musicValue = useContext(MusicContext);
+
   return (
     <div id="three-container" onMouseMove={handleMouseMove}>
-      <SceneBase cameraConfig={camera}>
+      <SceneBase cameraConfig={camera} musicValue={musicValue} darkMode={darkMode}>
         {/* Suelo */}
         <mesh position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <circleGeometry args={[5, 30]} />
           <meshStandardMaterial color="#08550d" />
         </mesh>
 
+
         {/* Modelo cargado */}
 
-        {models?.map((model, index) => (
-          <Model
-            key={index}
-            name={model.name}
-            src={model.model}
-            animationStyle={model.animation ?? null}
-            onDarkMode={true}
-            switchLight={model.lightTags ? ((value) => handleSwitchChange(model.lightTags, value)) : null}
-            initialStateDark={model.initialStateDark ?? false}
-            initialStateLight={model.initialStateLight ?? false}
-            camera={model.transitions ? model.transitions.camera : null}
-            transitions={model.transitions ? handleTransition : null}
-            isHelperOn={isHelperOn}
-            tooltipText={model.description ?? null}
-            onShowTooltip={showTooltip}
-            onHideTooltip={hideTooltip}
-            disableFeatures={disableFeatures}
-          >
-            {model.name === "phone" &&
-              <HtmlModelScreen
-                rotation={[-Math.PI / 2, 0, Math.PI / 1.225]}
-                position={[-1.571, .9, .425]}
-                className="phone-screen"
-                disableFeatures={disableFeatures}>
-                <Experience />
-              </HtmlModelScreen>
-            }
-            {model.name === "laptop" &&
-              <HtmlModelScreen
-                rotation={[0, Math.PI / 2, 0]}
-                position={[-1.98, 1.165, -.15]}
-                className="laptop-screen"
-                disableFeatures={disableFeatures}>
-                <Experience />
-              </HtmlModelScreen>
-            }
-            {model.name === "screen" &&
-              <group rotation={[0, Math.PI / 2, 0]}>
+        {models && models.map((model, index) => {
+          return (
+            <Model
+              key={index}
+              name={model.name}
+              src={model.model}
+              animationStyle={model.animation ?? null}
+              onDarkMode={true}
+              switchLight={model.lightTags ? ((value) => handleSwitchChange(model.lightTags, value)) : null}
+              initialStateDark={model.initialStateDark ?? false}
+              initialStateLight={model.initialStateLight ?? false}
+              camera={model.transitions ? model.transitions.camera : null}
+              transitions={model.transitions ? handleTransition : null}
+              isHelperOn={isHelperOn}
+              tooltipText={model.description ?? null}
+              onShowTooltip={showTooltip}
+              onHideTooltip={hideTooltip}
+              disableFeatures={disableFeatures}
+              url={model.url ?? null}
+              isActive={model.transitions ? camera === camaras[model.transitions.camera] : true}
+              onClick={model.onClick ? (e) => model.onClick({ isAudio }) : null}
+            >
+              {model.name === "phone" && camera === camaras.experience &&
                 <HtmlModelScreen
-                  rotation={[Math.PI / 30, 0, 0]}
-                  position={[.15, 1.682, -1.97]}
-                  className="hdmi-screen"
-                  disableFeatures={disableFeatures}>
+                  rotation={[-Math.PI / 2, 0, Math.PI / 1.225]}
+                  position={[-1.571, .9, .425]}
+                  className="phone-screen">
                   <Experience />
                 </HtmlModelScreen>
-              </group>
-            }
-          </Model>
-        ))}
+              }
+              {model.name === "laptop" && camera === camaras.projects &&
+                <HtmlModelScreen
+                  rotation={[0, Math.PI / 2, 0]}
+                  position={[-1.98, 1.165, -.15]}
+                  className="laptop-screen">
+                  <LaptopProjectScreen
+                    project={projects[currentProjectIndex]}
+                  />
+                </HtmlModelScreen>
+              }
+              {model.name === "screen" && camera === camaras.projects &&
+                <group rotation={[0, Math.PI / 2, 0]}>
+                  <HtmlModelScreen
+                    rotation={[Math.PI / 30, 0, 0]}
+                    position={[.15, 1.682, -1.97]}
+                    className="hdmi-screen">
+                    <MonitorProjectScreen
+                      project={projects[currentProjectIndex]}
+                      onNext={handleNextProject}
+                      onPrev={handlePrevProject}
+                    />
+                  </HtmlModelScreen>
+                </group>
+              }
+              {model.name === "toys" && camera === camaras.contact &&
+                <group rotation={[0, Math.PI / 2, 0]}>
+                  {/* Main Contact Screen anchor */}
+                  <HtmlModelScreen
+                    rotation={[0, Math.PI / -1.8, 0]}
+                    position={[2.2, 2.25, 1.4]}
+                    className="contact-screen">
+                    {/* Only pass activeToy if it's one of the contact toys */}
+                    <Contact />
+                  </HtmlModelScreen>
+                </group>
+              }
+              {model.name === "notebook" && camera === camaras.blog &&
+                <HtmlModelScreen
+                  rotation={[-Math.PI / 2, 0, Math.PI / 4.4]}
+                  position={[-1.57, .895, -1.155]}
+                  className="blog-screen">
+                  <Blog />
+                </HtmlModelScreen>
+              }
+              {model.name === "ipod" && camera === camaras.music &&
+                <HtmlModelScreen
+                  rotation={[-Math.PI / 2.2, Math.PI / 33, Math.PI / 1.16]}
+                  position={[1.522, 0.615, 2.0355]}
+                  className="ipod-screen">
+                  <IpodScreen />
+                </HtmlModelScreen>
+              }
+            </Model>
+          );
+        })}
         <Lights
           switchStates={switchesState}
+          darkMode={darkMode}
         />
       </SceneBase>
 
-      {/* Tooltip overlay */}
+      {/* Tooltip Always On for Debug */}
       {
-        !disableFeatures && (
-          <Tooltip
-            visible={tooltip.visible}
-            text={tooltip.text}
-            position={tooltip.position}
-          />
-        )
+        !disableFeatures && <Tooltip
+          position={tooltip.position}
+          text={tooltip.text}
+          visible={tooltip.visible}
+        />
       }
+
+      {children}
+
     </div >
   );
 }

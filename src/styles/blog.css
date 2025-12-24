@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+.blog-screen {
+    width: 250px;
+    height: 350px;
+    font-family: 'Patrick Hand', cursive;
+    color: #362c2f;
+    /* Ink Blue/Black */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.blog-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #362c2f;
+    transform: rotate(-2deg);
+}
+
+.blog-subtitle {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.blog-doodle-button {
+    font-size: 1.8rem;
+    border: 10px solid #362c2f;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    /* Irregular hand-drawn circle */
+    padding: 10px 30px;
+    transition: transform 0.2s ease;
+    margin-top: 30px;
+}
+
+.blog-doodle-button:hover {
+    transform: scale(1.1) rotate(2deg);
+    background: rgba(44, 62, 80, 0.1);
+}
+
+.blog-arrow {
+    font-size: 2rem;
+    margin-top: 10px;
+    transform: rotate(90deg);
+}

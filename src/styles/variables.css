@@ -1,34 +1,31 @@
 :root {
-    /* Palette: Mature Ink & Paper */
-    --ink-color: #1a1a1a;
-    --paper-color: #dcdde1;
-    /* Platinum Grey - softer on eyes */
+    /* Palette: Dark Comic Theme */
+    --ink-color: #0d0d0d;
+    --paper-color: #fafaf9;
+    --paper-dots: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1.5'/%3E%3Ccircle cx='13' cy='13' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
+    --dark-grey: #1a1a1a;
 
-    /* Accents: Mature Marker Colors */
-    --accent-red: #b33939;
-    /* Deep Red */
-    --accent-green: #218c74;
-    /* Deep Green */
-    --accent-yellow: #cc8e35;
-    /* Ocher */
-    --accent-blue: #2c3e50;
-    /* Dark Slate Blue - Elegant & Mature */
+    /* Accents: Neon Markers */
+    --accent-red: #d63031;
+    --neon-blue: #00d2ff;
+    --ink-blue: #0984e3;
+    --neon-pink: #ff007f;
+    --accent-yellow: #feca57;
 
     /* Fonts */
     --font-main: "Patrick Hand", cursive;
-    /* Keeping for body/notes */
     --font-display: "Rubik", sans-serif;
-    /* Restored for Titles - Clean & Modern */
+    --font-comic: "Permanent Marker", cursive;
 
     /* Comic Style Elements */
-    --comic-border-width: 3px;
+    --comic-border-width: 4px;
     --comic-border: var(--comic-border-width) solid var(--ink-color);
-    --comic-shadow: 4px 4px 0px var(--ink-color);
+    --comic-shadow: 6px 6px 0px var(--ink-color);
     --comic-radius: 2px 255px 3px 25px / 255px 5px 225px 3px;
 
-    /* Legacy/Mapped Variables */
+    /* Legacy Mappings */
     --black_color: var(--ink-color);
-    --white_color: var(--paper-color);
+    --white_color: #ffffff;
     --font: var(--font-main);
     --font-light: 400;
     --font-bold: 700;

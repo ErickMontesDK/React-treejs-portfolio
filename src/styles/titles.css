@@ -1,0 +1,53 @@
+/* Titles Styles */
+#titles {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background-color: var(--paper-color);
+    background-image:
+        var(--paper-dots),
+        url('../assets/loader/papertexture.png'),
+        url('../assets/loader/grain-texture.png');
+    background-blend-mode: normal, multiply, soft-light;
+    background-size: 20px 20px, cover, cover;
+    border: var(--comic-border);
+    box-shadow: var(--comic-shadow);
+    padding: 20px 30px;
+    z-index: 10;
+    transform: rotate(-1.5deg);
+    max-width: 350px;
+    animation: comic-pop 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+#title-header {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 2.8rem;
+    line-height: 0.9;
+    display: block;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+#title-sub {
+    font-family: var(--font-comic);
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--ink-blue);
+    letter-spacing: 1px;
+}
+
+@media screen and (max-width: 768px) {
+    #titles {
+        top: 10px;
+        left: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #titles {
+        bottom: 10px;
+        left: 10px;
+        top: auto;
+    }
+}

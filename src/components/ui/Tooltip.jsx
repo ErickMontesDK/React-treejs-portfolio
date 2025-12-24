@@ -7,7 +7,8 @@ import './Tooltip.css';
  * Displays a tooltip that follows the mouse cursor when hovering over 3D objects.
  * Shows the section name for interactive models.
  */
-export default function Tooltip({ visible, text, position }) {
+export default function Tooltip(props) {
+    const { position, text, visible } = props;
     if (!visible || !text) return null;
 
     return (
@@ -16,6 +17,7 @@ export default function Tooltip({ visible, text, position }) {
             style={{
                 left: `${position.x}px`,
                 top: `${position.y}px`,
+                zIndex: 10000,
             }}
         >
             <p className="tooltip-text">{text}</p>

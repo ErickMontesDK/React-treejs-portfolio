@@ -1,8 +1,10 @@
-export default function Titles() {
+import './../../styles/titles.css';
+
+export default function Titles({ classname, header, sub }) {
     return (
-        <div id="titles" className="comic-box">
-            <span id="name">Erick Montes Bedolla</span>
-            <span id="role">FullStack Developer</span>
+        <div id="titles" className={`${classname} comic-box`}>
+            <span id="title-header">{header}</span>
+            {sub && <span id="title-sub">{sub}</span>}
         </div>
     )
 }
