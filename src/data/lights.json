@@ -19,8 +19,8 @@
             "volumetric": true,
             "attenuation": 10,
             "anglePower": 5,
-            "radiusTop": 0.1,
-            "radiusBottom": 0.5,
+            "radiusTop": 0.3,
+            "radiusBottom": 9,
             "opacity": 0.2,
             "lightTag": "roof",
             "target": [
@@ -57,13 +57,13 @@
             ],
             "angle": 0.5,
             "distance": 15,
-            "decay": 2,
+            "decay": 3,
             "castShadow": true,
             "volumetric": true,
             "attenuation": 10,
             "anglePower": 5,
             "radiusTop": 0.1,
-            "radiusBottom": 0.5,
+            "radiusBottom": 7.5,
             "opacity": 0.2
         },
         {
@@ -95,9 +95,9 @@
             "volumetric": true,
             "attenuation": 15,
             "anglePower": 5,
-            "radiusTop": 0.1,
-            "radiusBottom": 0.5,
-            "opacity": 0.15
+            "radiusTop": 0.3,
+            "radiusBottom": 18,
+            "opacity": 0.1
         },
         {
             "type": "spotlight",
@@ -129,7 +129,7 @@
             "anglePower": 2,
             "radiusTop": 0.2,
             "radiusBottom": 3,
-            "opacity": 0.4
+            "opacity": 0.5
         },
         {
             "color": "#F7EEAF",

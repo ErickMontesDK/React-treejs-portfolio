@@ -109,7 +109,7 @@ export default function MainScene(props) {
               name={model.name}
               src={model.model}
               animationStyle={model.animation ?? null}
-              onDarkMode={true}
+              onDarkMode={darkMode}
               switchLight={model.lightTags ? ((value) => handleSwitchChange(model.lightTags, value)) : null}
               initialStateDark={model.initialStateDark ?? false}
               initialStateLight={model.initialStateLight ?? false}
