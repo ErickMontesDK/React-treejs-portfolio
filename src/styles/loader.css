@@ -358,6 +358,57 @@
     transform: translateY(-1px);
 }
 
+/*---------- COMIC ISSUE BOX (TOP RIGHT) ----------*/
+.comic-issue-box {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 3px 6px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: transparent;
+    transform: rotate(1deg);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.comic-issue-box:hover {
+    opacity: 1;
+}
+
+.issue-number {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 0.9rem;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.issue-date {
+    font-size: 8px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    padding-bottom: 1px;
+}
+
+.issue-price {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 0.7rem;
+    color: #fff;
+    line-height: 0.9;
+    text-transform: uppercase;
+}
+
+
 /*---------- EDITORIAL BADGE ----------*/
 .editorial-badge {
     position: absolute;

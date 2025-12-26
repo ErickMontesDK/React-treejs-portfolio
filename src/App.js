@@ -22,7 +22,7 @@ function App() {
 
   return (
     <MusicProvider>
-      <div className="App">
+      <div className={`App ${darkMode ? 'dark-mode' : ''}`}>
         {!isStarted && <Loader onEnter={() => setIsStarted(true)} />}
 
         <MainScene

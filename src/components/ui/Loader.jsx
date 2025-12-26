@@ -93,6 +93,13 @@ export default function Loader({ onEnter }) {
                         <img src={batLogoWhite} alt="Logo" className="badge-logo-img" />
                         <span className="badge-text">Dark Knight</span>
                     </div>
+
+                    {/* Comic Price/Issue Tag - New Audio Notice */}
+                    <div className="comic-issue-box">
+                        <div className="issue-number">NO. 1</div>
+                        <div className="issue-date">2025</div>
+                        <div className="issue-price">AUDIO<br />ENABLED</div>
+                    </div>
                 </div>
             </div>
         </div>
