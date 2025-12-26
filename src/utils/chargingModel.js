@@ -1,5 +1,5 @@
 import { baseToonMaterial, currentGradientMap } from './createGradientMap';
-import generateCreaseLines from './creases';
+
 import * as THREE from 'three';
 
 const chargingModelMaterials = (model, position, scale, rotation) => {
@@ -14,7 +14,7 @@ const chargingModelMaterials = (model, position, scale, rotation) => {
         }
         const meshName = child.name.toLowerCase();
         const baseColor = child.material?.color?.getHex?.() || 0xffffff;
-        let creaseLines = null;
+
 
         switch (true) {
             case meshName.startsWith('glass_'):
