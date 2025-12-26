@@ -26,6 +26,7 @@ export function useModelAnimations({
 }) {
     // State for animation playback
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isActionRunning, setIsActionRunning] = useState(false);
     const [animationsReady, setAnimationsReady] = useState(false);
 
     // Refs for mutable state that doesn't trigger re-renders
@@ -79,16 +80,19 @@ export function useModelAnimations({
                     action.loop = THREE.LoopOnce;
                     action.clampWhenFinished = true;
 
-                    // Event Listener: Only attach to the longest animation (the "master")
-                    // AND only if it's NOT an interactive "hold" animation like onClick
-                    // This prevents shorter animations from stopping the sequence, and keeps onClick animations clamped at the end
-                    if (!masterActionFound && clip.duration === maxDuration && !hasOnClick) {
+                    // Event Listener: Attach listener to ALL LoopOnce animations to track "movement"
+                    // This is separate from logical "isPlaying" state logic
+                    if (clip.duration === maxDuration) {
                         mixer.addEventListener("finished", (e) => {
                             if (e.action === action) {
-                                setIsPlaying(false);
+                                setIsActionRunning(false); // Movement stopped
+
+                                // Only stop logical playing if it's NOT a hold/click animation
+                                if (!hasOnClick) {
+                                    setIsPlaying(false);
+                                }
                             }
                         });
-                        masterActionFound = true; // Ensure we only have one master trigger
                     }
                 }
 
@@ -112,6 +116,7 @@ export function useModelAnimations({
         }
 
         setIsPlaying(initialState);
+        setIsActionRunning(initialState); // Assume running if started immediately
         userOverrideRef.current = false; // Reset override on load
 
         // CLEANUP: Stop animations and clear refs when component unmounts or src changes
@@ -143,6 +148,7 @@ export function useModelAnimations({
                 fadeTimeoutRef.current = null;
             }
 
+            setIsActionRunning(true); // Mark as moving
             actionsRef.current.forEach((action) => {
                 action.stopFading();
                 action.reset();
@@ -162,11 +168,13 @@ export function useModelAnimations({
                         action.stop();
                         action.reset();
                     });
+                    setIsActionRunning(false); // Mark as stopped after fade
                     fadeTimeoutRef.current = null;
                 }, fadeOutDuration * 1000);
             } else {
                 // Immediate stop for others
                 actionsRef.current.forEach((action) => action.stop());
+                setIsActionRunning(false);
             }
         }
     }, [isPlaying, animationsReady, hasOnToggle, hasOnClick, hasOnHover]); // switchLight removed from dependencies
@@ -226,6 +234,9 @@ export function useModelAnimations({
             // instead of toggling it off.
             if (isPlaying) {
                 // If already playing (or finished/clamped), force a replay
+                // Set isActionRunning to true to hide clones
+                setIsActionRunning(true);
+
                 if (actionsRef.current) {
                     actionsRef.current.forEach((action) => {
                         action.stop();
@@ -246,6 +257,7 @@ export function useModelAnimations({
     return {
         handleClick,
         isClickable,
-        isPlaying
+        isPlaying,
+        isActionRunning // Return new state
     };
 }

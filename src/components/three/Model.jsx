@@ -62,7 +62,7 @@ export default function Model({
 
   // HOOK: Custom Logic
   // All the complex animation state machine is hidden inside this hook.
-  const { handleClick, isClickable, isPlaying } = useModelAnimations({
+  const { handleClick, isClickable, isPlaying, isActionRunning } = useModelAnimations({
     gltf,
     animationStyle,
     onDarkMode,
@@ -108,10 +108,20 @@ export default function Model({
 
   // EFFECT: Handle hover - create scaled white clone
   useEffect(() => {
-    // console.log("Model Effect Check:", { name: gltf.scene.name, isHover, disableFeatures, isHelperOn });
+    // console.log("Model Debug:", { name: gltf.scene.name, isHover, isPlaying, isClickable });
+
+    // DEBUG: Only log for chair or if something is wrong
+    if (gltf.scene.name === 'chair' || gltf.scene.name === 'coke') {
+      console.log(`Model ${gltf.scene.name}:`, { isHover, isPlaying, isClickable, disableFeatures, isHelperOn });
+    }
+
     if (!modelRef.current || !isClickable || (!transitions && tooltipText && !animationStyle)) return;
 
-    if ((isHover || isHelperOn) && !disableFeatures) {
+    // Prevent clone if animation is actively running (moving) AND it's a one-shot action (onClick)
+    // Continuous animations (onLoop, onToggle) should still show the clone
+    const shouldHideClone = isActionRunning && animationStyle === 'onClick';
+
+    if ((isHover || isHelperOn) && !disableFeatures && !shouldHideClone) {
       // Clone the model
       const clone = modelRef.current.clone();
 
@@ -141,7 +151,7 @@ export default function Model({
       scene.add(clone);
       hoverCloneRef.current = clone;
     } else {
-      // Remove the clone when not hovering
+      // Remove the clone when not hovering OR if moving
       if (hoverCloneRef.current) {
         scene.remove(hoverCloneRef.current);
         hoverCloneRef.current = null;
@@ -155,7 +165,7 @@ export default function Model({
         hoverCloneRef.current = null;
       }
     };
-  }, [isHover, isClickable, scene, isHelperOn, disableFeatures, transitions, tooltipText, animationStyle]);
+  }, [isHover, isClickable, scene, isHelperOn, disableFeatures, transitions, tooltipText, animationStyle, isActionRunning]);
 
 
   return (
