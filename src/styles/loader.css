@@ -5,6 +5,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     background: #000;
     z-index: 10000;
     display: flex;
@@ -50,10 +51,11 @@
 /*---------- COMIC STACK ----------*/
 .comic-stack-container {
     position: relative;
-    width: 95%;
-    max-width: 500px;
-    height: 90vh;
-    max-height: 750px;
+    /* Enforce 2:3 Aspect ratio and contain within viewport */
+    aspect-ratio: 2/3;
+    width: min(95vw, 500px, 60vh);
+    width: min(95vw, 500px, 60dvh);
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;

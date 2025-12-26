@@ -95,10 +95,31 @@ export const MusicProvider = ({ children }) => {
     // Handle first interaction to "unlock" audio
     useEffect(() => {
         const handleFirstInteraction = () => {
-            if (!hasInteracted.current && isPlaying) {
-                playAudio();
+            if (hasInteracted.current) {
+                // Already unlocked, clean up
+                removeListeners();
+                return;
             }
-            // We can remove the listeners once the user interacts
+
+            if (isPlaying) {
+                // Try to play
+                if (audioRef.current) {
+                    const playPromise = audioRef.current.play();
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            hasInteracted.current = true;
+                            console.log("Audio unlocked and playing");
+                            removeListeners();
+                        }).catch(error => {
+                            console.log("Autoplay failed, waiting for next interaction:", error);
+                            // Do NOT remove listeners yet, try again next click
+                        });
+                    }
+                }
+            }
+        };
+
+        const removeListeners = () => {
             window.removeEventListener('click', handleFirstInteraction);
             window.removeEventListener('keydown', handleFirstInteraction);
             window.removeEventListener('touchstart', handleFirstInteraction);
@@ -109,11 +130,9 @@ export const MusicProvider = ({ children }) => {
         window.addEventListener('touchstart', handleFirstInteraction);
 
         return () => {
-            window.removeEventListener('click', handleFirstInteraction);
-            window.removeEventListener('keydown', handleFirstInteraction);
-            window.removeEventListener('touchstart', handleFirstInteraction);
+            removeListeners();
         };
-    }, [isPlaying, playAudio]);
+    }, [isPlaying]);
 
     // Initialize audio element when song changes
     useEffect(() => {
