@@ -15,6 +15,8 @@
     transition:
         transform 2s cubic-bezier(0.85, 0, 0.15, 1),
         opacity 2s ease-in-out;
+    forced-color-adjust: none;
+    /* Protect logos and barcode from dark mode inversion */
 }
 
 .loader-screen.exiting {

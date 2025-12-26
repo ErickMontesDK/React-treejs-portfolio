@@ -10,6 +10,9 @@ body {
 :root {
   color-scheme: light;
   /* Prevent system dark mode from auto-inverting colors */
+  forced-color-adjust: none;
+  /* Aggressively prevent browser color overrides */
+  -webkit-print-color-adjust: exact;
 }
 
 code {
