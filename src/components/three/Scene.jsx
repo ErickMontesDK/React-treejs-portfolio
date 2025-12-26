@@ -93,8 +93,8 @@ function CameraController({
 
       // 🔍 DEBUG: Log angles when user is manually moving camera (throttled)
       if (!isTransitioning.current && Math.random() < 0.02) { // Only log 2% of frames to avoid spam
-        const azimuth = controls.current.getAzimuthalAngle();
-        const polar = controls.current.getPolarAngle();
+        controls.current.getAzimuthalAngle();
+        controls.current.getPolarAngle();
       }
     }
   });

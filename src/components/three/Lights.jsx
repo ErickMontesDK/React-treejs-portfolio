@@ -63,12 +63,12 @@ export default function Lights({ switchStates, darkMode }) {
 
 
 
-                    if (!(availableModes.includes('dark') && availableModes.includes('light')) && ((availableModes.includes('dark') && darkMode == false) || (availableModes.includes('light') && darkMode == true))) {
+                    if (!(availableModes.includes('dark') && availableModes.includes('light')) && ((availableModes.includes('dark') && darkMode === false) || (availableModes.includes('light') && darkMode === true))) {
                         currentIntensity = 0
                         currentOpacity = 0
                     }
 
-                    currentOpacity = currentIntensity == 0 ? 0 : currentOpacity
+                    currentOpacity = currentIntensity === 0 ? 0 : currentOpacity
 
                     switch (type) {
                         case 'spotlight':
@@ -116,6 +116,8 @@ export default function Lights({ switchStates, darkMode }) {
                                     color={color}
                                 />
                             )
+                        default:
+                            return null;
                     }
                 })
             }

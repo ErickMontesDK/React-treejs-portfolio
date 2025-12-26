@@ -68,7 +68,7 @@ export function useModelAnimations({
 
             // Find the longest animation duration to use as the "master" for finishing
             const maxDuration = Math.max(...gltf.animations.map(clip => clip.duration));
-            let masterActionFound = false;
+
             gltf.animations.forEach((clip) => {
                 const action = mixer.clipAction(clip);
 

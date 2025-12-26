@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useRef, useEffect } from 'react';
+import React, { createContext, useContext, useState, useRef, useEffect, useCallback } from 'react';
 import skeleta from '../assets/images/ipod/skeleta.jpg';
 import love_in_song from '../assets/images/ipod/venusandmars.jpg';
 import snake_eyes from '../assets/images/ipod/parsons.jpg';
@@ -13,38 +13,39 @@ export const useMusic = () => {
     return context;
 };
 
+// Playlist with song metadata
+const playlist = [
+    {
+        title: "Umbra",
+        artist: "Ghost",
+        album: "Meliora",
+        duration: 269, // 4:39
+        file: `${process.env.PUBLIC_URL}/music/umbra.mp3`,
+        image: skeleta,
+        rating: 5
+    },
+    {
+        title: "Snake Eyes",
+        artist: "Alan Parsons Project",
+        album: "The Turn of a Friendly Card",
+        duration: 180, // 3:00
+        file: `${process.env.PUBLIC_URL}/music/snake_eyes.mp3`,
+        image: snake_eyes,
+        rating: 4
+    },
+    {
+        title: "Love in Song",
+        artist: "Wings",
+        album: "Venus and Mars",
+        duration: 183, // 3:03
+        file: `${process.env.PUBLIC_URL}/music/love_in_song.mp3`,
+        image: love_in_song,
+        rating: 5
+    }
+];
+
 export const MusicProvider = ({ children }) => {
     // Playlist with song metadata
-    const playlist = [
-        {
-            title: "Umbra",
-            artist: "Ghost",
-            album: "Meliora",
-            duration: 269, // 4:39
-            file: `${process.env.PUBLIC_URL}/music/umbra.mp3`,
-            image: skeleta,
-            rating: 5
-        },
-        {
-            title: "Snake Eyes",
-            artist: "Alan Parsons Project",
-            album: "The Turn of a Friendly Card",
-            duration: 180, // 3:00
-            file: `${process.env.PUBLIC_URL}/music/snake_eyes.mp3`,
-            image: snake_eyes,
-            rating: 4
-        },
-        {
-            title: "Love in Song",
-            artist: "Wings",
-            album: "Venus and Mars",
-            duration: 183, // 3:03
-            file: `${process.env.PUBLIC_URL}/music/love_in_song.mp3`,
-            image: love_in_song,
-            rating: 5
-        }
-    ];
-
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true); // Preferred state
     const [currentTime, setCurrentTime] = useState(0);
@@ -53,7 +54,34 @@ export const MusicProvider = ({ children }) => {
 
     const currentSong = playlist[currentSongIndex];
 
-    const playAudio = () => {
+    const togglePlay = useCallback(() => {
+        setIsPlaying(!isPlaying);
+    }, [isPlaying]);
+
+    const play = useCallback(() => {
+        setIsPlaying(true);
+    }, []);
+
+    const pause = useCallback(() => {
+        setIsPlaying(false);
+    }, []);
+
+    const next = useCallback(() => {
+        setCurrentSongIndex((prev) => (prev + 1) % playlist.length);
+        setCurrentTime(0);
+    }, []);
+
+    const previous = useCallback(() => {
+        if (currentTime > 3) {
+            audioRef.current.currentTime = 0;
+            setCurrentTime(0);
+        } else {
+            setCurrentSongIndex((prev) => (prev - 1 + playlist.length) % playlist.length);
+            setCurrentTime(0);
+        }
+    }, [currentTime]);
+
+    const playAudio = useCallback(() => {
         if (audioRef.current && isPlaying) {
             audioRef.current.play().then(() => {
                 hasInteracted.current = true;
@@ -62,7 +90,7 @@ export const MusicProvider = ({ children }) => {
                 console.log("Waiting for user interaction to start audio...");
             });
         }
-    };
+    }, [isPlaying]);
 
     // Handle first interaction to "unlock" audio
     useEffect(() => {
@@ -85,7 +113,7 @@ export const MusicProvider = ({ children }) => {
             window.removeEventListener('keydown', handleFirstInteraction);
             window.removeEventListener('touchstart', handleFirstInteraction);
         };
-    }, [isPlaying]);
+    }, [isPlaying, playAudio]);
 
     // Initialize audio element when song changes
     useEffect(() => {
@@ -117,7 +145,7 @@ export const MusicProvider = ({ children }) => {
                 audioRef.current.pause();
             }
         };
-    }, [currentSongIndex]);
+    }, [currentSongIndex, currentSong.file, isPlaying, next, playAudio]);
 
     // Play/Pause when isPlaying toggle
     useEffect(() => {
@@ -128,34 +156,7 @@ export const MusicProvider = ({ children }) => {
         } else {
             audioRef.current.pause();
         }
-    }, [isPlaying]);
-
-    const togglePlay = () => {
-        setIsPlaying(!isPlaying);
-    };
-
-    const play = () => {
-        setIsPlaying(true);
-    };
-
-    const pause = () => {
-        setIsPlaying(false);
-    };
-
-    const next = () => {
-        setCurrentSongIndex((prev) => (prev + 1) % playlist.length);
-        setCurrentTime(0);
-    };
-
-    const previous = () => {
-        if (currentTime > 3) {
-            audioRef.current.currentTime = 0;
-            setCurrentTime(0);
-        } else {
-            setCurrentSongIndex((prev) => (prev - 1 + playlist.length) % playlist.length);
-            setCurrentTime(0);
-        }
-    };
+    }, [isPlaying, playAudio]);
 
     const value = {
         currentSong,

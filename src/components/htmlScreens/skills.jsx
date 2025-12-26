@@ -5,10 +5,10 @@ import typescriptIcon from '../../assets/icons/typescript.svg';
 
 export default function Skills() {
     const [currentScreen, setCurrentScreen] = useState('frontend');
-    const [prevScreen, setPrevScreen] = useState(null);
+    const [, setPrevScreen] = useState(null);
 
     // Initial State: Looking at Front (Z), Up is Top (Y)
-    const [orientation, setOrientation] = useState({
+    const [, setOrientation] = useState({
         faceVector: { x: 0, y: 0, z: 1 }, // Front
         upVector: { x: 0, y: 1, z: 0 }    // Top
     });

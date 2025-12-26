@@ -165,7 +165,7 @@ export default function Model({
         hoverCloneRef.current = null;
       }
     };
-  }, [isHover, isClickable, scene, isHelperOn, disableFeatures, transitions, tooltipText, animationStyle, isActionRunning]);
+  }, [isHover, isClickable, scene, isHelperOn, disableFeatures, transitions, tooltipText, animationStyle, isActionRunning, gltf.scene.name, isPlaying]);
 
 
   return (

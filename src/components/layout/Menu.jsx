@@ -1,12 +1,12 @@
 import camaras from "../../data/camaras";
-import { useState } from "react";
+
 import { useMusic } from "../../context/MusicContext";
 
 
 
 export default function Menu(props) {
     const { darkMode, setDarkMode, camera, setCamera, setIsHelperOn, isAudio, setIsAudio } = props;
-    const { togglePlay, isPlaying } = useMusic();
+    const { togglePlay } = useMusic();
 
     const handleDarkMode = () => {
         setDarkMode(!darkMode);

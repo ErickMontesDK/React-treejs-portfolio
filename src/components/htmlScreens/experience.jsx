@@ -10,7 +10,6 @@ import journals from '../../assets/images/insta/journals.jpg';
 import tacamba from '../../assets/images/insta/tacamba.jpg';
 import vetelia from '../../assets/images/insta/vetelia.jpg';
 import tecnology from '../../assets/images/insta/tecnology.jpg';
-import superSalads from '../../assets/images/insta/salads.jpg';
 import district from '../../assets/images/insta/district.jpg';
 import hackathon from '../../assets/images/insta/hackathon.jpg';
 
