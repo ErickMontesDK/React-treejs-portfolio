@@ -33,8 +33,8 @@ const chargingModelMaterials = (model, position, scale, rotation) => {
                 child.userData.isGlassObject = true;
                 child.renderOrder = 1;
 
-                creaseLines = generateCreaseLines(child);
-                if (creaseLines) child.add(creaseLines);
+                // creaseLines = generateCreaseLines(child);
+                // if (creaseLines) child.add(creaseLines);
                 return;
 
             case meshName.startsWith('lines_'):
@@ -56,8 +56,8 @@ const chargingModelMaterials = (model, position, scale, rotation) => {
                 child.castShadow = true;
                 child.receiveShadow = true;
 
-                creaseLines = generateCreaseLines(child);
-                if (creaseLines) child.add(creaseLines);
+                // creaseLines = generateCreaseLines(child);
+                // if (creaseLines) child.add(creaseLines);
                 break;
         }
     })
