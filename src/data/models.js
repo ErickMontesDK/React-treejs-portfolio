@@ -196,7 +196,7 @@ const models = [
             }
             setTimeout(() => {
                 console.log("¡Impresora clickeada! Descargando resume...");
-                window.open('/resume.pdf', '_blank');
+                window.open(`${process.env.PUBLIC_URL}/resume.pdf`, '_blank');
             }, 4700);
         }
     },

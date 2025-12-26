@@ -133,9 +133,30 @@ export const MusicProvider = ({ children }) => {
         audioRef.current.addEventListener('timeupdate', updateTime);
         audioRef.current.addEventListener('ended', handleEnded);
 
-        // Attempt to play
+        // Attempt to play if the global state is playing
         if (isPlaying) {
-            playAudio();
+            // We don't call playAudio() here to avoid dependency cycles.
+            // Instead, we just try to play directly if permitted.
+            // But simpler: let the separate 'isPlaying' effect handle the actual play command.
+            // EXCEPT: The 'isPlaying' effect won't re-fire if isPlaying didn't change (e.g. song changed but isPlaying stayed true).
+            // So we DO need to trigger play here, but be careful.
+
+            // Solution: We can just let the separate effect handle it IF we force a re-run?
+            // No, better to just call play() on the ref directly here if needed, 
+            // OR just trust the next effect to pick it up?
+            // Actually, if we change the src, the next effect (checking isPlaying) might not trigger if isPlaying didn't change.
+
+            // Let's rely on the fact that we just created a NEW audio object.
+            // We can schedule a play.
+
+            const playPromise = audioRef.current.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    hasInteracted.current = true;
+                }).catch(error => {
+                    console.log("Autoplay prevented:", error);
+                });
+            }
         }
 
         return () => {
@@ -145,7 +166,10 @@ export const MusicProvider = ({ children }) => {
                 audioRef.current.pause();
             }
         };
-    }, [currentSongIndex, currentSong.file, isPlaying, next, playAudio]);
+        // Dependency array: only re-run if the song physically changes. 
+        // We explicitly EXCLUDE isPlaying, next, etc. to prevent re-init on pause.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentSongIndex, currentSong.file]);
 
     // Play/Pause when isPlaying toggle
     useEffect(() => {
