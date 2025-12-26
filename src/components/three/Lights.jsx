@@ -55,6 +55,7 @@ export default function Lights({ switchStates, darkMode }) {
                     } = light;
 
                     let currentIntensity = intensity
+                    let currentOpacity = opacity
 
                     if (lightTag !== null) {
                         currentIntensity = switchStates[lightTag] ? intensity : 0
@@ -64,7 +65,10 @@ export default function Lights({ switchStates, darkMode }) {
 
                     if (!(availableModes.includes('dark') && availableModes.includes('light')) && ((availableModes.includes('dark') && darkMode == false) || (availableModes.includes('light') && darkMode == true))) {
                         currentIntensity = 0
+                        currentOpacity = 0
                     }
+
+                    currentOpacity = currentIntensity == 0 ? 0 : currentOpacity
 
                     switch (type) {
                         case 'spotlight':
@@ -87,7 +91,7 @@ export default function Lights({ switchStates, darkMode }) {
                                     anglePower={anglePower}
                                     radiusTop={radiusTop}
                                     radiusBottom={radiusBottom}
-                                    opacity={opacity}
+                                    opacity={currentOpacity}
                                 />
                             )
                         case 'point':

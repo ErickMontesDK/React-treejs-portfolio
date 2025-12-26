@@ -62,7 +62,7 @@ export default function Model({
 
   // HOOK: Custom Logic
   // All the complex animation state machine is hidden inside this hook.
-  const { handleClick, isClickable } = useModelAnimations({
+  const { handleClick, isClickable, isPlaying } = useModelAnimations({
     gltf,
     animationStyle,
     onDarkMode,

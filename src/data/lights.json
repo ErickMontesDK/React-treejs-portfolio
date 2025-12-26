@@ -9,10 +9,10 @@
             "intensity": 27.6,
             "position": [
                 0.5,
-                3.5,
-                0.5
+                3.7,
+                0
             ],
-            "angle": 1,
+            "angle": 0.85,
             "distance": 10,
             "decay": 2,
             "castShadow": true,
@@ -21,10 +21,21 @@
             "anglePower": 5,
             "radiusTop": 0.1,
             "radiusBottom": 0.5,
-            "opacity": 0.2
+            "opacity": 0.2,
+            "lightTag": "roof",
+            "target": [
+                0.5,
+                0,
+                0
+            ],
+            "shadowMapSize": [
+                2048,
+                2048
+            ]
         },
         {
             "type": "spotlight",
+            "lightTag": "roof",
             "availableModes": [
                 "dark",
                 "light"
@@ -33,14 +44,18 @@
             "target": [
                 0.5,
                 0,
-                -5.5
+                0
             ],
             "position": [
                 0.5,
-                3.5,
-                -5.5
+                3.7,
+                0
             ],
-            "angle": 1,
+            "shadowMapSize": [
+                2048,
+                2048
+            ],
+            "angle": 0.5,
             "distance": 15,
             "decay": 2,
             "castShadow": true,
@@ -53,6 +68,7 @@
         },
         {
             "type": "spotlight",
+            "lightTag": "roof",
             "availableModes": [
                 "dark",
                 "light"
@@ -60,10 +76,19 @@
             "intensity": 10,
             "position": [
                 0.5,
-                2.5,
-                -3.5
+                3.7,
+                0
             ],
-            "angle": 1,
+            "shadowMapSize": [
+                2048,
+                2048
+            ],
+            "target": [
+                0.5,
+                0,
+                0
+            ],
+            "angle": 5.1,
             "distance": 8,
             "decay": 2,
             "castShadow": false,
@@ -82,72 +107,73 @@
             "intensity": 100,
             "position": [
                 -0.4,
-                3.1,
-                -1
+                2.7,
+                -4
             ],
-            "angle": 0.6,
-            "distance": 12,
-            "decay": 1.5,
+            "target": [
+                0,
+                1,
+                1
+            ],
+            "angle": 0.8,
+            "distance": 14,
+            "decay": 1.7,
             "castShadow": true,
             "shadowMapSize": [
                 2048,
                 2048
             ],
-            "switchable": true,
-            "triggerId": "switch-1",
-            "lightTag": "roof",
-            "color": "#F7EEAF",
-            "target": [
-                -0.1,
-                0,
-                -1
-            ],
+            "color": "#0000aa",
             "volumetric": true,
-            "attenuation": 6,
-            "anglePower": 4,
-            "radiusTop": 0.05,
-            "radiusBottom": 0.8,
+            "attenuation": 12,
+            "anglePower": 2,
+            "radiusTop": 0.2,
+            "radiusBottom": 3,
             "opacity": 0.4
         },
         {
+            "color": "#F7EEAF",
             "type": "spotlight",
             "availableModes": [
                 "light"
             ],
             "intensity": 100,
             "position": [
-                -0.4,
-                2.5,
+                0,
+                2.7,
                 -3.5
             ],
+            "target": [
+                -1,
+                1,
+                1
+            ],
             "angle": 0.8,
-            "distance": 10,
-            "decay": 2,
+            "distance": 14,
+            "decay": 1.7,
             "castShadow": true,
             "shadowMapSize": [
                 2048,
                 2048
             ],
-            "switchable": true,
-            "triggerId": "switch-2",
-            "color": "#F7EEAF",
-            "target": [
-                1.5,
-                0,
-                1
-            ],
             "volumetric": true,
-            "attenuation": 8,
-            "anglePower": 5,
-            "radiusTop": 0.1,
-            "radiusBottom": 0.6,
-            "opacity": 0.3
+            "attenuation": 12,
+            "anglePower": 2,
+            "radiusTop": 0.3,
+            "radiusBottom": 3,
+            "opacity": 0.4
         },
         {
             "type": "ambient",
             "availableModes": [
-                "dark",
                 "light"
+            ],
+            "intensity": 0.6
+        },
+        {
+            "type": "ambient",
+            "availableModes": [
+                "dark"
             ],
             "intensity": 0.2
         },
