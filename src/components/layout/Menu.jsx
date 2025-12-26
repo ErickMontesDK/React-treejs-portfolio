@@ -33,6 +33,8 @@ export default function Menu(props) {
                         className="comic-button secondary"
                         onMouseDown={() => setIsHelperOn(true)}
                         onMouseUp={() => setIsHelperOn(false)}
+                        onTouchStart={() => setIsHelperOn(true)}
+                        onTouchEnd={() => setIsHelperOn(false)}
                     >
                         <i className="fa-solid fa-question"></i>
                     </button>
