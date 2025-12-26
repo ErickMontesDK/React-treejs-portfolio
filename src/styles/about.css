@@ -170,15 +170,17 @@
 
 @media screen and (max-width: 768px) {
     .info-cards:has(.about-container) {
-        right: 30px;
+        right: 0;
         top: 30px;
         height: fit-content;
         max-height: 92vh;
+        margin: 20px;
+        width: calc(100% - 40px);
     }
 
     .about-container {
         width: 100%;
-        max-width: 300px;
+        max-width: 500px;
         font-size: 0.9rem;
         /* Scale down slightly */
     }
@@ -197,8 +199,10 @@
 @media screen and (max-width: 480px) {
     .info-cards:has(.about-container) {
         /* right: 20px; */
-        top: 17rem;
-        max-height: 60vh;
+        top: 5rem;
+        max-height: 80vh;
+        margin: 5px;
+        width: calc(100% - 10px);
     }
 
 }
