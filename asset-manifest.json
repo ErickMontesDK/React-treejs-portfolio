@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/React-treejs-portfolio/static/css/main.422d0875.css",
-    "main.js": "/React-treejs-portfolio/static/js/main.7a490abb.js",
+    "main.js": "/React-treejs-portfolio/static/js/main.0ba44019.js",
     "static/js/453.ac9b7e2a.chunk.js": "/React-treejs-portfolio/static/js/453.ac9b7e2a.chunk.js",
     "static/media/toys.glb": "/React-treejs-portfolio/static/media/toys.45ea038163e7601a9a10.glb",
     "static/media/pinkfloyd.glb": "/React-treejs-portfolio/static/media/pinkfloyd.1d948d76063be32d7bbb.glb",
@@ -63,11 +63,11 @@
     "index.html": "/React-treejs-portfolio/index.html",
     "static/media/typescript.svg": "/React-treejs-portfolio/static/media/typescript.ebf45f373413750ddecdab4b7c654e83.svg",
     "main.422d0875.css.map": "/React-treejs-portfolio/static/css/main.422d0875.css.map",
-    "main.7a490abb.js.map": "/React-treejs-portfolio/static/js/main.7a490abb.js.map",
+    "main.0ba44019.js.map": "/React-treejs-portfolio/static/js/main.0ba44019.js.map",
     "453.ac9b7e2a.chunk.js.map": "/React-treejs-portfolio/static/js/453.ac9b7e2a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.422d0875.css",
-    "static/js/main.7a490abb.js"
+    "static/js/main.0ba44019.js"
   ]
 }
