@@ -201,7 +201,7 @@
         /* right: 20px; */
         top: 5rem;
         max-height: 80vh;
-        margin: 5px;
+        margin: 5px 5px 15rem 5px;
         width: calc(100% - 10px);
     }
 
