@@ -21,7 +21,7 @@ export const MusicProvider = ({ children }) => {
             artist: "Ghost",
             album: "Meliora",
             duration: 269, // 4:39
-            file: "/music/umbra.mp3",
+            file: `${process.env.PUBLIC_URL}/music/umbra.mp3`,
             image: skeleta,
             rating: 5
         },
@@ -30,7 +30,7 @@ export const MusicProvider = ({ children }) => {
             artist: "Alan Parsons Project",
             album: "The Turn of a Friendly Card",
             duration: 180, // 3:00
-            file: "/music/snake_eyes.mp3",
+            file: `${process.env.PUBLIC_URL}/music/snake_eyes.mp3`,
             image: snake_eyes,
             rating: 4
         },
@@ -39,7 +39,7 @@ export const MusicProvider = ({ children }) => {
             artist: "Wings",
             album: "Venus and Mars",
             duration: 183, // 3:03
-            file: "/music/love_in_song.mp3",
+            file: `${process.env.PUBLIC_URL}/music/love_in_song.mp3`,
             image: love_in_song,
             rating: 5
         }

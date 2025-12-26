@@ -51,7 +51,7 @@ const models = [
         },
         "onClick": (context) => {
             if (context?.isAudio) {
-                const sound = new Audio('/sounds/soda.wav');
+                const sound = new Audio(`${process.env.PUBLIC_URL}/sounds/soda.wav`);
                 sound.play();
             }
         }
@@ -167,7 +167,7 @@ const models = [
         },
         "onClick": (context) => {
             if (context?.isAudio) {
-                const sound = new Audio('/sounds/unlocking.wav');
+                const sound = new Audio(`${process.env.PUBLIC_URL}/sounds/unlocking.wav`);
                 sound.play();
             }
         }
@@ -191,7 +191,7 @@ const models = [
         "animation": "onClick",
         "onClick": (context) => {
             if (context?.isAudio) {
-                const sound = new Audio('/sounds/printer.wav');
+                const sound = new Audio(`${process.env.PUBLIC_URL}/sounds/printer.wav`);
                 sound.play();
             }
             setTimeout(() => {
