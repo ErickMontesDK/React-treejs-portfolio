@@ -4,7 +4,7 @@
     /* Removed heavy border to be cleaner, or keep if desired. User said 'comic type'. */
     /* border: 10px solid #ccc; */
     color: black;
-    font-family: 'Bangers', 'Inter', 'Segoe UI', cursive, sans-serif;
+    font-family: 'Bangers', 'Inter', sans-serif;
     overflow: visible;
     /* changed from hidden to let arrows poke out if needed */
     pointer-events: auto !important;
