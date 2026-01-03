@@ -47,7 +47,7 @@ const playlist = [
 export const MusicProvider = ({ children }) => {
     // Playlist with song metadata
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
-    const [isPlaying, setIsPlaying] = useState(true); // Preferred state
+    const [isPlaying, setIsPlaying] = useState(false); // Music starts paused (no autoplay)
     const [currentTime, setCurrentTime] = useState(0);
     const audioRef = useRef(null);
     const hasInteracted = useRef(false);

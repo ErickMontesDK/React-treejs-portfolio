@@ -49,11 +49,9 @@ const models = [
             "name": "about",
             "camera": "about",
         },
-        "onClick": (context) => {
-            if (context?.isAudio) {
-                const sound = new Audio(`${process.env.PUBLIC_URL}/sounds/soda.wav`);
-                sound.play();
-            }
+        "onClick": () => {
+            const sound = new Audio(`${process.env.PUBLIC_URL}/sounds/soda.wav`);
+            sound.play();
         }
     },
     {
@@ -165,11 +163,9 @@ const models = [
             "name": "experience",
             "camera": "experience",
         },
-        "onClick": (context) => {
-            if (context?.isAudio) {
-                const sound = new Audio(`${process.env.PUBLIC_URL}/sounds/unlocking.wav`);
-                sound.play();
-            }
+        "onClick": () => {
+            const sound = new Audio(`${process.env.PUBLIC_URL}/sounds/unlocking.wav`);
+            sound.play();
         }
     },
     {
@@ -189,11 +185,9 @@ const models = [
         "model": printer,
         "description": "Download resume",
         "animation": "onClick",
-        "onClick": (context) => {
-            if (context?.isAudio) {
-                const sound = new Audio(`${process.env.PUBLIC_URL}/sounds/printer.wav`);
-                sound.play();
-            }
+        "onClick": () => {
+            const sound = new Audio(`${process.env.PUBLIC_URL}/sounds/printer.wav`);
+            sound.play();
             setTimeout(() => {
                 console.log("¡Impresora clickeada! Descargando resume...");
                 window.open(`${process.env.PUBLIC_URL}/resume.pdf`, '_blank');

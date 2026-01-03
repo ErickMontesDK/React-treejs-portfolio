@@ -1,0 +1,115 @@
+.nav-dropdown-wrapper {
+    position: absolute;
+    top: 65px;
+    /* Directly below the menu buttons */
+    right: 0px;
+    z-index: 10001;
+    animation: comic-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-click-outside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: -1;
+    cursor: default;
+}
+
+.nav-menu-list {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white_color);
+    width: 200px;
+    padding: 10px;
+    gap: 5px;
+}
+
+.nav-item-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    background: var(--paper-color);
+    border: 2px solid var(--ink-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font-display);
+    text-align: left;
+    width: 100%;
+}
+
+.nav-item-row:hover {
+    background: var(--accent-yellow);
+    transform: translateX(-5px);
+    box-shadow: 4px 4px 0px var(--ink-color);
+    z-index: 2;
+}
+
+.nav-item-row.active {
+    opacity: 0.5;
+    background: rgba(128, 128, 128, 0.1);
+    cursor: default;
+    pointer-events: none;
+    box-shadow: none;
+    transform: none;
+    border-style: dashed;
+}
+
+.nav-item-row:active {
+    transform: translate(0, 0);
+    box-shadow: 0px 0px 0px var(--ink-color);
+}
+
+.nav-row-icon {
+    font-size: 1.1rem;
+    color: var(--ink-color);
+    width: 20px;
+    text-align: center;
+}
+
+.nav-row-name {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    color: var(--ink-color);
+}
+
+@media screen and (max-width: 768px) {
+    .nav-dropdown-wrapper {
+        top: 55px;
+    }
+
+    .nav-menu-list {
+        width: 220px;
+        padding: 8px;
+    }
+
+    .nav-item-row {
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .nav-row-name {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav-dropdown-wrapper {
+        position: fixed;
+        top: 60px;
+        right: 15px;
+        width: calc(100vw - 30px);
+        max-width: 280px;
+    }
+
+    .nav-menu-list {
+        width: 100%;
+        box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.5);
+    }
+}

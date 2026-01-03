@@ -18,7 +18,6 @@ function App() {
   const [camera, setCamera] = useState(camaras.main);
   const [isHelperOn, setIsHelperOn] = useState(false);
   const [isStarted, setIsStarted] = useState(false);
-  const [isAudio, setIsAudio] = useState(true);
 
   return (
     <MusicProvider>
@@ -29,7 +28,6 @@ function App() {
           camera={camera}
           setCamera={setCamera}
           isHelperOn={isHelperOn}
-          isAudio={isAudio}
           darkMode={darkMode}
         >
           {(camera === camaras.skills) &&
@@ -65,8 +63,7 @@ function App() {
           camera={camera}
           setCamera={setCamera}
           setIsHelperOn={setIsHelperOn}
-          isAudio={isAudio}
-          setIsAudio={setIsAudio}
+          isStarted={isStarted}
         />
         {
           camera === camaras.skills ? (

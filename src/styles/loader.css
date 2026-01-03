@@ -475,3 +475,94 @@
         opacity: 1;
     }
 }
+
+@keyframes pulse-loading {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/*---------- MOBILE OPTIMIZATIONS ----------*/
+/* Tablets and smaller */
+@media (max-width: 768px) {
+    .loading-tag {
+        font-size: 15px;
+        color: #aaa;
+        animation: pulse-loading 2s ease-in-out infinite;
+    }
+
+    .progress-bar-minimal {
+        height: 4px;
+    }
+
+    .enter-btn-comic {
+        padding: 8px 20px;
+        font-size: 0.95rem;
+        min-height: 44px;
+        /* Apple's recommended touch target size */
+    }
+
+    .sticker-container {
+        width: 250px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    .loading-tag {
+        font-size: 16px;
+        color: #bbb;
+        letter-spacing: 1.5px;
+    }
+
+    .progress-bar-minimal {
+        height: 5px;
+        margin-bottom: 10px;
+    }
+
+    .enter-btn-comic {
+        padding: 10px 24px;
+        font-size: 1rem;
+        min-height: 48px;
+    }
+
+    .sticker-container {
+        width: 260px;
+        bottom: 30px;
+    }
+
+    /* Slightly larger barcode for better visibility */
+    .barcode-sticker {
+        padding: 12px 16px;
+    }
+
+    .percent-val {
+        font-size: 1.4rem;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 375px) {
+    .loading-tag {
+        font-size: 15px;
+    }
+
+    .sticker-container {
+        width: 240px;
+    }
+
+    .vertical-side-title {
+        font-size: 3.5rem;
+    }
+
+    .vertical-side-title.left {
+        left: 10px;
+    }
+
+    .vertical-side-title.right {
+        right: 10px;
+    }
+}
