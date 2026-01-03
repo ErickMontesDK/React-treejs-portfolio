@@ -3,41 +3,58 @@ import './../../styles/contact.css';
 
 export default function Contact() {
     const [hoveredItem, setHoveredItem] = useState(null);
-
+    const [highlightedItem, setHighlightedItem] = useState(null);
     const [showCopyMessage, setShowCopyMessage] = useState(false);
 
-    const handleBoxClick = (url) => {
-        window.open(url, '_blank');
+    const triggerAction = (type, actionData) => {
+        // Clear any existing timeout to avoid overlap
+        if (window.contactTimeout) clearTimeout(window.contactTimeout);
+
+        // Set highlight state
+        setHighlightedItem(type);
+
+        // Execute action
+        if (type === 'storm') {
+            navigator.clipboard.writeText('erickmontesdk@gmail.com');
+            setShowCopyMessage(true);
+            setTimeout(() => setShowCopyMessage(false), 2000);
+        } else if (actionData) {
+            window.open(actionData, '_blank');
+        }
+
+        // Keep highlighted for 2.5 seconds (Reaction Pulse)
+        window.contactTimeout = setTimeout(() => {
+            setHighlightedItem(null);
+        }, 5000);
     };
 
-    const handleEmailClick = () => {
-        navigator.clipboard.writeText('erickmontesdk@gmail.com');
-        setShowCopyMessage(true);
-        setTimeout(() => setShowCopyMessage(false), 2000);
+    const getItemStatus = (type) => {
+        if (highlightedItem === type) return 'highlighted';
+        if (hoveredItem === type) return 'hovered';
+        return '';
     };
 
     return (
         <div className="container">
             {/* GITHUB -> VADER */}
-            <a
-                href="https://github.com/ErickMontesDK"
+            <div
                 id="github"
-                className="comic-box"
-                target="_blank"
-                rel="noopener noreferrer"
+                className={`comic-box ${getItemStatus('vader')}`}
                 onMouseEnter={() => setHoveredItem('vader')}
                 onMouseLeave={() => setHoveredItem(null)}
+                onClick={() => triggerAction('vader', 'https://github.com/ErickMontesDK')}
+                style={{ cursor: 'pointer' }}
             >
                 <i className="fa-brands fa-github"></i>
                 <p>GitHub</p>
-            </a>
+            </div>
 
             <div
-                className={`toy-box ${hoveredItem === 'vader' ? 'visible' : ''}`}
+                className={`toy-box ${getItemStatus('vader')}`}
                 id="box-vader"
                 onMouseEnter={() => setHoveredItem('vader')}
                 onMouseLeave={() => setHoveredItem(null)}
-                onClick={() => handleBoxClick('https://github.com/ErickMontesDK')}
+                onClick={() => triggerAction('vader', 'https://github.com/ErickMontesDK')}
                 style={{ pointerEvents: 'auto', cursor: 'pointer' }}
             >
                 <div className="toy-header">CODE WARS</div>
@@ -47,25 +64,24 @@ export default function Contact() {
             </div>
 
             {/* LINKEDIN -> FETT */}
-            <a
-                href="https://linkedin.com/in/erickmontesbed"
+            <div
                 id="linkedin"
-                className="comic-box"
-                target="_blank"
-                rel="noopener noreferrer"
+                className={`comic-box ${getItemStatus('fett')}`}
                 onMouseEnter={() => setHoveredItem('fett')}
                 onMouseLeave={() => setHoveredItem(null)}
+                onClick={() => triggerAction('fett', 'https://linkedin.com/in/erickmontesbed')}
+                style={{ cursor: 'pointer' }}
             >
                 <i className="fa-brands fa-linkedin"></i>
                 <p>LinkedIn</p>
-            </a>
+            </div>
 
             <div
-                className={`toy-box ${hoveredItem === 'fett' ? 'visible' : ''}`}
+                className={`toy-box ${getItemStatus('fett')}`}
                 id="box-fett"
                 onMouseEnter={() => setHoveredItem('fett')}
                 onMouseLeave={() => setHoveredItem(null)}
-                onClick={() => handleBoxClick('https://linkedin.com/in/erickmontesbed')}
+                onClick={() => triggerAction('fett', 'https://linkedin.com/in/erickmontesbed')}
                 style={{ pointerEvents: 'auto', cursor: 'pointer' }}
             >
                 <div className="toy-header">CODE WARS</div>
@@ -77,10 +93,10 @@ export default function Contact() {
             {/* EMAIL -> STORMTROOPER */}
             <div
                 id="email"
-                className="comic-box"
+                className={`comic-box ${getItemStatus('storm')}`}
                 onMouseEnter={() => setHoveredItem('storm')}
                 onMouseLeave={() => setHoveredItem(null)}
-                onClick={handleEmailClick}
+                onClick={() => triggerAction('storm')}
                 style={{ cursor: 'pointer' }}
             >
                 <i className="fa-regular fa-envelope"></i>
@@ -88,11 +104,11 @@ export default function Contact() {
             </div>
 
             <div
-                className={`toy-box ${hoveredItem === 'storm' ? 'visible' : ''}`}
+                className={`toy-box ${getItemStatus('storm')}`}
                 id="box-storm"
                 onMouseEnter={() => setHoveredItem('storm')}
                 onMouseLeave={() => setHoveredItem(null)}
-                onClick={handleEmailClick}
+                onClick={() => triggerAction('storm')}
                 style={{ pointerEvents: 'auto', cursor: 'pointer' }}
             >
                 <div className="toy-header">CODE WARS</div>
@@ -101,7 +117,7 @@ export default function Contact() {
                 <div className="toy-flair">THE ERICK SERIES</div>
             </div>
 
-            {/* Stormtrooper Speech Bubble Notification - Moved outside to guarantee visibility */}
+            {/* Stormtrooper Speech Bubble Notification */}
             {showCopyMessage && (
                 <div className="storm-speech-bubble">
                     TRANSMISSION COPIED!

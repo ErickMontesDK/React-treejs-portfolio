@@ -28,6 +28,7 @@
 }
 
 /* Base Comic Box Style */
+/* Base Comic Box Style */
 .contact-screen .container .comic-box {
     position: absolute;
     z-index: 10;
@@ -41,24 +42,53 @@
     justify-content: center;
     text-decoration: none;
     color: #000;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    transition: all 0.2s ease;
     min-width: 120px;
     font-weight: 800;
     text-transform: uppercase;
     border-radius: 4px;
-    /* Slight rounding for hand-drawn feel */
 }
 
-.contact-screen .container .comic-box:hover {
+/* Hover/Active states combined for both JS and CSS */
+.contact-screen .container .comic-box.hovered,
+.contact-screen .container .comic-box.highlighted {
     transform: translate(-2px, -2px);
     box-shadow: 7px 7px 0px #000;
     background-color: #FFE600;
     /* Comic Yellow */
 }
 
+/* Specific hover behaviors (Desktop only/Fallback) */
+@media (hover: hover) {
+    .contact-screen .container .comic-box:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 8px 8px 0px #000;
+        background-color: #FFE600;
+    }
+}
+
 .contact-screen .container .comic-box:active {
     transform: translate(2px, 2px);
     box-shadow: 1px 1px 0px #000;
+}
+
+/* Individual Brand Overrides for Hover/Highlight */
+#github.hovered,
+#github.highlighted {
+    background-color: #333;
+    color: white;
+}
+
+#linkedin.hovered,
+#linkedin.highlighted {
+    background-color: #0077b5;
+    color: white;
+}
+
+#email.hovered,
+#email.highlighted {
+    background-color: #EA4335;
+    color: white;
 }
 
 .contact-screen .container .comic-box i {
@@ -75,14 +105,11 @@
 /* Positioning - Respected as requested */
 #github {
     top: 20px;
-    /* Added small offset to not clip */
     left: 100px;
     transform: rotate(-3deg);
 }
 
 #linkedin {
-    bottom: 25rem;
-    /* Swapped from Email */
     bottom: 17rem;
     right: 9rem;
     transform: rotate(2deg);
@@ -90,36 +117,10 @@
 
 #email {
     top: 100px;
-    /* Swapped from LinkedIn */
     right: -40px;
     transform: rotate(-2deg);
-    /* Pop of color */
     border-color: #fff;
     box-shadow: 5px 5px 0px #330011;
-}
-
-#email:hover {
-    background-color: #EA4335;
-    /* Gmail Red */
-    border-color: #000;
-    color: #fff;
-    box-shadow: 7px 7px 0px #000;
-}
-
-#github:hover {
-    background-color: #333;
-    /* GitHub Black */
-    color: #fff;
-    border-color: #000;
-    box-shadow: 7px 7px 0px #000;
-}
-
-#linkedin:hover {
-    background-color: #0077b5;
-    /* LinkedIn Blue */
-    color: #fff;
-    border-color: #000;
-    box-shadow: 7px 7px 0px #000;
 }
 
 /* SPEECH BUBBLE TAILS (Bocadillos) */
@@ -142,15 +143,14 @@
 #github::after {
     border-width: 15px 0 15px 40px;
     border-color: transparent transparent transparent #fff;
-    /* White tail */
     right: -30px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-#github:hover::after {
+#github.hovered::after,
+#github.highlighted::after {
     border-color: transparent transparent transparent #333;
-    /* Black on hover */
 }
 
 /* LinkedIn Tail: Points Left (to Fett) */
@@ -162,9 +162,9 @@
     transform: translateY(-50%);
 }
 
-#linkedin:hover::after {
+#linkedin.hovered::after,
+#linkedin.highlighted::after {
     border-color: transparent #0077b5 transparent transparent;
-    /* Blue on hover */
 }
 
 /* Email Tail: Points Left (to Stormtrooper) */
@@ -176,9 +176,9 @@
     transform: translateY(-50%);
 }
 
-#email:hover::after {
+#email.hovered::after,
+#email.highlighted::after {
     border-color: transparent #EA4335 transparent transparent;
-    /* Red on hover */
 }
 
 /* TOY BOX - Star Wars Black Series Line Art Style */
@@ -186,46 +186,73 @@
     position: absolute;
     width: 220px;
     height: 350px;
-
-    /* 3D Transform setup */
     transform-style: preserve-3d;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-
-    /* Line Art Borders - Black Series Box */
+    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     border: 3px solid white;
-    box-shadow: 0 0 0px transparent;
+    /* box-shadow: 0 0 15px rgba(255, 255, 255, 0.1); */
 
-    /* Visibility Control */
+    /* Initially hidden */
     opacity: 0;
     pointer-events: none;
 
-    /* Content Layout */
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: transparent;
+    background: rgba(0, 0, 0, 0.4);
     color: white;
     font-family: 'Oswald', 'Anton', sans-serif;
-    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
-.toy-box:hover {
-    color: #FFE600;
-    border-color: #FFE600;
-    cursor: pointer;
+/* Visible states: Pulse or Hover */
+.toy-box.hovered,
+.toy-box.highlighted {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    color: #FFE600 !important;
+    border-color: #FFE600 !important;
 }
 
-/* Update pseudo-elements on hover */
-.toy-box:hover::before,
-.toy-box:hover::after,
-.toy-box:hover .toywindow,
-.toy-box:hover .toy-header {
-    border-color: #FFE600;
+.toy-box.highlighted {
+    animation: comic-pop-toy 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes comic-pop-toy {
+    0% {
+        transform: scale(0.8) perspective(1000px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.05) perspective(1000px);
+        opacity: 1;
+    }
+}
+
+@media (hover: hover) {
+    .toy-box:hover {
+        opacity: 1;
+        pointer-events: auto;
+        color: #FFE600;
+        border-color: #FFE600;
+        cursor: pointer;
+    }
+}
+
+/* Update pseudo-elements on highlight/hover */
+.toy-box.hovered::before,
+.toy-box.highlighted::before,
+.toy-box.hovered::after,
+.toy-box.highlighted::after,
+.toy-box.hovered .toywindow,
+.toy-box.highlighted .toywindow,
+.toy-box.hovered .toy-header,
+.toy-box.highlighted .toy-header {
+    border-color: #FFE600 !important;
 }
 
 .toy-box.visible {
+    /* Legacy class support just in case */
     opacity: 1;
-    pointer-events: auto;
 }
 
 /* TOP FACE - Common for all */
