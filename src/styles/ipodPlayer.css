@@ -78,9 +78,11 @@
     z-index: 10;
 }
 
-.center-button:hover {
-    background: linear-gradient(145deg, #f0f0f0, #d0d0d0);
-    transform: translate(-50%, -50%) scale(0.95);
+@media (hover: hover) {
+    .center-button:hover {
+        background: linear-gradient(145deg, #f0f0f0, #d0d0d0);
+        transform: translate(-50%, -50%) scale(0.95);
+    }
 }
 
 .center-button:active {
@@ -103,8 +105,10 @@
     border-radius: 50%;
 }
 
-.wheel-button:hover {
-    background: rgba(255, 255, 255, 0.3);
+@media (hover: hover) {
+    .wheel-button:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
 }
 
 .wheel-button:active {
@@ -118,9 +122,11 @@
     font-size: 14px;
 }
 
-.wheel-left:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%) scale(1.1);
+@media (hover: hover) {
+    .wheel-left:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%) scale(1.1);
+    }
 }
 
 .wheel-left:active {
@@ -134,8 +140,10 @@
     font-size: 14px;
 }
 
-.wheel-right:hover {
-    transform: translate(50%, -50%) scale(1.1);
+@media (hover: hover) {
+    .wheel-right:hover {
+        transform: translate(50%, -50%) scale(1.1);
+    }
 }
 
 .wheel-right:active {

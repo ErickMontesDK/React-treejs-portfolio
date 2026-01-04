@@ -55,7 +55,7 @@ function CameraController({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [JSON.stringify(targetPosition), JSON.stringify(targetLookAt), targetZoom]);
 
-  // 🔹 Limit movement (pan) & Smooth Transitions
+  // Limit movement (pan) & Smooth Transitions
   useFrame(() => {
     if (controls.current) {
       // Only animate if we are in a transition state
@@ -91,7 +91,7 @@ function CameraController({
 
       controls.current.update();
 
-      // 🔍 DEBUG: Log angles when user is manually moving camera (throttled)
+      // DEBUG: Log angles when user is manually moving camera (throttled)
       if (!isTransitioning.current && Math.random() < 0.02) { // Only log 2% of frames to avoid spam
         controls.current.getAzimuthalAngle();
         controls.current.getPolarAngle();
@@ -99,7 +99,7 @@ function CameraController({
     }
   });
 
-  // 🔹 Initial position reset (only on mount)
+  // Initial position reset (only on mount)
   useEffect(() => {
     // Small delay to ensure controls are fully initialized
     const timer = setTimeout(() => {

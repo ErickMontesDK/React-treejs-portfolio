@@ -18,7 +18,7 @@ export default function IpodScreen() {
         <div className="ipod-screen">
             {/* Header */}
             <div className="ipod-header">
-                <span className="battery">🔋</span>
+                <span className="battery"><i className="fa-solid fa-battery-full"></i></span>
                 <span className="time">3:14</span>
             </div>
 
@@ -29,19 +29,21 @@ export default function IpodScreen() {
                         {currentSong.image ? (
                             <img src={currentSong.image} alt={currentSong.title} className="album-img" />
                         ) : (
-                            <div className="album-placeholder">♪</div>
+                            <div className="album-placeholder"><i className="fa-solid fa-music"></i></div>
                         )}
                     </div>
                 </div>
 
                 {/* Song Info */}
                 <div className="song-info">
-                    <div className="song-title">{currentSong.title}</div>
-                    <div className="artist">{currentSong.artist}</div>
-                    <div className="album-name">{currentSong.album}</div>
-                    <div className="rating">
-                        {'★'.repeat(currentSong.rating || 0).padEnd(5, '☆')}
-                    </div>
+                    <span className="song-title">{currentSong.title}</span>
+                    <span className="song-artist">{currentSong.artist}</span>
+                    {/* Render rating stars */}
+                    <span className="song-rating">
+                        {[...Array(5)].map((_, i) => (
+                            <i key={i} className={`fa-star ${i < (currentSong.rating || 0) ? "fa-solid" : "fa-regular"}`}></i>
+                        ))}
+                    </span>
                     <div className="track-count">
                         {currentSongIndex + 1} of {playlist.length}
                     </div>

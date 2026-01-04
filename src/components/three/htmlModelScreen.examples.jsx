@@ -88,7 +88,7 @@ function PhoneConApp() {
                     color: 'white',
                     textAlign: 'center'
                 }}>
-                    <div style={{ fontSize: '40px', marginBottom: '10px' }}>📱</div>
+                    <div style={{ fontSize: '40px', marginBottom: '10px' }}><i className="fa-solid fa-mobile-screen-button"></i></div>
                     <h3>Mi App</h3>
                     <p style={{ fontSize: '12px', opacity: 0.8 }}>
                         Toca para explorar
