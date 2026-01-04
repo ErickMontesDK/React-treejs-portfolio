@@ -15,9 +15,9 @@ const camaras = {
         maxDistance: 10,
     },
     projects: {
-        position: [-1.1, 1.5, 0],
-        target: [-1.2, 1.5, 0],
-        zoom: 12,
+        position: [-1.1, 1.5, -0.1],
+        target: [-1.2, 1.5, -0.1],
+        zoom: 10,
         // Límites de rotación (Azimuth = horizontal, Polar = vertical)
         minAzimuthAngle: Math.PI / 2.2,
         maxAzimuthAngle: Math.PI / 1.9,

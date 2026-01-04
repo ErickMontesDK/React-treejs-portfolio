@@ -171,10 +171,11 @@
 @media screen and (max-width: 768px) {
     .info-cards:has(.about-container) {
         right: 0;
-        top: 30px;
+        top: 130px;
+        /* Adjusted to clear the top-left title */
         height: fit-content;
-        max-height: 92vh;
-        margin: 20px;
+        max-height: 80vh;
+        margin: 0 20px;
         width: calc(100% - 40px);
     }
 
@@ -182,7 +183,6 @@
         width: 100%;
         max-width: 500px;
         font-size: 0.9rem;
-        /* Scale down slightly */
     }
 
     .nutrition-title {
@@ -198,11 +198,12 @@
 
 @media screen and (max-width: 480px) {
     .info-cards:has(.about-container) {
-        /* right: 20px; */
-        top: 5rem;
-        max-height: 80vh;
-        margin: 5px 5px 15rem 5px;
-        width: calc(100% - 10px);
+        top: 20px;
+        /* Title is at bottom, so we can start higher */
+        max-height: 85vh;
+        width: calc(100% - 20px);
+        margin: 0 10px;
+        padding-bottom: 200px;
+        /* Huge padding to allow content to scroll above the bottom title */
     }
-
 }

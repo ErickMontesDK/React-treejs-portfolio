@@ -11,7 +11,7 @@ export default function MonitorProjectScreen({ project, onNext, onPrev }) {
             <div className="macro-header">
                 <div className="repo-identity">
                     <i className="fa-brands fa-github fa-2x"></i>
-                    <span className="owner">erickmontes / </span>
+                    <span className="owner">ErickMontesDK / </span>
                     <span className="name">{project.title}</span>
                     <span className="badge">Public</span>
                 </div>
