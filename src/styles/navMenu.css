@@ -3,7 +3,7 @@
     top: 65px;
     /* Directly below the menu buttons */
     right: 0px;
-    z-index: 10001;
+    z-index: 20001;
     animation: comic-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 

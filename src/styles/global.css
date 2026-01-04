@@ -95,7 +95,7 @@ body * {
   /* Positioned to the right */
   width: auto;
   /* Auto width to fit content */
-  z-index: 10;
+  z-index: 1000;
   gap: 15px;
 }
 

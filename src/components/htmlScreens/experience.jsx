@@ -290,7 +290,7 @@ export default function Experience() {
                 <i className="fa-solid fa-magnifying-glass"></i>
                 <i className="fa-regular fa-square-plus"></i>
                 <i className="fa-solid fa-clapperboard"></i>
-                <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#dbdbdb', border: '1px solid black' }}></div>
+                <img src={profilePic} alt="Profile" style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#dbdbdb', border: '1px solid black' }} />
             </div>
         </>
     );

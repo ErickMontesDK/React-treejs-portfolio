@@ -42,14 +42,14 @@ export default function Menu(props) {
 
 
                 <button className="comic-button" onClick={handleDarkMode}><i className={`fa-solid ${darkMode ? 'fa-sun' : 'fa-moon'}`}></i></button>
-                <button className="comic-button tertiary" onClick={handleMusicToggle}>
-                    <i className={`fa-solid ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
-                </button>
                 <button className="comic-button" onClick={() => setIsNavOpen(!isNavOpen)}>
                     {isNavOpen ? <i className="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>}
                 </button>
-
+                <button className="comic-button tertiary" onClick={handleMusicToggle}>
+                    <i className={`fa-solid ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
+                </button>
                 <NavMenu isOpen={isNavOpen} closeMenu={() => setIsNavOpen(false)} setCamera={setCamera} currentCamera={camera} />
+
             </div>
             <MusicHint isStarted={isStarted} />
         </>

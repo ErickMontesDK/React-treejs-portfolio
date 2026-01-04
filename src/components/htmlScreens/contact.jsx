@@ -13,19 +13,22 @@ export default function Contact() {
         // Set highlight state
         setHighlightedItem(type);
 
-        // Execute action
+        // Execute action with 2s delay for external links
         if (type === 'storm') {
             navigator.clipboard.writeText('erickmontesdk@gmail.com');
             setShowCopyMessage(true);
             setTimeout(() => setShowCopyMessage(false), 2000);
         } else if (actionData) {
-            window.open(actionData, '_blank');
+            // Delay opening to let the animation play
+            setTimeout(() => {
+                window.open(actionData, '_blank');
+            }, 2000);
         }
 
-        // Keep highlighted for 2.5 seconds (Reaction Pulse)
+        // Keep highlighted for 4 seconds (2s delay + 2s appreciation)
         window.contactTimeout = setTimeout(() => {
             setHighlightedItem(null);
-        }, 5000);
+        }, 4000);
     };
 
     const getItemStatus = (type) => {
