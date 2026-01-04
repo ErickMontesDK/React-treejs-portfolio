@@ -17,6 +17,7 @@
     gap: 10px;
     min-width: 180px;
     animation: comic-pop 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+    color: var(--ink-color);
 }
 
 .helper-tag i {
