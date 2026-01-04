@@ -2,7 +2,7 @@ import './styles/variables.css';
 import './styles/global.css';
 import MainScene from './components/three/MainScene.jsx';
 import Menu from './components/layout/Menu.jsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Titles from './components/layout/Titles.jsx';
 import camaras from './data/camaras';
 import { MusicProvider } from './context/MusicContext';
@@ -18,6 +18,10 @@ function App() {
   const [camera, setCamera] = useState(camaras.main);
   const [isHelperOn, setIsHelperOn] = useState(false);
   const [isStarted, setIsStarted] = useState(false);
+
+  useEffect(() => {
+    setIsHelperOn(false);
+  }, [camera]);
 
   return (
     <MusicProvider>
@@ -62,6 +66,7 @@ function App() {
           setDarkMode={setDarkMode}
           camera={camera}
           setCamera={setCamera}
+          isHelperOn={isHelperOn}
           setIsHelperOn={setIsHelperOn}
           isStarted={isStarted}
         />

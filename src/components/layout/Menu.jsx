@@ -8,7 +8,7 @@ import { useState } from "react";
 
 
 export default function Menu(props) {
-    const { darkMode, setDarkMode, camera, setCamera, setIsHelperOn, isStarted } = props;
+    const { darkMode, setDarkMode, camera, setCamera, isHelperOn, setIsHelperOn, isStarted } = props;
     const { isPlaying, togglePlay } = useMusic();
     const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -29,13 +29,10 @@ export default function Menu(props) {
                 ) :
                     (
                         <button
-                            className="comic-button secondary"
-                            onMouseDown={() => setIsHelperOn(true)}
-                            onMouseUp={() => setIsHelperOn(false)}
-                            onTouchStart={() => setIsHelperOn(true)}
-                            onTouchEnd={() => setIsHelperOn(false)}
+                            className={`comic-button secondary ${isHelperOn ? 'active' : ''}`}
+                            onClick={() => setIsHelperOn(!isHelperOn)}
                         >
-                            <i className="fa-solid fa-question"></i>
+                            <i className={`fa-solid ${isHelperOn ? 'fa-xmark' : 'fa-question'}`}></i>
                         </button>
                     )
                 }

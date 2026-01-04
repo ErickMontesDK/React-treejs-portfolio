@@ -5,6 +5,7 @@
     /* border: 10px solid #ccc; */
     color: black;
     font-family: 'Bangers', 'Inter', sans-serif;
+    letter-spacing: 2px;
     overflow: visible;
     /* changed from hidden to let arrows poke out if needed */
     pointer-events: auto !important;

@@ -14,6 +14,8 @@ import MonitorProjectScreen from '../htmlScreens/MonitorScreen';
 import Contact from '../htmlScreens/contact';
 import Blog from '../htmlScreens/blog';
 import IpodScreen from '../htmlScreens/ipodScreen';
+import DiscoveryLabel from '../ui/DiscoveryLabel';
+import discoveryLabels from '../../data/discoveryLabels';
 
 
 export default function MainScene(props) {
@@ -191,11 +193,23 @@ export default function MainScene(props) {
           switchStates={switchesState}
           darkMode={darkMode}
         />
+
+        {/* PERSISTENT DISCOVERY LABELS (HELP MODE) */}
+        {discoveryLabels.map((label) => (
+          <DiscoveryLabel
+            key={label.id}
+            text={label.text}
+            position={label.position}
+            circlePosition={label.circlePosition}
+            circleSize={label.circleSize}
+            isVisible={isHelperOn && camera === camaras.main}
+          />
+        ))}
       </SceneBase>
 
       {/* Tooltip Always On for Debug */}
       {
-        !disableFeatures && <Tooltip
+        !disableFeatures && !isHelperOn && <Tooltip
           position={tooltip.position}
           text={tooltip.text}
           visible={tooltip.visible}

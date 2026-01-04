@@ -1,0 +1,148 @@
+/* Discovery Labels Styles */
+
+.discovery-label-wrapper {
+    pointer-events: none;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    transform: translateY(-50%);
+}
+
+/* Comic Annotation Box */
+.discovery-annotation {
+    background-color: var(--paper-color);
+    background-image:
+        var(--paper-dots),
+        url('../assets/loader/papertexture.png'),
+        url('../assets/loader/grain-texture.png');
+    background-blend-mode: normal, multiply, soft-light;
+    background-size: 15px 15px, cover, cover;
+    border: var(--comic-border);
+    padding: 5px 12px;
+    /* More chunky like title box */
+    font-family: 'Bangers', cursive;
+    font-weight: normal;
+    /* Bangers is already very bold */
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    /* Significantly larger for comic impact */
+    letter-spacing: 1px;
+    white-space: nowrap;
+    width: max-content;
+    color: var(--ink-color);
+    box-shadow: var(--comic-shadow);
+    border-radius: var(--comic-radius);
+    /* Back to sketchy radius */
+    position: relative;
+    z-index: 10;
+    transform: rotate(-1.5deg);
+    line-height: 1;
+    animation: label-pop 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+    pointer-events: none;
+}
+
+/* Hand-Drawn Arrow */
+.discovery-arrow {
+    width: 40px;
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    z-index: 5;
+    opacity: 0;
+    animation: draw-arrow 0.5s ease-out 0.3s forwards;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
+    pointer-events: none;
+}
+
+.discovery-arrow svg {
+    width: 100%;
+    height: 100%;
+}
+
+.discovery-arrow path {
+    stroke: white;
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Encircling Circle Highlight */
+.discovery-circle {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    border: 4px solid transparent;
+    border-radius: 50%;
+    opacity: 0;
+    animation: draw-circle 0.8s ease-out 0.5s forwards;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.4));
+    pointer-events: none;
+}
+
+.discovery-circle svg {
+    width: 100%;
+    height: 100%;
+}
+
+.discovery-circle path {
+    stroke: white;
+    stroke-width: 4;
+    fill: none;
+    stroke-linecap: round;
+    stroke-dasharray: 8 4;
+    /* Hand-drawn dashed effect */
+    stroke-dashoffset: 500;
+    animation: circle-animation 1s ease-in-out 0.5s forwards;
+}
+
+/* Animations */
+@keyframes draw-arrow {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes draw-circle {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes circle-animation {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes label-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-15deg);
+    }
+
+    80% {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(-1.5deg);
+    }
+}
