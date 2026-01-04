@@ -203,6 +203,7 @@ export default function Scene({ children, cameraConfig, musicValue, darkMode }) 
   return (
     <Canvas
       shadows
+      dpr={[1, 1.5]}
       gl={{ antialias: true }}
     >
       <color attach="background" args={[darkMode ? "#030f1f" : "#0c88ba"]} />
