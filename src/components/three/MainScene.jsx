@@ -14,7 +14,6 @@ import MonitorProjectScreen from '../htmlScreens/MonitorScreen';
 import Contact from '../htmlScreens/contact';
 import Blog from '../htmlScreens/blog';
 import IpodScreen from '../htmlScreens/ipodScreen';
-import Skills from '../htmlScreens/skills';
 import DiscoveryLabel from '../ui/DiscoveryLabel';
 import discoveryLabels from '../../data/discoveryLabels';
 
