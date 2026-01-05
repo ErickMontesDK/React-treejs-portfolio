@@ -14,7 +14,22 @@ body {
 
 img,
 svg,
-video {
+video,
+iframe,
+i,
+span,
+p,
+#titles,
+.comic-box,
+.toy-box,
+.toy-name,
+.discovery-annotation,
+.discovery-circle,
+.tooltip,
+.skills-screen,
+.rubik-screen,
+.contact-screen,
+.experience-container {
   color-scheme: only light;
   /* Fuerza modo claro en estos elementos */
 }

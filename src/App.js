@@ -12,6 +12,7 @@ import About from './components/htmlScreens/about';
 import IpodPlayer from './components/ui/IpodPlayer';
 import Loader from './components/ui/Loader';
 import ControlsHelper from './components/ui/ControlsHelper';
+import MobileWarning from './components/ui/MobileWarning';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -26,6 +27,7 @@ function App() {
   return (
     <MusicProvider>
       <div className={`App ${darkMode ? 'dark-mode' : ''}`}>
+        <MobileWarning />
         {!isStarted && <Loader onEnter={() => setIsStarted(true)} />}
 
         <MainScene
