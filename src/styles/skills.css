@@ -258,3 +258,23 @@
         aspect-ratio: 1/1;
     }
 }
+
+/* Hint Animation */
+@keyframes pulseHint {
+
+    0%,
+    100% {
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(0.85);
+    }
+}
+
+.skills-hint {
+    margin: 0 auto 10px auto;
+    width: fit-content;
+    transform: scale(0.8);
+    animation: pulseHint 1.5s infinite ease-in-out !important;
+}

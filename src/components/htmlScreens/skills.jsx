@@ -89,6 +89,10 @@ export default function Skills() {
 
     return (
         <div className="skills-screen">
+            <div className="comic-box helper-tag skills-hint">
+                <i className="fa-solid fa-hand-pointer" style={{ marginRight: '10px', transform: 'rotate(160deg)' }}></i>
+                <span>Tap squares to view skills!</span>
+            </div>
             <h2 key={currentScreen}>{currentScreen}</h2>
             <div className="rubik-screen">
                 <i className="fa-solid fa-arrow-left" onClick={handleArrowLeft}></i>

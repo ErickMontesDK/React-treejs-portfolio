@@ -34,6 +34,8 @@ function App() {
           isHelperOn={isHelperOn}
           darkMode={darkMode}
         >
+
+
           {(camera === camaras.skills) &&
             <InfoCards
               className={"right"}
