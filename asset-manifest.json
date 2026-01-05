@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/React-treejs-portfolio/static/css/main.593e015d.css",
-    "main.js": "/React-treejs-portfolio/static/js/main.b129c3aa.js",
+    "main.css": "/React-treejs-portfolio/static/css/main.411db6cf.css",
+    "main.js": "/React-treejs-portfolio/static/js/main.5160c0f0.js",
     "static/js/453.ac9b7e2a.chunk.js": "/React-treejs-portfolio/static/js/453.ac9b7e2a.chunk.js",
     "static/media/toys.glb": "/React-treejs-portfolio/static/media/toys.c10762401fea91f5e1f7.glb",
     "static/media/printer3d_main.glb": "/React-treejs-portfolio/static/media/printer3d_main.ac585d0c9b043a161a7f.glb",
@@ -62,12 +62,12 @@
     "static/media/jquery.svg": "/React-treejs-portfolio/static/media/jquery.721f812856d89051f65f902b6d7b5a70.svg",
     "index.html": "/React-treejs-portfolio/index.html",
     "static/media/typescript.svg": "/React-treejs-portfolio/static/media/typescript.ebf45f373413750ddecdab4b7c654e83.svg",
-    "main.593e015d.css.map": "/React-treejs-portfolio/static/css/main.593e015d.css.map",
-    "main.b129c3aa.js.map": "/React-treejs-portfolio/static/js/main.b129c3aa.js.map",
+    "main.411db6cf.css.map": "/React-treejs-portfolio/static/css/main.411db6cf.css.map",
+    "main.5160c0f0.js.map": "/React-treejs-portfolio/static/js/main.5160c0f0.js.map",
     "453.ac9b7e2a.chunk.js.map": "/React-treejs-portfolio/static/js/453.ac9b7e2a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.593e015d.css",
-    "static/js/main.b129c3aa.js"
+    "static/css/main.411db6cf.css",
+    "static/js/main.5160c0f0.js"
   ]
 }
