@@ -282,12 +282,13 @@
     transform: scale(0.8);
     animation: pulseHint 1.5s infinite ease-in-out !important;
 }
+
 /* Dark Mode Overrides */
 .App.dark-mode .skills-hint {
     color: #fff !important;
 }
 
-.App.dark-mode .rubik-screen i.fa-solid {
+.App.dark-mode .rubik-screen i.arrow {
     color: #fff !important;
+    border: 2px solid #fff !important;
 }
-

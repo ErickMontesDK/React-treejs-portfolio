@@ -95,10 +95,10 @@ export default function Skills() {
             </div>
             <h2 key={currentScreen}>{currentScreen}</h2>
             <div className="rubik-screen">
-                <i className="fa-solid fa-arrow-left" onClick={handleArrowLeft}></i>
-                <i className="fa-solid fa-arrow-right" onClick={handleArrowRight}></i>
-                <i className="fa-solid fa-arrow-up" onClick={handleArrowUp}></i>
-                <i className="fa-solid fa-arrow-down" onClick={handleArrowDown}></i>
+                <i className="fa-solid fa-arrow-left arrow" onClick={handleArrowLeft}></i>
+                <i className="fa-solid fa-arrow-right arrow" onClick={handleArrowRight}></i>
+                <i className="fa-solid fa-arrow-up arrow" onClick={handleArrowUp}></i>
+                <i className="fa-solid fa-arrow-down arrow" onClick={handleArrowDown}></i>
 
                 {currentScreen === "frontend" && (
                     <div className="skills" id="frontend">
