@@ -12,6 +12,13 @@ body {
   /* Prevent scrollbars for the 3D scene */
 }
 
+img,
+svg,
+video {
+  color-scheme: only light;
+  /* Fuerza modo claro en estos elementos */
+}
+
 body * {
   box-sizing: border-box;
 }
@@ -219,4 +226,10 @@ footer {
     padding: 0px;
   }
 
+}
+
+@media (prefers-color-scheme: dark) {
+  img {
+    filter: none !important;
+  }
 }

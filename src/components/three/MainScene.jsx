@@ -130,7 +130,8 @@ export default function MainScene(props) {
                 <HtmlModelScreen
                   rotation={[-Math.PI / 2, 0, Math.PI / 1.225]}
                   position={[-1.571, .9, .425]}
-                  className="phone-screen">
+                  className="phone-screen"
+                  darkMode={darkMode}>
                   <Experience />
                 </HtmlModelScreen>
               }
@@ -138,7 +139,8 @@ export default function MainScene(props) {
                 <HtmlModelScreen
                   rotation={[0, Math.PI / 2, 0]}
                   position={[-1.98, 1.165, -.15]}
-                  className="laptop-screen">
+                  className="laptop-screen"
+                  darkMode={darkMode}>
                   <LaptopProjectScreen
                     project={projects[currentProjectIndex]}
                   />
@@ -149,7 +151,8 @@ export default function MainScene(props) {
                   <HtmlModelScreen
                     rotation={[Math.PI / 30, 0, 0]}
                     position={[.15, 1.682, -1.97]}
-                    className="hdmi-screen">
+                    className="hdmi-screen"
+                    darkMode={darkMode}>
                     <MonitorProjectScreen
                       project={projects[currentProjectIndex]}
                       onNext={handleNextProject}
@@ -164,7 +167,8 @@ export default function MainScene(props) {
                   <HtmlModelScreen
                     rotation={[0, Math.PI / -1.8, 0]}
                     position={[2.2, 2.25, 1.4]}
-                    className="contact-screen">
+                    className="contact-screen"
+                    darkMode={darkMode}>
                     {/* Only pass activeToy if it's one of the contact toys */}
                     <Contact />
                   </HtmlModelScreen>
@@ -174,7 +178,8 @@ export default function MainScene(props) {
                 <HtmlModelScreen
                   rotation={[-Math.PI / 2, 0, Math.PI / 4.4]}
                   position={[-1.57, .895, -1.155]}
-                  className="blog-screen">
+                  className="blog-screen"
+                  darkMode={darkMode}>
                   <Blog />
                 </HtmlModelScreen>
               }
@@ -182,7 +187,8 @@ export default function MainScene(props) {
                 <HtmlModelScreen
                   rotation={[-Math.PI / 2.2, Math.PI / 33, Math.PI / 1.16]}
                   position={[1.522, 0.615, 2.0355]}
-                  className="ipod-screen">
+                  className="ipod-screen"
+                  darkMode={darkMode}>
                   <IpodScreen />
                 </HtmlModelScreen>
               }
@@ -204,6 +210,7 @@ export default function MainScene(props) {
             circlePosition={label.circlePosition}
             circleSize={label.circleSize}
             isVisible={isHelperOn && camera === camaras.main}
+            darkMode={darkMode}
           />
         ))}
       </SceneBase>

@@ -30,6 +30,7 @@ export default function HtmlModelScreen({
     occlude = false,
     center = [0.5, 0.5],
     disableFeatures = false,
+    darkMode = false,
     ...props
 }) {
     // Handler para prevenir que el scroll afecte OrbitControls
@@ -52,7 +53,7 @@ export default function HtmlModelScreen({
             {...props}
         >
             <div
-                className="screen-content"
+                className={`screen-content ${darkMode ? 'dark-mode' : ''}`}
                 style={{
                     transform: `scale(${scale})`,
                     transformOrigin: 'center center'

@@ -9,7 +9,7 @@ import '../../styles/DiscoveryLabels.css';
  * 1. Comic Annotation box + Arrow (positioned above)
  * 2. Encircling highlight circle (positioned at model center)
  */
-export default function DiscoveryLabel({ text, position = [0, 2, 0], circlePosition = [0, 0, 0], circleSize = 60, isVisible = false }) {
+export default function DiscoveryLabel({ text, position = [0, 2, 0], circlePosition = [0, 0, 0], circleSize = 60, isVisible = false, darkMode = false }) {
     if (!isVisible) return null;
 
     return (
@@ -20,7 +20,7 @@ export default function DiscoveryLabel({ text, position = [0, 2, 0], circlePosit
                 center
                 style={{ pointerEvents: 'none' }}
             >
-                <div className="discovery-label-wrapper">
+                <div className={`discovery-label-wrapper ${darkMode ? 'dark-mode' : ''}`}>
                     <div className="discovery-annotation">
                         {text}
                     </div>
@@ -38,7 +38,7 @@ export default function DiscoveryLabel({ text, position = [0, 2, 0], circlePosit
                 center
                 style={{ pointerEvents: 'none' }}
             >
-                <div className="discovery-circle" style={{ width: `${circleSize}px`, height: `${circleSize}px` }}>
+                <div className={`discovery-circle ${darkMode ? 'dark-mode' : ''}`} style={{ width: `${circleSize}px`, height: `${circleSize}px` }}>
                     <svg viewBox="0 0 100 100">
                         <path d="M50,10 A40,40 0 1,1 49.9,10" />
                     </svg>

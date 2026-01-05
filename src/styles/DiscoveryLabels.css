@@ -146,3 +146,21 @@
         transform: scale(1) rotate(-1.5deg);
     }
 }
+
+.dark-mode .discovery-annotation {
+    background-color: var(--paper-color);
+    color: var(--ink-color);
+    border-color: #404040;
+    box-shadow: 6px 6px 0px #000;
+}
+
+.dark-mode .discovery-label-wrapper.dark-mode .discovery-annotation {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    border-color: #f0f0f0;
+    box-shadow: 6px 6px 0px #000;
+}
+
+.dark-mode .discovery-circle.dark-mode path {
+    stroke: #f0f0f0;
+}

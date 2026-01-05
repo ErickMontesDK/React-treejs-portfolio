@@ -11,6 +11,7 @@ export default function Contact() {
         if (window.contactTimeout) clearTimeout(window.contactTimeout);
 
         // Set highlight state
+        if (highlightedItem) return;
         setHighlightedItem(type);
 
         // Execute action with 2s delay for external links
