@@ -139,7 +139,11 @@ body * {
 
 .comic-button.primary {
   background-color: var(--ink-color);
-  color: #fff;
+  color: var(--paper-color);
+}
+
+.App.dark-mode .comic-button.primary {
+  color: #000;
 }
 
 
