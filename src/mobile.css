@@ -1,0 +1,642 @@
+/* Mobile App Specific Styles */
+
+.mobile-app {
+    width: 100%;
+    /* Ensure scrolling works */
+    height: 100%;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: var(--paper-color);
+    background-image: var(--paper-dots);
+    background-size: 20px 20px;
+    color: var(--ink-color);
+    /* Switch to more elegant font for body */
+    font-family: var(--font-oswald), sans-serif;
+    display: flex;
+    flex-direction: column;
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scroll for iOS */
+}
+
+/* Header */
+.mobile-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 3px solid var(--ink-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .mobile-header {
+    background: rgba(18, 18, 18, 0.95);
+    border-bottom-color: #404040;
+}
+
+.brand-name {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.brand-role {
+    font-family: var(--font-oswald);
+    font-weight: 300;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--ink-blue);
+    letter-spacing: 2px;
+}
+
+/* Content */
+.mobile-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+/* Section Title - More Elegant Comic */
+.mobile-section-title {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.mobile-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: var(--accent-yellow);
+    z-index: -1;
+    transform: rotate(-1deg);
+    opacity: 0.7;
+}
+
+/* Comic Boxes - Adding the texture ONLY here where it looks good */
+.comic-box {
+    background: white;
+    border: 3px solid var(--ink-color);
+    position: relative;
+    padding: 20px;
+    box-shadow: 8px 8px 0px var(--ink-color);
+    background-image: url('./assets/loader/papertexture.png');
+    background-size: 200px;
+    background-blend-mode: multiply;
+}
+
+.dark-mode .comic-box {
+    background-color: #1e1e1e;
+    border-color: #404040;
+    box-shadow: 8px 8px 0px #000000;
+}
+
+/* Hero Section Adjustments */
+.hero-text h1 {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    line-height: .9;
+}
+
+.hero-subtitle {
+    font-family: var(--font-oswald);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-top: 10px;
+    color: var(--ink-blue);
+}
+
+.hero-3d-container {
+    width: 100%;
+    height: 350px;
+    margin: 20px 0;
+    border-radius: 20px;
+    overflow: hidden;
+    background: radial-gradient(circle, var(--white_color) 0%, transparent 70%);
+}
+
+/* Skills Adjustments */
+.skill-tag {
+    background: var(--white_color);
+    border: 1.5px solid var(--ink-color);
+    padding: 5px 12px;
+    font-family: var(--font-oswald);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin: 4px;
+    display: inline-block;
+}
+
+/* Projects Adjustments */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--ink-color);
+}
+
+/* Footer Adjustments */
+.mobile-footer {
+    padding: 60px 20px;
+    text-align: center;
+    font-family: var(--font-oswald);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.7rem;
+    border-top: 3px solid var(--ink-color);
+    background: var(--paper-color);
+}
+
+/* Hand-Drawn Sketch Coca-Cola Can */
+.coca-can-cylinder.sketchy {
+    width: 280px;
+    height: 520px;
+    background: #f40009;
+    /* Hand-drawn wobbly edge effect */
+    border-radius: 4px 5px 4px 6px / 15px 14px 16px 15px;
+    border: 3px solid black;
+    position: relative;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.15);
+    overflow: visible;
+    margin: auto;
+}
+
+/* Sketch Hatching for Shading */
+.sketch-hatching-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Layered hatching */
+    background:
+        repeating-linear-gradient(135deg, transparent, transparent 10px, rgba(0, 0, 0, 0.08) 10px, rgba(0, 0, 0, 0.08) 11px),
+        repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255, 255, 255, 0.1) 15px, rgba(255, 255, 255, 0.1) 16px);
+    pointer-events: none;
+    z-index: 5;
+    border-radius: inherit;
+}
+
+/* Construction Lines (Overshoot) */
+.construction-lines::before,
+.construction-lines::after {
+    content: '';
+    position: absolute;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.construction-lines::before {
+    top: -10px;
+    left: -15px;
+    width: 310px;
+    height: 1px;
+    transform: rotate(-0.5deg);
+}
+
+.construction-lines::after {
+    top: -20px;
+    left: 10%;
+    width: 1px;
+    height: 560px;
+    transform: rotate(0.2deg);
+}
+
+.can-top-lid {
+    position: absolute;
+    top: -18px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: 45px;
+    background: #b3b3b3;
+    /* Sketchy ellipse */
+    border: 3px solid black;
+    border-radius: 50% / 30%;
+    z-index: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.can-tab {
+    width: 40px;
+    height: 25px;
+    background: #b3b3b3;
+    border: 3px solid black;
+    border-radius: 6px 12px 6px 10px;
+    position: relative;
+    transform: rotate(2deg);
+}
+
+.can-tab::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background: #b3b3b3;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.can-bottom-base {
+    position: absolute;
+    bottom: -15px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: 40px;
+    background: #b3b3b3;
+    border: 3px solid black;
+    border-radius: 50% / 35%;
+    z-index: 4;
+}
+
+/* Sketchy Annotations */
+.sketch-annotation {
+    position: absolute;
+    font-family: 'Shadows Into Light', cursive, var(--font-main);
+    font-size: 0.9rem;
+    color: var(--ink-color);
+    white-space: nowrap;
+    z-index: 15;
+}
+
+.sketch-annotation.left {
+    top: -40px;
+    left: -20px;
+    transform: rotate(-5deg);
+}
+
+.sketch-annotation.right {
+    bottom: 20px;
+    right: -60px;
+    transform: rotate(10deg);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 5px;
+}
+
+.can-label-area {
+    width: 100%;
+    height: 100%;
+    padding: 30px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-about-scrollbox {
+    width: 250px;
+    height: 400px;
+    /* Sketchy box */
+    border-radius: 2px 3px 2px 4px;
+    overflow-y: auto;
+    padding: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transform: rotate(-1deg);
+    z-index: 10;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Hybrid 6-face Skills Styles */
+.mobile-rubik-hybrid-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+.hybrid-main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.nav-arrow-rubik {
+    background: var(--ink-color);
+    color: white;
+    border: 3px solid white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 20;
+}
+
+.nav-arrow-rubik:active {
+    transform: scale(0.9);
+}
+
+.hybrid-rubik-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+    padding: 8px;
+    border: 6px solid var(--ink-color);
+    background: rgba(0, 0, 0, 0.05);
+    /* Very light ghost background */
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 1/1;
+}
+
+.hybrid-square {
+    background: white;
+    border: 2px solid var(--ink-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    padding: 4px;
+}
+
+.hybrid-skill-name {
+    font-size: 0.55rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.face-indicator {
+    font-family: var(--font-oswald);
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    padding: 5px 15px;
+    background: var(--ink-color);
+    color: white;
+    border-radius: 20px;
+}
+
+/* Responsive Images in Carousels */
+.mobile-carousel .carousel-item img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    object-fit: contain;
+}
+
+/* Instagram Style Mobile Consistency */
+.insta-post-mobile {
+    background: white;
+    border: 3px solid var(--ink-color);
+    margin: 0 15px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.post-avatar-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1.5px solid var(--ink-color);
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-username {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #000;
+}
+
+.post-location {
+    font-size: 0.65rem;
+    color: #666;
+}
+
+.post-image-container {
+    width: 100%;
+    border-bottom: 2px solid #eee;
+    background: #fafafa;
+}
+
+.post-img {
+    width: 100%;
+    display: block;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #000;
+}
+
+.actions-left {
+    display: flex;
+    gap: 15px;
+}
+
+.post-likes-area {
+    padding: 0 10px 5px 10px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #000;
+}
+
+.post-caption-area {
+    padding: 0 10px 15px 10px;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    color: #000;
+}
+
+.caption-user {
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+.post-date-tag {
+    font-size: 0.65rem;
+    color: #999;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.project-image-box {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-bottom: 3px solid var(--ink-color);
+}
+
+.mobile-project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Contact Block Grouping */
+.contact-block {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+
+.contact-row {
+    width: 100%;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    background: white;
+    border: 3px solid var(--ink-color);
+    box-shadow: 4px 4px 0px var(--ink-color);
+    font-family: var(--font-oswald);
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--ink-color);
+    font-size: 0.9rem;
+}
+
+.contact-item:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--ink-color);
+}
+
+.contact-item.resume {
+    background-color: var(--accent-yellow);
+}
+
+.contact-item.github {
+    background-color: #f1f1f1;
+}
+
+.contact-item.linkedin {
+    background-color: #e8f4fd;
+}
+
+.contact-item.email {
+    background-color: #fef9e7;
+}
+
+/* Custom Arrows for all Carousels */
+.mobile-carousel .carousel-control-prev,
+.mobile-carousel .carousel-control-next {
+    width: 45px;
+    height: 45px;
+    background: var(--ink-color) !important;
+    border: 3px solid white !important;
+    border-radius: 50% !important;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1 !important;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.mobile-carousel .carousel-control-prev {
+    left: -5px;
+}
+
+.mobile-carousel .carousel-control-next {
+    right: -5px;
+}
+
+/* Contact Fixes (Forced readability) */
+.contact-item {
+    color: #000 !important;
+    /* Force black text */
+}
+
+/* Hero Badge visibility in Light Mode */
+.hero-badges .badge {
+    border: 2px solid var(--ink-color);
+    background: var(--paper-color);
+    color: var(--ink-color);
+    font-weight: 800;
+}
+
+.App.dark-mode .hero-badges .badge {
+    background: var(--ink-color);
+    color: white;
+}
+
+.mobile-carousel.dark-mode-carousel a[class*="carousel-control-"],
+.mobile-carousel a[class*="carousel-control-"] {
+    background-color: black !important;
+}
+
+.mobile-app .post-avatar i.fa-solid {
+    color: black !important;
+}
+
+.mobile-app .post-info span,
+.mobile-app .post-actions i {
+    color: var(--ink-color) !important;
+}
+
+.mobile-app .comic-button.tertiary,
+.mobile-app .comic-button.secondary {
+    color: black !important;
+}
+
+.mobile-app .contact-grid .contact-item {
+    background-color: var(--paper-color) !important;
+    color: var(--ink-color) !important;
+}

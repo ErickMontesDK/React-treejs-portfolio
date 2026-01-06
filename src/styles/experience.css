@@ -217,59 +217,7 @@
     border-bottom: 1px solid #262626;
 }
 
-/* Post Styling */
-.post {
-    margin-bottom: 15px;
-}
 
-.post-header {
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-}
-
-.post-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    margin-right: 10px;
-    border: 1px solid #dbdbdb;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #fafafa;
-    font-size: 0.8rem;
-}
-
-.post-info {
-    flex: 1;
-}
-
-.post-username {
-    font-weight: 700;
-    font-size: 0.9rem;
-    display: block;
-}
-
-.post-location {
-    font-size: 0.75rem;
-    color: #262626;
-}
-
-.post-image {
-    width: 100%;
-    /* aspect-ratio: 4/5; standard insta portrait, but flexible */
-    background-color: #fafafa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid #efefef;
-    border-bottom: 1px solid #efefef;
-    position: relative;
-    min-height: 250px;
-    text-align: center;
-    aspect-ratio: 4/3;
-}
 
 /* Dynamic Gradients for "Images" */
 .post-image.gradient-1 {
@@ -288,59 +236,7 @@
     background: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
 }
 
-.role-title {
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: #262626;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 10px 20px;
-    border-radius: 8px;
-    backdrop-filter: blur(5px);
-}
 
-.post-actions {
-    padding: 10px 15px;
-    font-size: 1.5rem;
-    display: flex;
-    gap: 15px;
-}
-
-.post-likes {
-    padding: 0 15px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    margin-bottom: 5px;
-}
-
-.post-caption {
-    padding: 0 15px;
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-}
-
-.post-bullets {
-    margin: 5px 0 0 0;
-    padding-left: 20px;
-}
-
-.post-bullets li {
-    margin-bottom: 4px;
-}
-
-.caption-username {
-    font-weight: 700;
-    margin-right: 5px;
-}
-
-.post-date {
-    display: block;
-    margin-top: 5px;
-    font-size: 0.7rem;
-    color: #8e8e8e;
-    text-transform: uppercase;
-}
 
 /* Bottom Nav */
 .insta-nav {
