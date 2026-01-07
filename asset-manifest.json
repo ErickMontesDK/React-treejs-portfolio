@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/React-treejs-portfolio/static/css/main.411db6cf.css",
-    "main.js": "/React-treejs-portfolio/static/js/main.5160c0f0.js",
+    "main.css": "/React-treejs-portfolio/static/css/main.0c9a55d1.css",
+    "main.js": "/React-treejs-portfolio/static/js/main.1160817e.js",
     "static/js/453.ac9b7e2a.chunk.js": "/React-treejs-portfolio/static/js/453.ac9b7e2a.chunk.js",
     "static/media/toys.glb": "/React-treejs-portfolio/static/media/toys.c10762401fea91f5e1f7.glb",
     "static/media/printer3d_main.glb": "/React-treejs-portfolio/static/media/printer3d_main.ac585d0c9b043a161a7f.glb",
     "static/media/pinkfloyd.glb": "/React-treejs-portfolio/static/media/pinkfloyd.50be06ea686ff9bd6807.glb",
     "static/media/beatles.glb": "/React-treejs-portfolio/static/media/beatles.24710e3d34e9aa4a113d.glb",
+    "static/media/contact.glb": "/React-treejs-portfolio/static/media/contact.e0ec5667b9d965b4cfad.glb",
     "static/media/chair.glb": "/React-treejs-portfolio/static/media/chair.c07b1a835675b3b619ec.glb",
     "static/media/funko.glb": "/React-treejs-portfolio/static/media/funko.a68af40ebf034023a4f0.glb",
+    "static/media/avatar.glb": "/React-treejs-portfolio/static/media/avatar.b546d9882c26818ec39a.glb",
     "static/media/ipod.glb": "/React-treejs-portfolio/static/media/ipod.5142782386a45ea53d26.glb",
     "static/media/notebook.glb": "/React-treejs-portfolio/static/media/notebook.975561caa7074a7f48cd.glb",
     "static/media/repisas.glb": "/React-treejs-portfolio/static/media/repisas.03b3c95622916c5cb00a.glb",
@@ -62,12 +64,12 @@
     "static/media/jquery.svg": "/React-treejs-portfolio/static/media/jquery.721f812856d89051f65f902b6d7b5a70.svg",
     "index.html": "/React-treejs-portfolio/index.html",
     "static/media/typescript.svg": "/React-treejs-portfolio/static/media/typescript.ebf45f373413750ddecdab4b7c654e83.svg",
-    "main.411db6cf.css.map": "/React-treejs-portfolio/static/css/main.411db6cf.css.map",
-    "main.5160c0f0.js.map": "/React-treejs-portfolio/static/js/main.5160c0f0.js.map",
+    "main.0c9a55d1.css.map": "/React-treejs-portfolio/static/css/main.0c9a55d1.css.map",
+    "main.1160817e.js.map": "/React-treejs-portfolio/static/js/main.1160817e.js.map",
     "453.ac9b7e2a.chunk.js.map": "/React-treejs-portfolio/static/js/453.ac9b7e2a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.411db6cf.css",
-    "static/js/main.5160c0f0.js"
+    "static/css/main.0c9a55d1.css",
+    "static/js/main.1160817e.js"
   ]
 }
