@@ -10,6 +10,7 @@ import MobileExperience from './components/mobile/MobileExperience';
 import MobileProjects from './components/mobile/MobileProjects';
 import MobileContact from './components/mobile/MobileContact';
 import { useState } from 'react';
+import avatar from "./assets/models/avatar.glb"
 
 export default function MobileApp() {
     const [darkMode, setDarkMode] = useState(false);
@@ -17,6 +18,11 @@ export default function MobileApp() {
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
     };
+
+    const avatarData = {
+        name: "avatar",
+        model: avatar,
+    }
 
     return (
         <div className={`mobile-app ${darkMode ? 'dark-mode' : ''}`}>
@@ -34,10 +40,10 @@ export default function MobileApp() {
 
             <main className="mobile-content">
                 <div className="mobile-disclaimer">
-                    <i className="fa-solid fa-mobile-screen"></i> Mobile Version
+                    <i className="fa-solid fa-desktop"></i> Visit on Desktop for the full 3D experience!
                 </div>
 
-                <MobileHero darkMode={darkMode} />
+                <MobileHero darkMode={darkMode} modelData={avatarData} farLength={3} />
                 <MobileAbout darkMode={darkMode} />
                 <MobileSkills darkMode={darkMode} />
                 <MobileExperience darkMode={darkMode} />

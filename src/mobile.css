@@ -96,7 +96,8 @@
     border: 3px solid var(--ink-color);
     position: relative;
     padding: 20px;
-    box-shadow: 8px 8px 0px var(--ink-color);
+    box-shadow: 6px 6px 0px var(--ink-color);
+    /* Slightly smaller but solid */
     background-image: url('./assets/loader/papertexture.png');
     background-size: 200px;
     background-blend-mode: multiply;
@@ -179,11 +180,13 @@
     width: 280px;
     height: 520px;
     background: #f40009;
-    /* Hand-drawn wobbly edge effect */
-    border-radius: 4px 5px 4px 6px / 15px 14px 16px 15px;
-    border: 3px solid black;
+    /* Cleaner comic-style border radius */
+    border-radius: 8px 10px 8px 12px / 20px 18px 22px 20px;
+    border: 4px solid black;
+    /* Thicker for comic look */
     position: relative;
-    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 10px 10px 1px 0 var(--ink-color);
+    /* SOLID COMIC SHADOW */
     overflow: visible;
     margin: auto;
 }
@@ -217,14 +220,14 @@
     top: -10px;
     left: -15px;
     width: 310px;
-    height: 1px;
+    height: 2px;
     transform: rotate(-0.5deg);
 }
 
 .construction-lines::after {
     top: -20px;
     left: 10%;
-    width: 1px;
+    width: 2px;
     height: 560px;
     transform: rotate(0.2deg);
 }
@@ -237,20 +240,20 @@
     height: 45px;
     background: #b3b3b3;
     /* Sketchy ellipse */
-    border: 3px solid black;
+    border: 5px solid black;
     border-radius: 50% / 30%;
     z-index: 6;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 2px 0 black;
 }
 
 .can-tab {
     width: 40px;
     height: 25px;
     background: #b3b3b3;
-    border: 3px solid black;
+    border: 4px solid black;
     border-radius: 6px 12px 6px 10px;
     position: relative;
     transform: rotate(2deg);
@@ -276,7 +279,7 @@
     width: calc(100% + 10px);
     height: 40px;
     background: #b3b3b3;
-    border: 3px solid black;
+    border: 5px solid black;
     border-radius: 50% / 35%;
     z-index: 4;
 }
@@ -299,9 +302,10 @@
 
 .sketch-annotation.right {
     bottom: 20px;
-    right: -60px;
+    right: -2px;
     transform: rotate(10deg);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid black;
+    color: black !important;
     padding-bottom: 5px;
 }
 
@@ -362,7 +366,8 @@
 }
 
 .nav-arrow-rubik:active {
-    transform: scale(0.9);
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--ink-color);
 }
 
 .hybrid-rubik-grid {
@@ -602,6 +607,14 @@
 .contact-item {
     color: #000 !important;
     /* Force black text */
+}
+
+.hero-badges {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5px;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 /* Hero Badge visibility in Light Mode */

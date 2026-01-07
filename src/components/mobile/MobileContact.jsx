@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
+import MobileModelViewer from './MobileModelViewer';
+import contact from './../../assets/models/contact.glb';
 
-export default function MobileContact() {
+export default function MobileContact({ darkMode }) {
     const [copied, setCopied] = useState(false);
+
+    const trooperData = {
+        name: "trooper",
+        model: contact,
+    }
 
     const handleCopyEmail = () => {
         navigator.clipboard.writeText('erickmontesdk@gmail.com');
@@ -9,24 +16,26 @@ export default function MobileContact() {
         setTimeout(() => setCopied(false), 2000);
     };
 
-    const handleDownloadResume = () => {
-        const sound = new Audio(`${process.env.PUBLIC_URL}/sounds/printer.wav`);
-        sound.play();
-        setTimeout(() => {
-            window.open(`${process.env.PUBLIC_URL}/resume.pdf`, '_blank');
-        }, 1000);
-    };
+
 
     return (
         <section className="mobile-section mobile-contact">
             <h2 className="mobile-section-title">Contact</h2>
 
+            <MobileModelViewer
+                darkMode={darkMode}
+                modelData={trooperData}
+                farLength={3.5}
+                lightIntensity={0.8}
+
+            />
+
             <div className="comic-box contact-block">
                 <div className="contact-row">
-                    <button onClick={handleDownloadResume} className="contact-item resume">
+                    <a href={`${process.env.PUBLIC_URL}/resume.pdf`} target="_blank" rel="noreferrer" className="contact-item resume">
                         <i className="fa-solid fa-file-pdf"></i>
                         <span>Download Resume</span>
-                    </button>
+                    </a>
                 </div>
 
                 <div className="contact-grid">
