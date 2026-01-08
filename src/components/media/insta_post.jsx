@@ -36,7 +36,7 @@ export default function InstaPost(props) {
             <div className="post-likes">{exp.likes} likes</div>
 
             <div className="post-caption">
-                <span className="caption-username">{exp.company}</span>
+                <span className="caption-username">{exp.role}</span>
                 {exp.description}
                 <span className="post-date">{exp.date}</span>
             </div>

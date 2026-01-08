@@ -653,3 +653,16 @@
     background-color: var(--paper-color) !important;
     color: var(--ink-color) !important;
 }
+
+.rubik-box {
+    background-color: var(--paper-color);
+    border: 3px solid var(--ink-color);
+    box-shadow: 6px 6px 0px var(--ink-color);
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.rubik-box h2 {
+    margin-left: 20px !important;
+}

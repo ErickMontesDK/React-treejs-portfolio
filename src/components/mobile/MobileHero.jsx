@@ -10,7 +10,7 @@ export default function MobileHero({ darkMode, modelData, farLength }) {
         <section className="mobile-section mobile-hero">
             <div className="hero-text">
                 <h1>Hello there! I'm <span className="highlight">Erick</span></h1>
-                <p className="hero-subtitle">Mechanical Engineer & FullStack Developer</p>
+                <p className="hero-subtitle">FullStack Developer & Mechanical Engineer</p>
                 <div className="hero-badges">
                     <span className="badge">Creative</span>
                     <span className="badge">Innovative</span>

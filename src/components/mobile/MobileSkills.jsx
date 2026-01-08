@@ -4,8 +4,9 @@ export default function MobileSkills() {
     return (
         <section className="mobile-section mobile-skills-hybrid">
             <h2 className="mobile-section-title">Skills</h2>
-
-            <Rubik />
+            <div className="rubik-box">
+                <Rubik />
+            </div>
         </section>
     );
 }

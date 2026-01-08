@@ -183,7 +183,7 @@ export default function Rubik() {
             </div>
             <div className="comic-box helper-tag skills-hint">
                 <i className="fa-solid fa-hand-pointer" style={{ marginRight: '10px', transform: 'rotate(40deg)' }}></i>
-                <span>Tap squares to view skills!</span>
+                <span>Tap the squares!</span>
             </div>
         </>
     );
