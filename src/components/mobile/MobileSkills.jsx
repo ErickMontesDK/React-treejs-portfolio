@@ -5,7 +5,7 @@ export default function MobileSkills() {
         <section className="mobile-section mobile-skills-hybrid">
             <h2 className="mobile-section-title">Skills</h2>
             <div className="rubik-box">
-                <Rubik />
+                <Rubik onHint={true} />
             </div>
         </section>
     );

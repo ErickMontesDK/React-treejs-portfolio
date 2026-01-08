@@ -4,7 +4,7 @@ import jqueryIcon from './../../assets/icons/jquery.svg';
 import "./../../styles/rubik.css";
 
 
-export default function Rubik() {
+export default function Rubik({ onHint = false }) {
     const [currentScreen, setCurrentScreen] = useState('frontend');
     const [, setPrevScreen] = useState(null);
 
@@ -181,10 +181,12 @@ export default function Rubik() {
                 )}
 
             </div>
-            <div className="comic-box helper-tag skills-hint">
-                <i className="fa-solid fa-hand-pointer" style={{ marginRight: '10px', transform: 'rotate(40deg)' }}></i>
-                <span>Tap the squares!</span>
-            </div>
+            {onHint && (
+                <div className="comic-box helper-tag skills-hint">
+                    <i className="fa-solid fa-hand-pointer" style={{ marginRight: '10px', transform: 'rotate(40deg)' }}></i>
+                    <span>Tap the squares!</span>
+                </div>
+            )}
         </>
     );
 }
