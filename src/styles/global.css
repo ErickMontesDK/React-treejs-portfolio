@@ -19,6 +19,12 @@ iframe,
 i,
 span,
 p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 #titles,
 .comic-box,
 .toy-box,
@@ -29,9 +35,15 @@ p,
 .skills-screen,
 .rubik-screen,
 .contact-screen,
-.experience-container {
-  color-scheme: only light;
+.experience-container,
+.loader-screen,
+.barcode-sticker,
+.enter-btn-comic,
+.nutrition-label,
+.about-container {
+  color-scheme: light !important;
   /* Fuerza modo claro en estos elementos */
+  forced-color-adjust: none !important;
 }
 
 body * {

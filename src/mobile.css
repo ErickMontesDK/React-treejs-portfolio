@@ -7,16 +7,17 @@
     min-height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: var(--paper-color);
+    background-color: var(--paper-color) !important;
     background-image: var(--paper-dots);
     background-size: 20px 20px;
-    color: var(--ink-color);
+    color: var(--ink-color) !important;
     /* Switch to more elegant font for body */
     font-family: var(--font-oswald), sans-serif;
     display: flex;
     flex-direction: column;
     -webkit-overflow-scrolling: touch;
     /* Smooth scroll for iOS */
+    forced-color-adjust: none !important;
 }
 
 /* Header */
@@ -28,15 +29,18 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(10px);
-    border-bottom: 3px solid var(--ink-color);
+    border-bottom: 3px solid var(--ink-color) !important;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    color: black !important;
+    forced-color-adjust: none !important;
 }
 
 .dark-mode .mobile-header {
-    background: rgba(18, 18, 18, 0.95);
-    border-bottom-color: #404040;
+    background: rgba(18, 18, 18, 0.95) !important;
+    border-bottom-color: #404040 !important;
+    color: white !important;
 }
 
 .brand-name {
@@ -92,21 +96,24 @@
 
 /* Comic Boxes - Adding the texture ONLY here where it looks good */
 .comic-box {
-    background: white;
-    border: 3px solid var(--ink-color);
+    background: white !important;
+    border: 3px solid var(--ink-color) !important;
     position: relative;
     padding: 20px;
-    box-shadow: 6px 6px 0px var(--ink-color);
+    box-shadow: 6px 6px 0px var(--ink-color) !important;
     /* Slightly smaller but solid */
     background-image: url('./assets/loader/papertexture.png');
     background-size: 200px;
     background-blend-mode: multiply;
+    color: black !important;
+    forced-color-adjust: none !important;
 }
 
 .dark-mode .comic-box {
-    background-color: #1e1e1e;
-    border-color: #404040;
-    box-shadow: 8px 8px 0px #000000;
+    background-color: #1e1e1e !important;
+    border-color: #404040 !important;
+    box-shadow: 8px 8px 0px #000000 !important;
+    color: white !important;
 }
 
 /* Hero Section Adjustments */
@@ -350,9 +357,9 @@
 }
 
 .nav-arrow-rubik {
-    background: var(--ink-color);
-    color: white;
-    border: 3px solid white;
+    background: var(--ink-color) !important;
+    color: white !important;
+    border: 3px solid white !important;
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -360,9 +367,10 @@
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3) !important;
     cursor: pointer;
     z-index: 20;
+    forced-color-adjust: none !important;
 }
 
 .nav-arrow-rubik:active {
@@ -385,14 +393,15 @@
 }
 
 .hybrid-square {
-    background: white;
-    border: 2px solid var(--ink-color);
+    background: white !important;
+    border: 2px solid var(--ink-color) !important;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #000;
+    color: #000 !important;
     padding: 4px;
+    forced-color-adjust: none !important;
 }
 
 .hybrid-skill-name {
@@ -400,6 +409,7 @@
     font-weight: 800;
     text-transform: uppercase;
     margin-top: 2px;
+    color: #000 !important;
 }
 
 .face-indicator {
@@ -410,9 +420,10 @@
     font-size: 0.8rem;
     margin-top: 10px;
     padding: 5px 15px;
-    background: var(--ink-color);
-    color: white;
+    background: var(--ink-color) !important;
+    color: white !important;
     border-radius: 20px;
+    forced-color-adjust: none !important;
 }
 
 /* Responsive Images in Carousels */
@@ -607,6 +618,23 @@
 .contact-item {
     color: #000 !important;
     /* Force black text */
+    forced-color-adjust: none !important;
+}
+
+.contact-item.resume {
+    background-color: var(--accent-yellow) !important;
+}
+
+.contact-item.github {
+    background-color: #f1f1f1 !important;
+}
+
+.contact-item.linkedin {
+    background-color: #e8f4fd !important;
+}
+
+.contact-item.email {
+    background-color: #fef9e7 !important;
 }
 
 .hero-badges {

@@ -8,11 +8,13 @@ body {
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: light !important;
   /* Prevent system dark mode from auto-inverting colors */
-  forced-color-adjust: none;
+  forced-color-adjust: none !important;
   /* Aggressively prevent browser color overrides */
-  -webkit-print-color-adjust: exact;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  font-synthesis: none !important;
 }
 
 code {

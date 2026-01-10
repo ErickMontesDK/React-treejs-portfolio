@@ -258,7 +258,7 @@
 }
 
 .barcode-sticker {
-    background: #fff;
+    background: #fff !important;
     padding: 10px 15px;
     display: flex;
     align-items: center;
@@ -267,6 +267,8 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     transform: rotate(-1deg);
     /* Modified to follow the comic tilt better */
+    forced-color-adjust: none !important;
+    color-scheme: light !important;
 }
 
 .sticker-left {
@@ -284,7 +286,7 @@
 }
 
 .barcode-line {
-    background: #000;
+    background: #000 !important;
     height: 100%;
 }
 
@@ -311,7 +313,7 @@
 .barcode-numbers {
     font-size: 7px;
     font-weight: 700;
-    color: #000;
+    color: #000 !important;
     margin-top: 2px;
     letter-spacing: 4px;
     margin-left: 4px;
@@ -345,8 +347,9 @@
 }
 
 .enter-btn-comic {
-    color: #000;
-    border: none;
+    background-color: #000 !important;
+    color: #fff !important;
+    border: none !important;
     padding: 4px 15px;
     font-family: var(--font-display);
     font-weight: 900;
@@ -355,6 +358,7 @@
     transition: all 0.2s;
     outline: 2px solid #000;
     outline-offset: 1px;
+    forced-color-adjust: none !important;
 }
 
 .enter-btn-comic:hover {
@@ -477,9 +481,12 @@
 }
 
 @keyframes pulse-loading {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.6;
     }
