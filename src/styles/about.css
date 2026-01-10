@@ -14,6 +14,7 @@
 
 .about-container {
     background-color: white !important;
+    background-image: linear-gradient(white, white) !important;
     padding: 10px;
     width: 520px;
     /* Slightly wider than standard can label for readability */
@@ -25,7 +26,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transform: rotate(1deg);
     forced-color-adjust: none !important;
-    color-scheme: light !important;
+    color-scheme: only light !important;
 
     /* Slight natural tilt */
 }
@@ -35,8 +36,10 @@
     border: 3px solid black !important;
     padding: 10px;
     background-color: white !important;
+    background-image: linear-gradient(white, white) !important;
     color: #000 !important;
     forced-color-adjust: none !important;
+    color-scheme: only light !important;
 }
 
 /* Header Section */

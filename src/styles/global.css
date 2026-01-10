@@ -12,36 +12,8 @@ body {
   /* Prevent scrollbars for the 3D scene */
 }
 
-img,
-svg,
-video,
-iframe,
-i,
-span,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-#titles,
-.comic-box,
-.toy-box,
-.toy-name,
-.discovery-annotation,
-.discovery-circle,
-.tooltip,
-.skills-screen,
-.rubik-screen,
-.contact-screen,
-.experience-container,
-.loader-screen,
-.barcode-sticker,
-.enter-btn-comic,
-.nutrition-label,
-.about-container {
-  color-scheme: light !important;
+* {
+  color-scheme: only light !important;
   /* Fuerza modo claro en estos elementos */
   forced-color-adjust: none !important;
 }
@@ -87,10 +59,12 @@ body * {
 
 /* Comic Utilities */
 .comic-box {
-  background-color: var(--white_color);
-  border: var(--comic-border);
-  box-shadow: var(--comic-shadow);
-  border-radius: var(--comic-radius);
+  background-color: var(--white_color) !important;
+  background-image: linear-gradient(var(--white_color), var(--white_color)) !important;
+  border: var(--comic-border) !important;
+  box-shadow: var(--comic-shadow) !important;
+  border-radius: var(--comic-radius) !important;
+  color-scheme: only light !important;
 }
 
 .comic-text {

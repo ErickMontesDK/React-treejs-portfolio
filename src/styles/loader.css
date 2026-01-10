@@ -259,16 +259,17 @@
 
 .barcode-sticker {
     background: #fff !important;
+    background-image: linear-gradient(#ffffff, #ffffff) !important;
     padding: 10px 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid #000;
+    border: 1px solid #000 !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     transform: rotate(-1deg);
     /* Modified to follow the comic tilt better */
     forced-color-adjust: none !important;
-    color-scheme: light !important;
+    color-scheme: only light !important;
 }
 
 .sticker-left {
@@ -348,6 +349,7 @@
 
 .enter-btn-comic {
     background-color: #000 !important;
+    background-image: linear-gradient(#000000, #000000) !important;
     color: #fff !important;
     border: none !important;
     padding: 4px 15px;
@@ -356,9 +358,10 @@
     font-size: 0.85rem;
     cursor: pointer;
     transition: all 0.2s;
-    outline: 2px solid #000;
+    outline: 2px solid #000 !important;
     outline-offset: 1px;
     forced-color-adjust: none !important;
+    color-scheme: only light !important;
 }
 
 .enter-btn-comic:hover {
