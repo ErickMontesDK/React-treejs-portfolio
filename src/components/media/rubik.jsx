@@ -2,6 +2,11 @@ import { useState } from "react";
 import typescriptIcon from './../../assets/icons/typescript.svg';
 import jqueryIcon from './../../assets/icons/jquery.svg';
 import "./../../styles/rubik.css";
+import restapiIcon from './../../assets/icons/restapi.svg';
+import djangoIcon from './../../assets/icons/django.svg';
+import mongodbIcon from './../../assets/icons/mongodb.svg';
+import mariadbIcon from './../../assets/icons/mariadb.svg';
+import blenderIcon from './../../assets/icons/blender.svg';
 
 
 export default function Rubik({ onHint = false }) {
@@ -18,7 +23,7 @@ export default function Rubik({ onHint = false }) {
     const FACES = {
         frontend: { x: 0, y: 0, z: 1 },  // FRONT (Green)
         backend: { x: 1, y: 0, z: 0 },  // RIGHT (Red)
-        languages: { x: 0, y: 1, z: 0 },  // TOP (White)
+        profiles: { x: 0, y: 1, z: 0 },  // TOP (White)
         databases: { x: 0, y: -1, z: 0 }, // BOTTOM (Yellow)
         design: { x: -1, y: 0, z: 0 }, // LEFT (Orange)
         devops: { x: 0, y: 0, z: -1 }  // BACK (Blue)
@@ -113,10 +118,10 @@ export default function Rubik({ onHint = false }) {
                 {currentScreen === "backend" && (
                     <div className="skills" id="backend">
                         <span data-tooltip="Python"><i className="fa-brands fa-python"></i></span>
-                        <span data-tooltip="Django"><i className="fa-solid fa-leaf"></i></span>
+                        <span data-tooltip="Django"><img src={djangoIcon} alt="Django" style={{ width: '0.9em', height: '0.9em' }} /></span>
                         <span data-tooltip="Node.js"><i className="fa-brands fa-node-js"></i></span>
-                        <span data-tooltip="Express.js"><i className="fa-solid fa-route"></i></span>
-                        <span data-tooltip="REST APIs"><i className="fa-solid fa-plug"></i></span>
+                        <span data-tooltip="Express.js"><i className="fa-solid fa-server"></i></span>
+                        <span data-tooltip="REST APIs"><img src={restapiIcon} alt="REST APIs" style={{ width: '0.9em', height: '0.9em' }} /></span>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -127,9 +132,9 @@ export default function Rubik({ onHint = false }) {
                 {currentScreen === "databases" && (
                     <div className="skills" id="databases">
                         <span data-tooltip="SQL"><i className="fa-solid fa-database"></i></span>
-                        <span data-tooltip="MongoDB"><i className="fa-solid fa-leaf"></i></span>
+                        <span data-tooltip="MongoDB"><img src={mongodbIcon} alt="MongoDB" style={{ width: '0.9em', height: '0.9em' }} /></span>
                         <span data-tooltip="Supabase"><i className="fa-solid fa-square-plus"></i></span>
-                        <span></span>
+                        <span data-tooltip="MariaDB"><img src={mariadbIcon} alt="MariaDB" style={{ width: '0.9em', height: '0.9em' }} /></span>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -144,7 +149,8 @@ export default function Rubik({ onHint = false }) {
                         <span data-tooltip="AWS"><i className="fa-brands fa-aws"></i></span>
                         <span data-tooltip="Git"><i className="fa-brands fa-git-alt"></i></span>
                         <span data-tooltip="GitHub"><i className="fa-brands fa-github"></i></span>
-                        <span></span>
+                        <span data-tooltip="GitHub Actions"><i className="fa-solid fa-play"></i></span>
+                        <span data-tooltip="Postman"><i className="fa-solid fa-paper-plane"></i></span>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -156,8 +162,8 @@ export default function Rubik({ onHint = false }) {
                     <div className="skills" id="design">
                         <span data-tooltip="Figma"><i className="fa-brands fa-figma"></i></span>
                         <span data-tooltip="3D Modeling"><i className="fa-solid fa-cube"></i></span>
-                        <span data-tooltip="UI/UX"><i className="fa-solid fa-pencil"></i></span>
-                        <span data-tooltip="Blender"><i className="fa-solid fa-cubes"></i></span>
+                        <span data-tooltip="Responsive Design"><i className="fa-solid fa-pencil"></i></span>
+                        <span data-tooltip="Blender"><img src={blenderIcon} alt="Blender" style={{ width: '0.9em', height: '0.9em' }} /></span>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -166,8 +172,8 @@ export default function Rubik({ onHint = false }) {
                     </div>
                 )}
 
-                {currentScreen === "languages" && (
-                    <div className="skills" id="languages">
+                {currentScreen === "profiles" && (
+                    <div className="skills" id="profiles">
                         <span data-tooltip="English"><i className="fa-solid fa-language"></i></span>
                         <span data-tooltip="Spanish"><i className="fa-solid fa-globe"></i></span>
                         <span data-tooltip="Communication"><i className="fa-solid fa-comments"></i></span>

@@ -1,6 +1,5 @@
-/* ... (This tool call expects file content, but I'm updating the component. I will use write_to_file for the component directly) */
-/* Wait, I should use write_to_file for the component code logic. */
-import '../../styles/about.css';
+import React from 'react';
+import './../../styles/about.css';
 
 export default function About() {
     return (
@@ -8,87 +7,108 @@ export default function About() {
             <div className="nutrition-label">
                 <div className="nutrition-header">
                     <h1 className="nutrition-title">NUTRITION FACTS</h1>
-                    <p className="serving-size">Serving Size: 1 Full Stack Developer (Erick Montes)</p>
-                    <p className="serving-size">Servings Per Container: 1 Unique Profile</p>
+                    <p className="serving-size">Serving Size: 1 Developer (Erick Montes)</p>
+                    <p className="serving-size">Origin: Morelia, México → Vancouver, BC</p>
+                </div>
+
+                <div className="ingredients-section">
+                    <span className="ingredients-title">INGREDIENTS / WHO I AM:</span>
+                    <br />
+                    A calm, responsible developer who prefers solving problems independently but knows collaboration makes better solutions. Started as a Mechanical Engineer passionate about electronics and circuits as a hobby, then discovered the satisfaction of building through code instead of maintenance work.
+                    <br />
+                    <strong>Contains:</strong> Quiet focus, Creative problem-solving, Hands-on learning approach, Team reliability.
+                    <br />
                 </div>
 
                 <div className="nutrition-facts">
                     <div className="fact-row thick-border">
-                        <span className="fact-label">Amount Per Serving</span>
+                        <span className="fact-label">Core Personality Traits</span>
                     </div>
 
                     <div className="fact-row">
-                        <span className="fact-label">Energy / Passion</span>
-                        <span className="fact-value">High Voltage</span>
+                        <span className="fact-label">Responsibility & Punctuality</span>
+                        <span className="fact-value">100%</span>
+                    </div>
+
+                    <div className="fact-row">
+                        <span className="fact-label">Seriousness</span>
+                        <span className="fact-value">High</span>
+                    </div>
+                    <div className="fact-row">
+                        <span className="fact-indent">Work Ethic</span>
+                        <span className="fact-value">Committed</span>
+                    </div>
+
+                    <div className="fact-row">
+                        <span className="fact-label">Communication Style</span>
+                        <span className="fact-value">Reserved*</span>
+                    </div>
+                    <div className="fact-row">
+                        <span className="fact-indent">Team Inclusion</span>
+                        <span className="fact-value">Active</span>
+                    </div>
+                    <div className="fact-row">
+                        <span className="fact-indent">Conflict Tendency</span>
+                        <span className="fact-value">0%</span>
                     </div>
 
                     <div className="fact-row thick-border">
-                        <span className="fact-label">% Daily Value*</span>
+                        <span className="fact-label">Work Approach</span>
                     </div>
 
                     <div className="fact-row">
-                        <span className="fact-label">Problem Solving</span>
-                        <span className="fact-value">100%</span>
+                        <span className="fact-label">Problem-Solving Style</span>
+                        <span className="fact-value">Independent</span>
+                    </div>
+                    <div className="fact-row">
+                        <span className="fact-indent">Research Time</span>
+                        <span className="fact-value">~90min</span>
+                    </div>
+                    <div className="fact-row">
+                        <span className="fact-indent">Knows When to Ask Help</span>
+                        <span className="fact-value">Yes</span>
                     </div>
 
                     <div className="fact-row">
-                        <span className="fact-label">Engineering Logic</span>
-                        <span className="fact-value">100%</span>
-                    </div>
-                    <div className="fact-row">
-                        <span className="fact-indent">System Optimization</span>
+                        <span className="fact-label">Creativity</span>
                         <span className="fact-value">High</span>
                     </div>
                     <div className="fact-row">
-                        <span className="fact-indent">Creative Solutions</span>
-                        <span className="fact-value">High</span>
-                    </div>
-
-                    <div className="fact-row">
-                        <span className="fact-label">Adaptability</span>
+                        <span className="fact-indent">Enjoys Building Solutions</span>
                         <span className="fact-value">100%</span>
                     </div>
                     <div className="fact-row">
-                        <span className="fact-indent">Rapid Learning</span>
-                        <span className="fact-value">Fast</span>
-                    </div>
-
-                    <div className="fact-row">
-                        <span className="fact-label">Teamwork</span>
+                        <span className="fact-indent">Hands-On Learner</span>
                         <span className="fact-value">100%</span>
                     </div>
 
                     <div className="fact-row">
-                        <span className="fact-label">Bugs Created</span>
-                        <span className="fact-value">0g**</span>
+                        <span className="fact-label">Temperament</span>
+                        <span className="fact-value">Calm</span>
+                    </div>
+                    <div className="fact-row">
+                        <span className="fact-indent">Team Fulfillment</span>
+                        <span className="fact-value">Reliable</span>
                     </div>
                 </div>
 
                 <p className="daily-value-note">
-                    * Percent Daily Values are based on a diet of continuous learning and agile methodologies.
-                    <br />** We hope so.
+                    * Reserved in communication but actively inclusive in team settings.
+                    <br />** Prefers to understand problems deeply before asking for help, but knows when to reach out.
                 </p>
-
-                <div className="ingredients-section">
-                    <span className="ingredients-title">INGREDIENTS / PROFILE:</span>
-                    <br />
-                    Mechanical Engineer and Full Stack Web Developer passionate about technology.
-                    <br />
-                    <strong>Contains:</strong> Logic, Creative Problem-Solving, English (Professional), Spanish (Native).
-                </div>
             </div>
 
             <div className="warning-seals">
                 <div className="seal">
-                    <span>EXCESS OF<br />CREATIVITY</span>
+                    <span>BUILDER<br />AT<br />HEART</span>
                 </div>
                 <div className="seal">
-                    <span>HIGH IN<br />CODE</span>
+                    <span>LOW TALK<br />HIGH<br />OUTPUT</span>
                 </div>
             </div>
 
             <div className="warning-box">
-                CONTAINS PASSION.<br />NOT SUITABLE FOR BORING PROJECTS.
+                QUIET FOCUS. RELIABLE DELIVERY. CREATIVE SOLUTIONS.
             </div>
         </div>
     );
