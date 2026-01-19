@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/React-treejs-portfolio/static/css/main.6fab17a7.css",
-    "main.js": "/React-treejs-portfolio/static/js/main.c7feb7a3.js",
+    "main.js": "/React-treejs-portfolio/static/js/main.94c431f1.js",
     "static/js/453.ac9b7e2a.chunk.js": "/React-treejs-portfolio/static/js/453.ac9b7e2a.chunk.js",
     "static/media/toys.glb": "/React-treejs-portfolio/static/media/toys.c10762401fea91f5e1f7.glb",
     "static/media/printer3d_main.glb": "/React-treejs-portfolio/static/media/printer3d_main.ac585d0c9b043a161a7f.glb",
@@ -23,6 +23,7 @@
     "static/media/bed.glb": "/React-treejs-portfolio/static/media/bed.06e428c38aaf4994a58f.glb",
     "static/media/bike_helmet.glb": "/React-treejs-portfolio/static/media/bike_helmet.d9326d1d0cde6c05ce92.glb",
     "static/media/guitar.glb": "/React-treejs-portfolio/static/media/guitar.079d4e9ae9ca238b49f8.glb",
+    "static/media/opus.png": "/React-treejs-portfolio/static/media/opus.2477bc750608e8769b0f.png",
     "static/media/phone.glb": "/React-treejs-portfolio/static/media/phone.2fb11263115a279e1567.glb",
     "static/media/window.glb": "/React-treejs-portfolio/static/media/window.089da762f18ad60ba519.glb",
     "static/media/amp.glb": "/React-treejs-portfolio/static/media/amp.68778daaa70f3c4f7c9a.glb",
@@ -37,6 +38,7 @@
     "static/media/cds.glb": "/React-treejs-portfolio/static/media/cds.b7505ce2358a017a7718.glb",
     "static/media/room.glb": "/React-treejs-portfolio/static/media/room.1cdde255657e3c28762f.glb",
     "static/media/sirius.glb": "/React-treejs-portfolio/static/media/sirius.51f93c49a9cb91cdc3ea.glb",
+    "static/media/ocex.png": "/React-treejs-portfolio/static/media/ocex.53de80ce3e83a4988ff2.png",
     "static/media/cctb.png": "/React-treejs-portfolio/static/media/cctb.af11c566fd4b5e8c2224.png",
     "static/media/comic_monster.png": "/React-treejs-portfolio/static/media/comic_monster.4cf63657fe4be12468fa.png",
     "static/media/desk.glb": "/React-treejs-portfolio/static/media/desk.269178646b24a26ad0e2.glb",
@@ -71,11 +73,11 @@
     "static/media/mongodb.svg": "/React-treejs-portfolio/static/media/mongodb.17e88f9d2d75d5d3dc4ad560fe4e2024.svg",
     "static/media/restapi.svg": "/React-treejs-portfolio/static/media/restapi.44524ed446584999970651f56f9d02c0.svg",
     "main.6fab17a7.css.map": "/React-treejs-portfolio/static/css/main.6fab17a7.css.map",
-    "main.c7feb7a3.js.map": "/React-treejs-portfolio/static/js/main.c7feb7a3.js.map",
+    "main.94c431f1.js.map": "/React-treejs-portfolio/static/js/main.94c431f1.js.map",
     "453.ac9b7e2a.chunk.js.map": "/React-treejs-portfolio/static/js/453.ac9b7e2a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6fab17a7.css",
-    "static/js/main.c7feb7a3.js"
+    "static/js/main.94c431f1.js"
   ]
 }
