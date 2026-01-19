@@ -1,7 +1,4 @@
 
-import district from '../assets/images/insta/district.jpg';
-import jalasoft from '../assets/images/insta/jala.jpg';
-import hackathon from '../assets/images/insta/hackathon.jpg';
 import opuscinemas from '../assets/images/proyects/opus.png';
 import ocex from '../assets/images/proyects/ocex.png';
 
