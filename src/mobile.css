@@ -21,7 +21,7 @@
     /* Smooth scroll for iOS */
     forced-color-adjust: none !important;
     color-scheme: only light !important;
-    padding-bottom: 50px;
+    padding-bottom: 80px;
 }
 
 /* Header */
@@ -350,6 +350,26 @@
     /* transform: rotate(-1deg); */
     z-index: 10;
     -webkit-overflow-scrolling: touch;
+}
+
+/* About Section / Nutrition Facts Mobile Fixes */
+.fact-row {
+    flex-wrap: wrap !important;
+    align-items: baseline !important;
+    gap: 2px 10px;
+    padding: 6px 0 !important;
+}
+
+.fact-label,
+.fact-indent {
+    flex: 1 1 auto;
+    max-width: 75%;
+}
+
+.fact-value {
+    margin-left: auto;
+    flex: 0 0 auto;
+    text-align: right;
 }
 
 .about-container {
