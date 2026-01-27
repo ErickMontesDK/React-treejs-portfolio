@@ -8,19 +8,21 @@ export default function MobileExperience({ darkMode }) {
         <section className="mobile-section mobile-experience">
             <h2 className="mobile-section-title">Experience</h2>
 
-            <Carousel
-                interval={null}
-                indicators={false}
-                className={`mobile-carousel insta-carousel ${darkMode ? 'dark-mode-carousel' : ''}`}
-            >
-                {experiences.map((exp, index) => (
-                    <Carousel.Item key={index}>
-                        <div className="comic-box insta-post-mobile">
-                            <InstaPost exp={exp} />
-                        </div>
-                    </Carousel.Item>
-                ))}
-            </Carousel>
+            <div className="comic-phone-frame">
+                <Carousel
+                    interval={null}
+                    indicators={false}
+                    className={`mobile-carousel insta-carousel ${darkMode ? 'dark-mode-carousel' : ''}`}
+                >
+                    {experiences.map((exp, index) => (
+                        <Carousel.Item key={index}>
+                            <div className="comic-box insta-post-mobile">
+                                <InstaPost exp={exp} />
+                            </div>
+                        </Carousel.Item>
+                    ))}
+                </Carousel>
+            </div>
         </section>
     );
 }

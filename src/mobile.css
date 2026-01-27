@@ -761,3 +761,86 @@
 .App.dark-mode .read-more-btn {
     color: #82b1ff;
 }
+
+/* Comic Smartphone Frame */
+.comic-phone-frame {
+    position: relative;
+    background: #1a1a1a;
+    border: 6px solid var(--ink-color);
+    border-radius: 40px;
+    padding: 40px 10px 40px 10px;
+    margin: 20px 15px;
+    box-shadow: 10px 10px 0px var(--ink-color);
+    overflow: hidden;
+    height: 650px;
+    /* FIXED height */
+    display: flex;
+    flex-direction: column;
+}
+
+.comic-phone-frame .carousel,
+.comic-phone-frame .carousel-inner,
+.comic-phone-frame .carousel-item {
+    height: 100%;
+}
+
+.comic-phone-frame .carousel {
+    flex: 1;
+}
+
+.comic-phone-frame::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    background: var(--ink-color);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 10;
+}
+
+.comic-phone-frame::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background: var(--ink-color);
+    border-radius: 10px;
+    opacity: 0.3;
+    z-index: 10;
+}
+
+.insta-post-mobile {
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 0;
+    overflow: hidden;
+    background: white !important;
+    background-image: none !important;
+    height: 100%;
+    overflow-y: auto;
+    /* Scroll inside the phone */
+}
+
+
+.App.dark-mode .insta-post-mobile {
+    background: white !important;
+    color: black !important;
+}
+
+.App.dark-mode .insta-post-mobile .post-info span,
+.App.dark-mode .insta-post-mobile .post-caption,
+.App.dark-mode .insta-post-mobile .post-likes,
+.App.dark-mode .insta-post-mobile .post-actions i,
+.App.dark-mode .insta-post-mobile .post-caption-area,
+.App.dark-mode .insta-post-mobile .post-likes-area,
+.App.dark-mode .insta-post-mobile .post-username,
+.App.dark-mode .insta-post-mobile .post-location {
+    color: black !important;
+}
