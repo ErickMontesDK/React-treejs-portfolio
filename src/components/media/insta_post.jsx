@@ -1,8 +1,14 @@
-
+import React, { useState } from 'react';
 import './../../styles/instapost.css';
 
 export default function InstaPost(props) {
     const { exp } = props;
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const toggleExpand = () => setIsExpanded(!isExpanded);
+
+    const description = exp.description || "";
+    const isLongDescription = description.length > 100;
 
     return (
         <div className="post" key={exp.id}>
@@ -37,7 +43,12 @@ export default function InstaPost(props) {
 
             <div className="post-caption">
                 <span className="caption-username">{exp.role}</span>
-                {exp.description}
+                {isExpanded ? description : (isLongDescription ? `${description.substring(0, 101)}...` : description)}
+                {isLongDescription && (
+                    <button onClick={toggleExpand} className="read-more-btn" style={{ marginLeft: '5px' }}>
+                        {isExpanded ? 'Leer menos' : 'Leer más'}
+                    </button>
+                )}
                 <span className="post-date">{exp.date}</span>
             </div>
         </div>

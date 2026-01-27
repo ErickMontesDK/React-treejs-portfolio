@@ -739,3 +739,25 @@
 .rubik-box h2 {
     margin-left: 20px !important;
 }
+
+.read-more-btn {
+    background: none;
+    border: none;
+    color: #4a90e2;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 0;
+    margin: 5px 0;
+    cursor: pointer;
+    text-align: end;
+    text-decoration: underline;
+    display: inline-block;
+}
+
+.App.dark-mode .read-more-btn {
+    color: #4a90e2;
+}
+
+.App.dark-mode .read-more-btn {
+    color: #82b1ff;
+}
