@@ -604,7 +604,7 @@
     text-transform: uppercase;
     font-weight: 700;
     text-decoration: none;
-    color: var(--ink-color);
+    color: black !important;
     font-size: 0.9rem;
 }
 
@@ -724,7 +724,7 @@
 
 .mobile-app .contact-grid .contact-item {
     background-color: var(--paper-color) !important;
-    color: var(--ink-color) !important;
+    /* color: var(--ink-color) !important; */
 }
 
 .rubik-box {
