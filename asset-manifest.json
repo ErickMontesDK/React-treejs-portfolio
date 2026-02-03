@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a1cf9c4d.css",
-    "main.js": "/static/js/main.98276eb2.js",
+    "main.css": "/static/css/main.c8300dfe.css",
+    "main.js": "/static/js/main.76ad1070.js",
     "static/js/453.ac9b7e2a.chunk.js": "/static/js/453.ac9b7e2a.chunk.js",
     "static/media/toys.glb": "/static/media/toys.c10762401fea91f5e1f7.glb",
     "static/media/printer3d_main.glb": "/static/media/printer3d_main.ac585d0c9b043a161a7f.glb",
@@ -46,6 +46,8 @@
     "static/media/grain-texture.png": "/static/media/grain-texture.7098e884c6441a109ad0.png",
     "static/media/mouse.glb": "/static/media/mouse.58a599679133d7006b09.glb",
     "static/media/pencil.glb": "/static/media/pencil.f536c64b1b24e10ed99f.glb",
+    "static/media/graduacion.jpg": "/static/media/graduacion.d5c888e25a05db77d64d.jpg",
+    "static/media/hackathon.jpg": "/static/media/hackathon.8a28000c7d5e28620909.jpg",
     "static/media/insta_profile.jpg": "/static/media/insta_profile.95676e6a9307c6468a29.jpg",
     "static/media/vetelia.jpg": "/static/media/vetelia.32d13e0058ef0523fc1c.jpg",
     "static/media/screen.glb": "/static/media/screen.6e89009f49e80186f7e1.glb",
@@ -54,12 +56,10 @@
     "static/media/epoch.jpg": "/static/media/epoch.1ad1c0c60fa7dda14d1b.jpg",
     "static/media/tacamba.jpg": "/static/media/tacamba.9d2c6ae0e95ce90eaba8.jpg",
     "static/media/puff.glb": "/static/media/puff.e4a63e1d1668e07f4979.glb",
-    "static/media/hackathon.jpg": "/static/media/hackathon.c112cf02ccee20a05f0c.jpg",
+    "static/media/luggages.jpeg": "/static/media/luggages.09274e5624b7c34c4927.jpeg",
     "static/media/jala.jpg": "/static/media/jala.e05f89cfc0fecd9e9112.jpg",
     "static/media/district.jpg": "/static/media/district.c52a4f3f24bfe023d240.jpg",
-    "static/media/luggages.jpeg": "/static/media/luggages.ebebda418c0ad0e93a55.jpeg",
     "static/media/journals.jpg": "/static/media/journals.fc7811ec49defd3e7dcb.jpg",
-    "static/media/graduacion.jpg": "/static/media/graduacion.f63304446ad6a377616c.jpg",
     "static/media/venusandmars.jpg": "/static/media/venusandmars.7f938cd88a2b0a4811fb.jpg",
     "static/media/bat_logo_white.png": "/static/media/bat_logo_white.bf4a6350d30f34697037.png",
     "static/media/roof_lamp.glb": "/static/media/roof_lamp.bff7461cbf1af474f2b3.glb",
@@ -72,12 +72,12 @@
     "static/media/django.svg": "/static/media/django.2469c39b4a9ddd0aff06ce8d9314f994.svg",
     "static/media/mongodb.svg": "/static/media/mongodb.17e88f9d2d75d5d3dc4ad560fe4e2024.svg",
     "static/media/restapi.svg": "/static/media/restapi.44524ed446584999970651f56f9d02c0.svg",
-    "main.a1cf9c4d.css.map": "/static/css/main.a1cf9c4d.css.map",
-    "main.98276eb2.js.map": "/static/js/main.98276eb2.js.map",
+    "main.c8300dfe.css.map": "/static/css/main.c8300dfe.css.map",
+    "main.76ad1070.js.map": "/static/js/main.76ad1070.js.map",
     "453.ac9b7e2a.chunk.js.map": "/static/js/453.ac9b7e2a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a1cf9c4d.css",
-    "static/js/main.98276eb2.js"
+    "static/css/main.c8300dfe.css",
+    "static/js/main.76ad1070.js"
   ]
 }
