@@ -46,7 +46,7 @@ export default function MobileApp() {
                     </div>
                 </div>
 
-                <MobileHero darkMode={darkMode} modelData={avatarData} farLength={3} />
+                <MobileHero darkMode={darkMode} modelData={avatarData} farLength={3.5} />
                 <MobileAbout darkMode={darkMode} />
                 <MobileSkills darkMode={darkMode} />
                 <MobileExperience darkMode={darkMode} />

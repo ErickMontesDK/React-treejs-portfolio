@@ -147,9 +147,9 @@
 }
 
 .hero-3d-container {
-    width: 100%;
+    width: calc(100% - 70px);
     height: 350px;
-    margin: 20px 0;
+    margin: 0 35px;
     border-radius: 20px;
     overflow: hidden;
     background: radial-gradient(circle, var(--white_color) 0%, transparent 70%);
