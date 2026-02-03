@@ -8,7 +8,7 @@ const sections = [
     { name: 'Skills', icon: 'fa-gears', camera: 'skills' },
     { name: 'Experience', icon: 'fa-briefcase', camera: 'experience' },
     { name: 'Projects', icon: 'fa-code', camera: 'projects' },
-    { name: 'Blog', icon: 'fa-book', camera: 'blog' },
+    // { name: 'Blog', icon: 'fa-book', camera: 'blog' },
     { name: 'Music', icon: 'fa-music', camera: 'music' },
     { name: 'Contact', icon: 'fa-envelope', camera: 'contact' },
     { name: 'Resume', icon: 'fa-file-pdf', action: () => window.open(`${process.env.PUBLIC_URL}/resume.pdf`, '_blank') },

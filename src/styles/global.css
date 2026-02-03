@@ -59,8 +59,8 @@ body * {
 
 /* Comic Utilities */
 .comic-box {
-  background-color: var(--white_color);
-  background-image: linear-gradient(var(--white_color), var(--white_color));
+  background-color: var(--white_color) !important;
+  background-image: linear-gradient(var(--white_color), var(--white_color)) !important;
   border: var(--comic-border) !important;
   box-shadow: var(--comic-shadow) !important;
   border-radius: var(--comic-radius) !important;
