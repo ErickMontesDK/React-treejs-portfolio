@@ -46,13 +46,13 @@ const discoveryLabels = [
         circlePosition: [-1.95, 1.1, -0.15],
         circleSize: 90
     },
-    {
-        id: "blog",
-        text: "Blog",
-        position: [-1.57, 1.2, -1.15],
-        circlePosition: [-1.57, 0.9, -1.15],
-        circleSize: 60
-    },
+    // {
+    //     id: "blog",
+    //     text: "Blog",
+    //     position: [-1.57, 1.2, -1.15],
+    //     circlePosition: [-1.57, 0.9, -1.15],
+    //     circleSize: 60
+    // },
     {
         id: "music",
         text: "Music",

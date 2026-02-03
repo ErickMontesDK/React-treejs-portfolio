@@ -145,11 +145,11 @@ const models = [
     {
         "name": "notebook",
         "model": notebook,
-        "description": "Blog",
-        "transitions": {
-            "name": "blog",
-            "camera": "blog",
-        }
+        // "description": "Blog",
+        // "transitions": {
+        //     "name": "blog",
+        //     "camera": "blog",
+        // }
     },
     {
         "name": "pencil",
