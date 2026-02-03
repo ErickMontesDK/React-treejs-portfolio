@@ -110,7 +110,7 @@
         url('./assets/loader/papertexture.png') !important;
     border: 3px solid var(--ink-color) !important;
     position: relative;
-    padding: 20px;
+    padding: 0 20px;
     box-shadow: 6px 6px 0px var(--ink-color) !important;
     /* Slightly smaller but solid */
     background-size: cover, 200px;
@@ -685,8 +685,9 @@
 }
 
 .post-img {
-    width: 100%;
+    width: 100% !important;
     display: block;
+
 }
 
 .post-actions {
