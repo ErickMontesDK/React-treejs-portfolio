@@ -70,7 +70,8 @@ const experiences = [
         ),
         gradient: "gradient-2",
         likes: "35",
-        image: epochteca
+        image: epochteca,
+        certificateLink: "/epochteca.pdf" // Placeholder, assuming user will replace or use resume for now
     },
     {
         id: 8,
@@ -85,7 +86,8 @@ const experiences = [
         ),
         gradient: "gradient-4",
         likes: "54",
-        image: jalasoft
+        image: jalasoft,
+        certificateLink: "/jalasoft.pdf" // Placeholder
     },
     {
         id: 11,

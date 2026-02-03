@@ -17,6 +17,11 @@ export default function MobileHero({ darkMode, modelData, farLength }) {
                     <span className="badge">Tech-Focused</span>
                 </div>
             </div>
+            <div className="hero-scroll-indicator">
+                <p className="hero-instruction">
+                    <i className="fa-solid fa-arrow-down"></i> Scroll to Explore
+                </p>
+            </div>
 
             <MobileModelViewer
                 darkMode={darkMode}
@@ -24,9 +29,6 @@ export default function MobileHero({ darkMode, modelData, farLength }) {
                 farLength={farLength || 5}
             />
 
-            <p className="hero-instruction">
-                <i className="fa-solid fa-arrow-down"></i> Scroll to Explore
-            </p>
         </section>
     );
 }

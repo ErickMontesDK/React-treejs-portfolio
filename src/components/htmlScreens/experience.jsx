@@ -59,6 +59,34 @@ export default function Experience() {
                             <div className="toggle-btn active"><i className="fa-solid fa-table-cells"></i></div>
                             <div className="toggle-btn"><i className="fa-regular fa-id-card"></i></div>
                         </div>
+
+                        {/* Highlights Row */}
+                        <div className="highlights">
+                            <div className="highlight-item">
+                                <a href="/resume.pdf" target="_blank" rel="noreferrer" className="highlight-circle">
+                                    <div className="highlight-inner">
+                                        <i className="fa-solid fa-certificate"></i>
+                                    </div>
+                                </a>
+                                <span className="highlight-text">Jalasoft</span>
+                            </div>
+                            <div className="highlight-item">
+                                <a href="/resume.pdf" target="_blank" rel="noreferrer" className="highlight-circle">
+                                    <div className="highlight-inner">
+                                        <i className="fa-solid fa-award"></i>
+                                    </div>
+                                </a>
+                                <span className="highlight-text">Epochteca</span>
+                            </div>
+                            <div className="highlight-item">
+                                <div className="highlight-circle">
+                                    <div className="highlight-inner">
+                                        <i className="fa-solid fa-graduation-cap"></i>
+                                    </div>
+                                </div>
+                                <span className="highlight-text">Degree</span>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Posts Feed */}

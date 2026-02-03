@@ -155,6 +155,104 @@
     background: radial-gradient(circle, var(--white_color) 0%, transparent 70%);
 }
 
+.mobile-disclaimer-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 110;
+    pointer-events: none;
+}
+
+.mobile-disclaimer {
+    background: var(--paper-color) !important;
+    color: var(--ink-color) !important;
+    padding: 8px 15px;
+    border: 3px solid var(--ink-color) !important;
+    box-shadow: 4px 4px 0px var(--ink-color) !important;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 5px 0 -10px 0;
+    pointer-events: auto;
+    animation: wiggleDisclaimer 4s infinite ease-in-out;
+}
+
+
+
+.hero-scroll-indicator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.hero-instruction {
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    color: black !important;
+    background: var(--accent-yellow) !important;
+    padding: 10px 20px;
+    border: 3px solid var(--ink-color) !important;
+    box-shadow: 6px 6px 0px var(--ink-color) !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    /* margin: 20px auto; removed in favor of wrapper */
+    width: fit-content;
+    transform: rotate(-2deg);
+    animation: bounceArrow 2s infinite ease-in-out;
+    z-index: 50;
+    position: relative;
+}
+
+.hero-instruction i {
+    font-size: 1.4rem;
+}
+
+@keyframes bounceArrow {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(10px) rotate(-2deg);
+    }
+}
+
+@keyframes wiggleDisclaimer {
+
+    0%,
+    69%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    70% {
+        transform: rotate(1deg);
+    }
+
+    78% {
+        transform: rotate(-1deg);
+    }
+
+    84% {
+        transform: rotate(1deg);
+    }
+
+    92% {
+        transform: rotate(-1deg);
+    }
+}
+
 /* Skills Adjustments */
 .skill-tag {
     background: var(--white_color);
@@ -350,6 +448,76 @@
     /* transform: rotate(-1deg); */
     z-index: 10;
     -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+
+
+
+.scroll-hint-overlay {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    pointer-events: none;
+    animation: fadeInOut 2s infinite ease-in-out;
+}
+
+.scroll-hint-content {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.scroll-hint-content span {
+    font-family: var(--font-oswald);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.bounce-icon {
+    font-size: 1rem;
+    animation: scrollBounce 2s infinite;
+}
+
+@keyframes scrollBounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-5px);
+    }
+
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes fadeInOut {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 /* About Section / Nutrition Facts Mobile Fixes */

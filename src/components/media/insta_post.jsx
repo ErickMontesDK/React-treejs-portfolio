@@ -40,6 +40,18 @@ export default function InstaPost(props) {
                 <span className="caption-username">{exp.role}</span>
                 <div className="caption-text">
                     {description}
+                    {exp.certificateLink && (
+                        <div className="certificate-link-container">
+                            <a
+                                href={exp.certificateLink}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="insta-blue-link"
+                            >
+                                View Certificate
+                            </a>
+                        </div>
+                    )}
                 </div>
                 <span className="post-date">{exp.date}</span>
             </div>

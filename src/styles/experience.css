@@ -259,6 +259,25 @@
 }
 
 
+/* Instagram Blue Link Style */
+.insta-blue-link {
+    color: #0095f6 !important;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.insta-blue-link:hover {
+    color: #00376b !important;
+    text-decoration: underline;
+}
+
+.certificate-link-container {
+    margin-top: 5px;
+}
+
 /* Override Parent Styles */
 .info-cards:has(.experience-container) {
     background: transparent !important;

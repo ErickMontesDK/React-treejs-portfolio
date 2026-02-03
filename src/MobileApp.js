@@ -39,8 +39,11 @@ export default function MobileApp() {
             </header>
 
             <main className="mobile-content">
-                <div className="mobile-disclaimer">
-                    <i className="fa-solid fa-desktop"></i> Visit on Desktop for the full 3D experience!
+                <div className="mobile-disclaimer-wrapper">
+                    <div className="mobile-disclaimer">
+                        <i className="fa-solid fa-desktop"></i>
+                        <span>Best on Desktop for 3D experience</span>
+                    </div>
                 </div>
 
                 <MobileHero darkMode={darkMode} modelData={avatarData} farLength={3} />
