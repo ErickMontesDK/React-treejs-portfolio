@@ -7,8 +7,8 @@ export const projects = [
     {
         id: 3,
         title: "EchoRoute",
-        description: "Comprehensive field-service and route management platform. It features a React-based frontend with real-time interactive maps via Leaflet, location-based visit tracking, and a dynamic configuration dashboard. The robust Django backend handles JWT authentication, custom middleware for a secure Demo Mode, and complex spatial data, demonstrating end-to-end architecture skills.",
-        tech: ["React", "TypeScript", "Django", "Leaflet"],
+        description: "A real-world logistics platform already running in production for an active company. EchoRoute brings field teams and operations together through live route tracking on interactive maps and a mission-control dashboard that keeps everything in sync — built from the ground up with React, Django, and a focus on solving real problems at scale.",
+        tech: ["React", "Django", "PostgreSQL", "Leaflet", "Render", "Vercel"],
         image: echoroute,
         links: {
             live: "https://echoroute-wine.vercel.app/",
@@ -25,7 +25,7 @@ export const projects = [
     {
         id: 1,
         title: "Opus Cinemas",
-        description: `Movie-booking platform that integrates the MovieGlu API with a Supabase backend to deliver real-time showtimes and dynamic trailers. It features an interactive seat selection system and a responsive UI built with Bootstrap and Netlify Functions. This project demonstrates full-stack proficiency in third-party API synchronization and the creation of seamless, end-to-end user experiences.`,
+        description: "What if booking a movie felt as exciting as watching one? Opus Cinemas pulls live showtimes and trailers straight from a real API, lets you pick your exact seat, and wraps it all in a smooth, responsive experience — the kind of end-to-end product flow that turns a side project into something people actually want to use.",
         tech: ["Netlify", "Supabase", "Bootstrap"],
         image: opuscinemas, // Placeholder using existing images
         links: {
@@ -43,8 +43,8 @@ export const projects = [
     {
         id: 2,
         title: "OCEX Encyclopedia",
-        description: "Interactive marine conservation platform developed during a 24-hour hackathon. It features a dynamic world map populated with real-time educational data to visualize endangered species. Built with a focus on rapid full-stack delivery, the project demonstrates effective collaboration under pressure and a commitment to creating impactful, engaging user interfaces for ocean advocacy.",
-        tech: ["Node.js, "],
+        description: "Built in 24 hours during a hackathon, OCEX turns ocean conservation data into something you can actually explore. Endangered species come to life on an interactive world map, making a dense environmental dataset feel approachable — proof that good design and a tight deadline aren't mutually exclusive.",
+        tech: ["Node.js"],
         image: ocex, // Placeholder
         links: {
             live: "https://ocex.netlify.app/",
