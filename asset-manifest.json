@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.bc3bc7c0.css",
-    "main.js": "/static/js/main.5b000a9b.js",
+    "main.css": "/static/css/main.468ff7c3.css",
+    "main.js": "/static/js/main.0bf9de11.js",
     "static/js/453.ac9b7e2a.chunk.js": "/static/js/453.ac9b7e2a.chunk.js",
     "static/media/toys.glb": "/static/media/toys.c10762401fea91f5e1f7.glb",
     "static/media/printer3d_main.glb": "/static/media/printer3d_main.ac585d0c9b043a161a7f.glb",
@@ -47,6 +47,7 @@
     "static/media/mouse.glb": "/static/media/mouse.58a599679133d7006b09.glb",
     "static/media/pencil.glb": "/static/media/pencil.f536c64b1b24e10ed99f.glb",
     "static/media/graduacion.jpg": "/static/media/graduacion.d5c888e25a05db77d64d.jpg",
+    "static/media/echoroute.jpg": "/static/media/echoroute.449f6434aa6e9805e44a.jpg",
     "static/media/hackathon.jpg": "/static/media/hackathon.8a28000c7d5e28620909.jpg",
     "static/media/insta_profile.jpg": "/static/media/insta_profile.95676e6a9307c6468a29.jpg",
     "static/media/vetelia.jpg": "/static/media/vetelia.32d13e0058ef0523fc1c.jpg",
@@ -72,12 +73,12 @@
     "static/media/django.svg": "/static/media/django.2469c39b4a9ddd0aff06ce8d9314f994.svg",
     "static/media/mongodb.svg": "/static/media/mongodb.17e88f9d2d75d5d3dc4ad560fe4e2024.svg",
     "static/media/restapi.svg": "/static/media/restapi.44524ed446584999970651f56f9d02c0.svg",
-    "main.bc3bc7c0.css.map": "/static/css/main.bc3bc7c0.css.map",
-    "main.5b000a9b.js.map": "/static/js/main.5b000a9b.js.map",
+    "main.468ff7c3.css.map": "/static/css/main.468ff7c3.css.map",
+    "main.0bf9de11.js.map": "/static/js/main.0bf9de11.js.map",
     "453.ac9b7e2a.chunk.js.map": "/static/js/453.ac9b7e2a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bc3bc7c0.css",
-    "static/js/main.5b000a9b.js"
+    "static/css/main.468ff7c3.css",
+    "static/js/main.0bf9de11.js"
   ]
 }
