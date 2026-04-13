@@ -1,8 +1,27 @@
 
 import opuscinemas from '../assets/images/proyects/opus.png';
 import ocex from '../assets/images/proyects/ocex.png';
+import echoroute from '../assets/images/proyects/echoroute.jpg';
 
 export const projects = [
+    {
+        id: 3,
+        title: "EchoRoute",
+        description: "Comprehensive field-service and route management platform. It features a React-based frontend with real-time interactive maps via Leaflet, location-based visit tracking, and a dynamic configuration dashboard. The robust Django backend handles JWT authentication, custom middleware for a secure Demo Mode, and complex spatial data, demonstrating end-to-end architecture skills.",
+        tech: ["React", "TypeScript", "Django", "Leaflet"],
+        image: echoroute,
+        links: {
+            live: "https://echoroute-wine.vercel.app/",
+            repo: "https://github.com/ErickMontesDK/EchoRoute_FrontEnd"
+        },
+        gradient: "linear-gradient(135deg, #4b6cb7 0%, #182848 100%)",
+        stats: {
+            stars: "107",
+            forks: "23",
+            issues: "4",
+            updated: "2 days ago"
+        }
+    },
     {
         id: 1,
         title: "Opus Cinemas",
@@ -39,5 +58,6 @@ export const projects = [
             updated: "4 years ago"
         }
     },
+
 
 ];
