@@ -15,12 +15,7 @@ export const projects = [
             repo: "https://github.com/ErickMontesDK/EchoRoute_FrontEnd"
         },
         gradient: "linear-gradient(135deg, #4b6cb7 0%, #182848 100%)",
-        stats: {
-            stars: "107",
-            forks: "23",
-            issues: "4",
-            updated: "2 days ago"
-        }
+        status: { icon: "fa-solid fa-circle-check", label: "In production" }
     },
     {
         id: 1,
@@ -33,12 +28,7 @@ export const projects = [
             repo: "https://github.com/ErickMontesDK/Opus-Cinemas"
         },
         gradient: "linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d)",
-        stats: {
-            stars: "1.2k",
-            forks: "342",
-            issues: "12",
-            updated: "2 days ago"
-        }
+        status: { icon: "fa-solid fa-globe", label: "Live demo" }
     },
     {
         id: 2,
@@ -51,12 +41,7 @@ export const projects = [
             repo: "https://github.com/alexsarget/OCEX"
         },
         gradient: "linear-gradient(135deg, #0093E9 0%, #80D0C7 100%)",
-        stats: {
-            stars: "856",
-            forks: "120",
-            issues: "5",
-            updated: "4 years ago"
-        }
+        status: { icon: "fa-solid fa-trophy", label: "Hackathon 1st place" }
     },
 
 

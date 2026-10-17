@@ -16,8 +16,7 @@ export default function MonitorProjectScreen({ project, onNext, onPrev }) {
                     <span className="badge">Public</span>
                 </div>
                 <div className="macro-stats">
-                    <span className="stat-item"><i className="fa-regular fa-star"></i> {project.stats.stars}</span>
-                    <span className="stat-item"><i className="fa-solid fa-code-fork"></i> {project.stats.forks}</span>
+                    <span className="stat-item"><i className={project.status.icon}></i> {project.status.label}</span>
                 </div>
             </div>
 
